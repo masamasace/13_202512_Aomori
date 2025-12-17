@@ -343,10 +343,6 @@ function computeResponseSpectrumAll(accData, dt) {
         periods.push(Math.pow(10, logT));
     }
 
-    const nsResp = computeResponseSpectrum(accData.NS, dt);
-    const ewResp = computeResponseSpectrum(accData.EW, dt);
-    const udResp = computeResponseSpectrum(accData.UD, dt);
-
     return {
         period: periods,
         NS: {
