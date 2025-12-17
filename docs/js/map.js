@@ -28,7 +28,7 @@ const accMinDisplay = 20;  // 表示最小値
 const velThresholds = [4, 8, 12, 16, 20, 30, 40, 50, 60, 80, 100, 120];
 const velMinDisplay = 2;   // 表示最小値
 
-// 閾値に基づいて白→赤の色を取得
+// 閾値に基づいて青→白→赤の色を取得
 function getThresholdColor(value, thresholds) {
     if (value === null || value === undefined || isNaN(value)) {
         return null;
@@ -54,10 +54,21 @@ function getThresholdColor(value, thresholds) {
         }
     }
 
-    // 白(255,255,255)から赤(165,0,38)へのグラデーション
-    const r = Math.round(255 - ratio * (255 - 165));
-    const g = Math.round(255 - ratio * 255);
-    const b = Math.round(255 - ratio * (255 - 38));
+    // 青(59,76,192)→白(255,255,255)→赤(180,4,38)のグラデーション
+    let r, g, b;
+    if (ratio < 0.5) {
+        // 青→白 (ratio: 0→0.5)
+        const t = ratio * 2;  // 0→1
+        r = Math.round(59 + t * (255 - 59));
+        g = Math.round(76 + t * (255 - 76));
+        b = Math.round(192 + t * (255 - 192));
+    } else {
+        // 白→赤 (ratio: 0.5→1)
+        const t = (ratio - 0.5) * 2;  // 0→1
+        r = Math.round(255 - t * (255 - 180));
+        g = Math.round(255 - t * 255);
+        b = Math.round(255 - t * (255 - 38));
+    }
 
     return `rgb(${r},${g},${b})`;
 }
@@ -101,6 +112,7 @@ function createMarker(station, colorColumn) {
     });
 
     // ポップアップ内容
+    const popupId = `popup-chart-${station.code}`;
     const popupContent = `
         <div class="popup-content">
             <h3>${station.name}</h3>
@@ -112,9 +124,70 @@ function createMarker(station, colorColumn) {
                 <tr><td>水平速度</td><td>${station.vel_H?.toFixed(2) || '-'} cm/s</td></tr>
                 <tr><td>合成速度</td><td>${station.vel_total?.toFixed(2) || '-'} cm/s</td></tr>
             </table>
+            <div id="${popupId}" class="popup-chart"></div>
         </div>
     `;
-    marker.bindPopup(popupContent);
+    marker.bindPopup(popupContent, { maxWidth: 400 });
+
+    // ポップアップが開いたときに応答スペクトルを描画
+    marker.on('popupopen', async () => {
+        const chartEl = document.getElementById(popupId);
+        if (!chartEl) return;
+
+        chartEl.innerHTML = '<div class="loading-text">読み込み中...</div>';
+
+        try {
+            const processed = await getProcessedData(station.code);
+            if (!processed || !processed.response) {
+                chartEl.innerHTML = '<div class="loading-text">データなし</div>';
+                return;
+            }
+
+            const response = processed.response;
+            const traces = [
+                {
+                    x: response.period,
+                    y: response.NS.h005,
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'NS',
+                    line: { color: '#e41a1c', width: 1 }
+                },
+                {
+                    x: response.period,
+                    y: response.EW.h005,
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'EW',
+                    line: { color: '#377eb8', width: 1 }
+                },
+                {
+                    x: response.period,
+                    y: response.UD.h005,
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'UD',
+                    line: { color: '#4daf4a', width: 1 }
+                }
+            ];
+
+            const layout = {
+                title: { text: '応答スペクトル (h=5%)', font: { size: 12 } },
+                xaxis: { title: '周期 (s)', type: 'log', tickfont: { size: 10 } },
+                yaxis: { title: '応答加速度 (gal)', type: 'log', tickfont: { size: 10 } },
+                showlegend: true,
+                legend: { orientation: 'h', y: -0.2, font: { size: 10 } },
+                margin: { l: 50, r: 10, t: 30, b: 50 },
+                width: 350,
+                height: 250
+            };
+
+            Plotly.newPlot(popupId, traces, layout, { displayModeBar: false });
+        } catch (error) {
+            console.error('Failed to load response spectrum for popup:', error);
+            chartEl.innerHTML = '<div class="loading-text">読み込みエラー</div>';
+        }
+    });
 
     return marker;
 }

@@ -39,6 +39,7 @@ async function updateWaveformPlot() {
     }
 
     showLoading(true);
+    console.log('displayMode:', displayMode, '| selectedStations:', selectedStations.length);
 
     try {
         // データを並列ロード
@@ -61,6 +62,7 @@ async function updateWaveformPlot() {
                     validStations.push({ code, data: waveformDataList[i] });
                 }
             });
+            console.log('Subplot mode: validStations =', validStations.length);
 
             validStations.forEach((station, stationIdx) => {
                 components.forEach((comp, compIdx) => {

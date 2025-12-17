@@ -300,6 +300,20 @@ html, body {
     white-space: nowrap;
 }
 
+.popup-chart {
+    margin-top: 10px;
+    min-height: 250px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.loading-text {
+    text-align: center;
+    color: #999;
+    padding: 40px 0;
+    font-size: 12px;
+}
+
 /* Plot Area */
 .plot-area {
     width: 100%;
