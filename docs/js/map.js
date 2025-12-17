@@ -6,17 +6,18 @@ let map = null;
 let markers = [];
 window.mapInitialized = false;
 
-// 震度に対応する色（1が白、6弱以上が赤）
+// 震度に対応する色（青→白→赤のグラデーション）
+// 震度1=青, 震度4=白, 震度7=赤
 const intensityColors = {
-    '7': '#a50026',
-    '6強': '#d73027',
-    '6弱': '#f46d43',
-    '5強': '#fdae61',
-    '5弱': '#fee08b',
-    '4': '#ffffbf',
-    '3': '#e0e0e0',
-    '2': '#f0f0f0',
-    '1': '#ffffff',
+    '7': 'rgb(180,4,38)',      // 赤
+    '6強': 'rgb(217,130,147)', // 薄赤
+    '6弱': 'rgb(237,182,190)', // より薄い赤
+    '5強': 'rgb(250,220,224)', // ほぼ白（赤寄り）
+    '5弱': 'rgb(255,255,255)', // 白
+    '4': 'rgb(255,255,255)',   // 白
+    '3': 'rgb(220,230,245)',   // ほぼ白（青寄り）
+    '2': 'rgb(157,190,224)',   // 薄青
+    '1': 'rgb(59,76,192)',     // 青
     '-': '#999999'
 };
 
@@ -172,14 +173,30 @@ function createMarker(station, colorColumn) {
             ];
 
             const layout = {
-                title: { text: '応答スペクトル (h=5%)', font: { size: 12 } },
-                xaxis: { title: '周期 (s)', type: 'log', tickfont: { size: 10 } },
-                yaxis: { title: '応答加速度 (gal)', type: 'log', tickfont: { size: 10 } },
+                title: { text: '応答スペクトル (h=5%)', font: { size: 10 }, y: 0.95 },
+                xaxis: {
+                    type: 'log',
+                    tickfont: { size: 8 },
+                    showline: true,
+                    linewidth: 0.5,
+                    linecolor: 'black',
+                    mirror: true,
+                    minor: { showgrid: false }
+                },
+                yaxis: {
+                    type: 'log',
+                    tickfont: { size: 8 },
+                    showline: true,
+                    linewidth: 0.5,
+                    linecolor: 'black',
+                    mirror: true,
+                    minor: { showgrid: false }
+                },
                 showlegend: true,
-                legend: { orientation: 'h', y: -0.2, font: { size: 10 } },
-                margin: { l: 50, r: 10, t: 30, b: 50 },
-                width: 350,
-                height: 250
+                legend: { orientation: 'h', y: -0.15, font: { size: 8 } },
+                margin: { l: 35, r: 5, t: 25, b: 30 },
+                width: 280,
+                height: 180
             };
 
             Plotly.newPlot(popupId, traces, layout, { displayModeBar: false });

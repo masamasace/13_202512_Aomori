@@ -301,17 +301,17 @@ html, body {
 }
 
 .popup-chart {
-    margin-top: 10px;
-    min-height: 250px;
+    margin-top: 8px;
+    min-height: 180px;
     border-top: 1px solid #eee;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .loading-text {
     text-align: center;
     color: #999;
-    padding: 40px 0;
-    font-size: 12px;
+    padding: 20px 0;
+    font-size: 11px;
 }
 
 /* Plot Area */
