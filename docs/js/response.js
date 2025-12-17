@@ -3,6 +3,24 @@
  */
 
 let responsePeriodSlider = null;
+let responseAccSlider = null;
+
+// 対数スケールスライダー用のヘルパー関数
+function logSliderToValueResp(sliderValue, minLog, maxLog) {
+    return Math.pow(10, minLog + (maxLog - minLog) * sliderValue / 100);
+}
+
+function valueToLogSliderResp(value, minLog, maxLog) {
+    return (Math.log10(value) - minLog) / (maxLog - minLog) * 100;
+}
+
+function formatLogValueResp(value) {
+    if (value >= 100) return value.toFixed(0);
+    if (value >= 10) return value.toFixed(1);
+    if (value >= 1) return value.toFixed(2);
+    if (value >= 0.1) return value.toFixed(3);
+    return value.toExponential(1);
+}
 
 // 応答スペクトルデータをロード（signal.jsで計算）
 async function loadResponseData(stationCode) {
@@ -26,8 +44,19 @@ async function updateResponsePlot() {
         return;
     }
 
-    // 周期範囲を取得
-    const periodRange = responsePeriodSlider ? responsePeriodSlider.get().map(Number) : [0.02, 10];
+    // X軸（周期）範囲を取得
+    const periodSliderValues = responsePeriodSlider ? responsePeriodSlider.get().map(Number) : [0, 100];
+    const periodRange = [
+        logSliderToValueResp(periodSliderValues[0], -2, 1.5),  // 0.01 - ~30 s
+        logSliderToValueResp(periodSliderValues[1], -2, 1.5)
+    ];
+
+    // Y軸（応答加速度）範囲を取得
+    const accSliderValues = responseAccSlider ? responseAccSlider.get().map(Number) : [0, 100];
+    const accRange = [
+        logSliderToValueResp(accSliderValues[0], 0, 4),   // 1 - 10000 gal
+        logSliderToValueResp(accSliderValues[1], 0, 4)
+    ];
 
     showLoading(true);
 
@@ -77,7 +106,8 @@ async function updateResponsePlot() {
             },
             yaxis: {
                 title: '応答加速度 (gal)',
-                type: 'log'
+                type: 'log',
+                range: [Math.log10(accRange[0]), Math.log10(accRange[1])]
             },
             showlegend: true,
             legend: { orientation: 'h', y: -0.15 },
@@ -93,39 +123,55 @@ async function updateResponsePlot() {
     }
 }
 
+// 対数スケールスライダーを作成
+function createLogSliderResp(elementId, minLog, maxLog, startMin, startMax, minLabelId, maxLabelId, onChange) {
+    const sliderEl = document.getElementById(elementId);
+    if (!sliderEl || typeof noUiSlider === 'undefined') return null;
+
+    const slider = noUiSlider.create(sliderEl, {
+        start: [
+            valueToLogSliderResp(startMin, minLog, maxLog),
+            valueToLogSliderResp(startMax, minLog, maxLog)
+        ],
+        connect: true,
+        range: { 'min': 0, 'max': 100 },
+        step: 1
+    });
+
+    slider.on('update', values => {
+        const minVal = logSliderToValueResp(Number(values[0]), minLog, maxLog);
+        const maxVal = logSliderToValueResp(Number(values[1]), minLog, maxLog);
+        document.getElementById(minLabelId).textContent = formatLogValueResp(minVal);
+        document.getElementById(maxLabelId).textContent = formatLogValueResp(maxVal);
+    });
+
+    slider.on('change', onChange);
+
+    return slider;
+}
+
 // 応答スペクトルタブの初期化
 function initResponse() {
     const select = document.getElementById('responseStationSelect');
 
-    // 周期スライダーの初期化
-    const sliderEl = document.getElementById('responsePeriodSlider');
-    if (sliderEl && typeof noUiSlider !== 'undefined') {
-        responsePeriodSlider = noUiSlider.create(sliderEl, {
-            start: [0.02, 10],
-            connect: true,
-            range: {
-                'min': 0.01,
-                'max': 20
-            },
-            step: 0.01,
-            format: {
-                to: value => value.toFixed(2),
-                from: value => parseFloat(value)
-            }
-        });
+    const onSliderChange = () => {
+        const selected = Array.from(select.selectedOptions);
+        if (selected.length > 0) {
+            updateResponsePlot();
+        }
+    };
 
-        responsePeriodSlider.on('update', values => {
-            document.getElementById('responsePeriodMin').textContent = values[0];
-            document.getElementById('responsePeriodMax').textContent = values[1];
-        });
+    // 周期スライダーの初期化（対数: 0.01 - ~30 s）
+    responsePeriodSlider = createLogSliderResp(
+        'responsePeriodSlider', -2, 1.5, 0.02, 10,
+        'responsePeriodMin', 'responsePeriodMax', onSliderChange
+    );
 
-        responsePeriodSlider.on('change', () => {
-            const selected = Array.from(select.selectedOptions);
-            if (selected.length > 0) {
-                updateResponsePlot();
-            }
-        });
-    }
+    // 応答加速度スライダーの初期化（対数: 1 - 10000 gal）
+    responseAccSlider = createLogSliderResp(
+        'responseAccSlider', 0, 4, 1, 10000,
+        'responseAccMin', 'responseAccMax', onSliderChange
+    );
 
     // 選択変更時のカウント更新
     select.addEventListener('change', () => {

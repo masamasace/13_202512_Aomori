@@ -112,10 +112,17 @@
                     </select>
                 </div>
                 <div class="control-group slider-group">
-                    <label>周波数範囲 (Hz)</label>
+                    <label>周波数範囲 X (Hz)</label>
                     <div id="fourierFreqSlider"></div>
                     <div class="slider-values">
                         <span id="fourierFreqMin">0.1</span> - <span id="fourierFreqMax">50</span>
+                    </div>
+                </div>
+                <div class="control-group slider-group">
+                    <label>振幅範囲 Y (gal·s)</label>
+                    <div id="fourierAmpSlider"></div>
+                    <div class="slider-values">
+                        <span id="fourierAmpMin">0.001</span> - <span id="fourierAmpMax">100</span>
                     </div>
                 </div>
                 <div class="control-group buttons">
@@ -153,10 +160,17 @@
                     </select>
                 </div>
                 <div class="control-group slider-group">
-                    <label>周期範囲 (s)</label>
+                    <label>周期範囲 X (s)</label>
                     <div id="responsePeriodSlider"></div>
                     <div class="slider-values">
                         <span id="responsePeriodMin">0.02</span> - <span id="responsePeriodMax">10</span>
+                    </div>
+                </div>
+                <div class="control-group slider-group">
+                    <label>応答加速度範囲 Y (gal)</label>
+                    <div id="responseAccSlider"></div>
+                    <div class="slider-values">
+                        <span id="responseAccMin">1</span> - <span id="responseAccMax">10000</span>
                     </div>
                 </div>
                 <div class="control-group buttons">

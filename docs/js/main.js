@@ -51,8 +51,8 @@ function populateStationSelect(selectId) {
     sortedStations.forEach(station => {
         const option = document.createElement('option');
         option.value = station.code;
-        const intensity = station.intensity || '-';
-        option.textContent = `[${intensity}] ${station.name} (${station.code})`;
+        const accH = station.acc_H != null ? Math.abs(station.acc_H).toFixed(0) : '-';
+        option.textContent = `[${accH} gal] ${station.name}`;
         select.appendChild(option);
     });
 }

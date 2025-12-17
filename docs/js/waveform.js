@@ -86,7 +86,6 @@ async function updateWaveformPlot() {
             const gap = 0.02;
 
             const layout = {
-                title: `${waveformNames[waveformType]}波形比較`,
                 showlegend: true,
                 legend: { orientation: 'h', y: -0.1 },
                 xaxis: { title: '時間 (s)' },
@@ -103,8 +102,7 @@ async function updateWaveformPlot() {
                 } else {
                     layout[`yaxis${i + 1}`] = {
                         title: `${unit}`,
-                        domain: domain,
-                        anchor: 'x'
+                        domain: domain
                     };
                 }
             });
@@ -131,7 +129,6 @@ async function updateWaveformPlot() {
             });
 
             const layout = {
-                title: `${waveformNames[waveformType]}波形比較`,
                 xaxis: { title: '時間 (s)' },
                 yaxis: { title: `${waveformNames[waveformType]} (${unit})` },
                 showlegend: true,

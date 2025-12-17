@@ -223,9 +223,10 @@ function computeFourierSpectrum(signal, dt) {
 
     for (let i = 0; i < numFreqs; i++) {
         frequency.push(i * df);
-        // 振幅スペクトル（両側→片側の補正係数2、ただしDC成分とナイキスト周波数は1）
+        // 地震工学標準スケーリング: |FFT| / n * dt
+        // 片側スペクトル補正係数2（DC成分とナイキスト周波数は1）
         const scale = (i === 0 || i === nfft / 2) ? 1 : 2;
-        const amp = Math.sqrt(real[i] * real[i] + imag[i] * imag[i]) / nfft * scale * dt;
+        const amp = Math.sqrt(real[i] * real[i] + imag[i] * imag[i]) / n * dt * scale;
         amplitude.push(amp);
     }
 

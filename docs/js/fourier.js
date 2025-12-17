@@ -3,6 +3,24 @@
  */
 
 let fourierFreqSlider = null;
+let fourierAmpSlider = null;
+
+// 対数スケールスライダー用のヘルパー関数
+function logSliderToValue(sliderValue, minLog, maxLog) {
+    return Math.pow(10, minLog + (maxLog - minLog) * sliderValue / 100);
+}
+
+function valueToLogSlider(value, minLog, maxLog) {
+    return (Math.log10(value) - minLog) / (maxLog - minLog) * 100;
+}
+
+function formatLogValue(value) {
+    if (value >= 100) return value.toFixed(0);
+    if (value >= 10) return value.toFixed(1);
+    if (value >= 1) return value.toFixed(2);
+    if (value >= 0.1) return value.toFixed(3);
+    return value.toExponential(1);
+}
 
 // フーリエスペクトルデータをロード（signal.jsで計算）
 async function loadFourierData(stationCode) {
@@ -25,8 +43,19 @@ async function updateFourierPlot() {
         return;
     }
 
-    // 周波数範囲を取得
-    const freqRange = fourierFreqSlider ? fourierFreqSlider.get().map(Number) : [0.1, 50];
+    // X軸（周波数）範囲を取得
+    const freqSliderValues = fourierFreqSlider ? fourierFreqSlider.get().map(Number) : [0, 100];
+    const freqRange = [
+        logSliderToValue(freqSliderValues[0], -2, 2),  // 0.01 - 100 Hz
+        logSliderToValue(freqSliderValues[1], -2, 2)
+    ];
+
+    // Y軸（振幅）範囲を取得
+    const ampSliderValues = fourierAmpSlider ? fourierAmpSlider.get().map(Number) : [0, 100];
+    const ampRange = [
+        logSliderToValue(ampSliderValues[0], -4, 3),   // 0.0001 - 1000 gal·s
+        logSliderToValue(ampSliderValues[1], -4, 3)
+    ];
 
     showLoading(true);
 
@@ -60,15 +89,15 @@ async function updateFourierPlot() {
         });
 
         const layout = {
-            title: `フーリエスペクトル比較 (${component}成分)`,
             xaxis: {
                 title: '周波数 (Hz)',
                 type: 'log',
                 range: [Math.log10(freqRange[0]), Math.log10(freqRange[1])]
             },
             yaxis: {
-                title: 'フーリエ振幅 (gal・s)',
-                type: 'log'
+                title: 'フーリエ振幅 (gal·s)',
+                type: 'log',
+                range: [Math.log10(ampRange[0]), Math.log10(ampRange[1])]
             },
             showlegend: true,
             legend: { orientation: 'h', y: -0.15 },
@@ -84,39 +113,55 @@ async function updateFourierPlot() {
     }
 }
 
+// 対数スケールスライダーを作成
+function createLogSlider(elementId, minLog, maxLog, startMin, startMax, minLabelId, maxLabelId, onChange) {
+    const sliderEl = document.getElementById(elementId);
+    if (!sliderEl || typeof noUiSlider === 'undefined') return null;
+
+    const slider = noUiSlider.create(sliderEl, {
+        start: [
+            valueToLogSlider(startMin, minLog, maxLog),
+            valueToLogSlider(startMax, minLog, maxLog)
+        ],
+        connect: true,
+        range: { 'min': 0, 'max': 100 },
+        step: 1
+    });
+
+    slider.on('update', values => {
+        const minVal = logSliderToValue(Number(values[0]), minLog, maxLog);
+        const maxVal = logSliderToValue(Number(values[1]), minLog, maxLog);
+        document.getElementById(minLabelId).textContent = formatLogValue(minVal);
+        document.getElementById(maxLabelId).textContent = formatLogValue(maxVal);
+    });
+
+    slider.on('change', onChange);
+
+    return slider;
+}
+
 // フーリエタブの初期化
 function initFourier() {
     const select = document.getElementById('fourierStationSelect');
 
-    // 周波数スライダーの初期化
-    const sliderEl = document.getElementById('fourierFreqSlider');
-    if (sliderEl && typeof noUiSlider !== 'undefined') {
-        fourierFreqSlider = noUiSlider.create(sliderEl, {
-            start: [0.1, 50],
-            connect: true,
-            range: {
-                'min': 0.01,
-                'max': 100
-            },
-            step: 0.01,
-            format: {
-                to: value => value.toFixed(2),
-                from: value => parseFloat(value)
-            }
-        });
+    const onSliderChange = () => {
+        const selected = Array.from(select.selectedOptions);
+        if (selected.length > 0) {
+            updateFourierPlot();
+        }
+    };
 
-        fourierFreqSlider.on('update', values => {
-            document.getElementById('fourierFreqMin').textContent = values[0];
-            document.getElementById('fourierFreqMax').textContent = values[1];
-        });
+    // 周波数スライダーの初期化（対数: 0.01 - 100 Hz）
+    fourierFreqSlider = createLogSlider(
+        'fourierFreqSlider', -2, 2, 0.1, 50,
+        'fourierFreqMin', 'fourierFreqMax', onSliderChange
+    );
 
-        fourierFreqSlider.on('change', () => {
-            const selected = Array.from(select.selectedOptions);
-            if (selected.length > 0) {
-                updateFourierPlot();
-            }
-        });
-    }
+    // 振幅スライダーの初期化（対数: 0.0001 - 1000 gal·s）
+    fourierAmpSlider = createLogSlider(
+        'fourierAmpSlider', -4, 3, 0.001, 100,
+        'fourierAmpMin', 'fourierAmpMax', onSliderChange
+    );
 
     // 選択変更時のカウント更新
     select.addEventListener('change', () => {
