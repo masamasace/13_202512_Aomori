@@ -1,43 +1,17 @@
 /**
- * response.js - 応答スペクトル機能
+ * response.js - 応答スペクトル機能（Newmark-β法で計算）
  */
 
 let responsePeriodSlider = null;
 
-// 応答スペクトルデータをロード
+// 応答スペクトルデータをロード（signal.jsで計算）
 async function loadResponseData(stationCode) {
-    const data = await loadCSV(stationCode, 'response_spectrum.csv');
-
-    if (data.length === 0) {
+    const processed = await getProcessedData(stationCode);
+    if (!processed) {
         return null;
     }
 
-    // データを整理（周期、成分、減衰定数ごと）
-    const result = {
-        period: [],
-        NS: { h005: [], h010: [], h020: [] },
-        EW: { h005: [], h010: [], h020: [] },
-        UD: { h005: [], h010: [], h020: [] }
-    };
-
-    // 周期のユニーク値を取得
-    const periods = [...new Set(data.map(row => row.period))].sort((a, b) => a - b);
-    result.period = periods;
-
-    // 各周期に対するデータを整理
-    periods.forEach(period => {
-        const row = data.find(r => r.period === period);
-        if (row) {
-            ['NS', 'EW', 'UD'].forEach(comp => {
-                ['h005', 'h010', 'h020'].forEach(damping => {
-                    const key = `${comp}_${damping}`;
-                    result[comp][damping].push(row[key] || null);
-                });
-            });
-        }
-    });
-
-    return result;
+    return processed.response;
 }
 
 // 応答スペクトルプロットを更新

@@ -1,23 +1,17 @@
 /**
- * fourier.js - フーリエスペクトル機能
+ * fourier.js - フーリエスペクトル機能（FFTで計算）
  */
 
 let fourierFreqSlider = null;
 
-// フーリエスペクトルデータをロード
+// フーリエスペクトルデータをロード（signal.jsで計算）
 async function loadFourierData(stationCode) {
-    const data = await loadCSV(stationCode, 'fourier_spectrum.csv');
-
-    if (data.length === 0) {
+    const processed = await getProcessedData(stationCode);
+    if (!processed) {
         return null;
     }
 
-    return {
-        frequency: data.map(row => row.frequency),
-        NS: data.map(row => row.NS),
-        EW: data.map(row => row.EW),
-        UD: data.map(row => row.UD)
-    };
+    return processed.fourier;
 }
 
 // フーリエスペクトルプロットを更新

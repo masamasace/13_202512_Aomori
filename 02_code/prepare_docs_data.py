@@ -16,6 +16,15 @@ SOURCE_DIR = BASE_DIR / "01_data" / "02_seismic_formatted"
 DOCS_DATA_DIR = BASE_DIR / "docs" / "data"
 
 
+def safe_value(val):
+    """NaN/Infを適切に処理"""
+    if pd.isna(val):
+        return None
+    if isinstance(val, float) and (val != val or val == float('inf') or val == float('-inf')):
+        return None
+    return val
+
+
 def convert_metadata_to_json():
     """summary_metadata.csv を stations.json に変換"""
     csv_path = SOURCE_DIR / "summary_metadata.csv"
@@ -24,28 +33,30 @@ def convert_metadata_to_json():
     stations = {}
     for _, row in df.iterrows():
         station_code = f"{row['source']}_{row['station_code']}"
+        # NIED観測点は名前がないので観測点コードを使用
+        name = row["station_name"] if pd.notna(row["station_name"]) else station_code
         stations[station_code] = {
             "source": row["source"],
             "code": str(row["station_code"]),
-            "name": row["station_name"],
-            "lat": row["lat"],
-            "lon": row["lon"],
+            "name": name,
+            "lat": safe_value(row["lat"]),
+            "lon": safe_value(row["lon"]),
             "intensity": str(row["intensity"]) if pd.notna(row["intensity"]) else None,
-            "acc_NS": row["acc_NS"],
-            "acc_EW": row["acc_EW"],
-            "acc_UD": row["acc_UD"],
-            "acc_H": row["acc_H"],
-            "acc_total": row["acc_total"],
-            "vel_NS": row["vel_NS"],
-            "vel_EW": row["vel_EW"],
-            "vel_UD": row["vel_UD"],
-            "vel_H": row["vel_H"],
-            "vel_total": row["vel_total"],
-            "disp_NS": row["disp_NS"],
-            "disp_EW": row["disp_EW"],
-            "disp_UD": row["disp_UD"],
-            "disp_H": row["disp_H"],
-            "disp_total": row["disp_total"],
+            "acc_NS": safe_value(row["acc_NS"]),
+            "acc_EW": safe_value(row["acc_EW"]),
+            "acc_UD": safe_value(row["acc_UD"]),
+            "acc_H": safe_value(row["acc_H"]),
+            "acc_total": safe_value(row["acc_total"]),
+            "vel_NS": safe_value(row["vel_NS"]),
+            "vel_EW": safe_value(row["vel_EW"]),
+            "vel_UD": safe_value(row["vel_UD"]),
+            "vel_H": safe_value(row["vel_H"]),
+            "vel_total": safe_value(row["vel_total"]),
+            "disp_NS": safe_value(row["disp_NS"]),
+            "disp_EW": safe_value(row["disp_EW"]),
+            "disp_UD": safe_value(row["disp_UD"]),
+            "disp_H": safe_value(row["disp_H"]),
+            "disp_total": safe_value(row["disp_total"]),
         }
 
     output_path = DOCS_DATA_DIR / "stations.json"
@@ -58,7 +69,7 @@ def convert_metadata_to_json():
 
 def copy_station_data(station_codes):
     """各観測点のCSVデータをコピー"""
-    files_to_copy = ["waveform.csv", "velocity.csv", "displacement.csv", "fourier_spectrum.csv", "response_spectrum.csv"]
+    files_to_copy = ["waveform.csv"]
     copied_count = 0
     skipped_count = 0
 

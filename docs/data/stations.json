@@ -6534,7 +6534,7 @@
   "NIED_AKT001": {
     "source": "NIED",
     "code": "AKT001",
-    "name": NaN,
+    "name": "NIED_AKT001",
     "lat": 40.328,
     "lon": 140.7429,
     "intensity": null,
@@ -6557,7 +6557,7 @@
   "NIED_AKT004": {
     "source": "NIED",
     "code": "AKT004",
-    "name": NaN,
+    "name": "NIED_AKT004",
     "lat": 40.3886,
     "lon": 139.9822,
     "intensity": null,
@@ -6580,7 +6580,7 @@
   "NIED_AKT007": {
     "source": "NIED",
     "code": "AKT007",
-    "name": NaN,
+    "name": "NIED_AKT007",
     "lat": 40.0376,
     "lon": 140.0919,
     "intensity": null,
@@ -6603,7 +6603,7 @@
   "NIED_AKT008": {
     "source": "NIED",
     "code": "AKT008",
-    "name": NaN,
+    "name": "NIED_AKT008",
     "lat": 39.884,
     "lon": 140.0706,
     "intensity": null,
@@ -6626,7 +6626,7 @@
   "NIED_AKT010": {
     "source": "NIED",
     "code": "AKT010",
-    "name": NaN,
+    "name": "NIED_AKT010",
     "lat": 39.7223,
     "lon": 140.0998,
     "intensity": null,
@@ -6649,7 +6649,7 @@
   "NIED_AKT011": {
     "source": "NIED",
     "code": "AKT011",
-    "name": NaN,
+    "name": "NIED_AKT011",
     "lat": 39.8133,
     "lon": 140.5805,
     "intensity": null,
@@ -6672,7 +6672,7 @@
   "NIED_AKT012": {
     "source": "NIED",
     "code": "AKT012",
-    "name": NaN,
+    "name": "NIED_AKT012",
     "lat": 39.7014,
     "lon": 140.7178,
     "intensity": null,
@@ -6695,7 +6695,7 @@
   "NIED_AKT014": {
     "source": "NIED",
     "code": "AKT014",
-    "name": NaN,
+    "name": "NIED_AKT014",
     "lat": 39.595,
     "lon": 140.5573,
     "intensity": null,
@@ -6718,7 +6718,7 @@
   "NIED_AKT018": {
     "source": "NIED",
     "code": "AKT018",
-    "name": NaN,
+    "name": "NIED_AKT018",
     "lat": 39.1937,
     "lon": 140.1899,
     "intensity": null,
@@ -6741,7 +6741,7 @@
   "NIED_AKT019": {
     "source": "NIED",
     "code": "AKT019",
-    "name": NaN,
+    "name": "NIED_AKT019",
     "lat": 39.039,
     "lon": 140.449,
     "intensity": null,
@@ -6764,7 +6764,7 @@
   "NIED_AKT021": {
     "source": "NIED",
     "code": "AKT021",
-    "name": NaN,
+    "name": "NIED_AKT021",
     "lat": 39.994,
     "lon": 140.4035,
     "intensity": null,
@@ -6787,7 +6787,7 @@
   "NIED_AKT022": {
     "source": "NIED",
     "code": "AKT022",
-    "name": NaN,
+    "name": "NIED_AKT022",
     "lat": 39.7739,
     "lon": 140.6669,
     "intensity": null,
@@ -6810,7 +6810,7 @@
   "NIED_AOM001": {
     "source": "NIED",
     "code": "AOM001",
-    "name": NaN,
+    "name": "NIED_AOM001",
     "lat": 41.5269,
     "lon": 140.9246,
     "intensity": null,
@@ -6833,7 +6833,7 @@
   "NIED_AOM002": {
     "source": "NIED",
     "code": "AOM002",
-    "name": NaN,
+    "name": "NIED_AOM002",
     "lat": 41.328,
     "lon": 140.8132,
     "intensity": null,
@@ -6856,7 +6856,7 @@
   "NIED_AOM004": {
     "source": "NIED",
     "code": "AOM004",
-    "name": NaN,
+    "name": "NIED_AOM004",
     "lat": 41.4064,
     "lon": 141.4477,
     "intensity": null,
@@ -6879,7 +6879,7 @@
   "NIED_AOM007": {
     "source": "NIED",
     "code": "AOM007",
-    "name": NaN,
+    "name": "NIED_AOM007",
     "lat": 41.1689,
     "lon": 141.3845,
     "intensity": null,
@@ -6902,7 +6902,7 @@
   "NIED_AOM013": {
     "source": "NIED",
     "code": "AOM013",
-    "name": NaN,
+    "name": "NIED_AOM013",
     "lat": 40.4126,
     "lon": 141.2813,
     "intensity": null,
@@ -6925,7 +6925,7 @@
   "NIED_AOM017": {
     "source": "NIED",
     "code": "AOM017",
-    "name": NaN,
+    "name": "NIED_AOM017",
     "lat": 40.6388,
     "lon": 139.9295,
     "intensity": null,
@@ -6948,7 +6948,7 @@
   "NIED_FKS004": {
     "source": "NIED",
     "code": "FKS004",
-    "name": NaN,
+    "name": "NIED_FKS004",
     "lat": 37.6798,
     "lon": 140.7342,
     "intensity": null,
@@ -6971,7 +6971,7 @@
   "NIED_FKS006": {
     "source": "NIED",
     "code": "FKS006",
-    "name": NaN,
+    "name": "NIED_FKS006",
     "lat": 37.5022,
     "lon": 140.7593,
     "intensity": null,
@@ -6994,7 +6994,7 @@
   "NIED_FKS009": {
     "source": "NIED",
     "code": "FKS009",
-    "name": NaN,
+    "name": "NIED_FKS009",
     "lat": 37.2796,
     "lon": 140.6344,
     "intensity": null,
@@ -7017,7 +7017,7 @@
   "NIED_FKS025": {
     "source": "NIED",
     "code": "FKS025",
-    "name": NaN,
+    "name": "NIED_FKS025",
     "lat": 37.3082,
     "lon": 139.8994,
     "intensity": null,
@@ -7040,7 +7040,7 @@
   "NIED_FKS026": {
     "source": "NIED",
     "code": "FKS026",
-    "name": NaN,
+    "name": "NIED_FKS026",
     "lat": 37.2664,
     "lon": 139.5368,
     "intensity": null,
@@ -7063,7 +7063,7 @@
   "NIED_FKS030": {
     "source": "NIED",
     "code": "FKS030",
-    "name": NaN,
+    "name": "NIED_FKS030",
     "lat": 37.4548,
     "lon": 139.5252,
     "intensity": null,
@@ -7086,7 +7086,7 @@
   "NIED_HKD023": {
     "source": "NIED",
     "code": "HKD023",
-    "name": NaN,
+    "name": "NIED_HKD023",
     "lat": 43.7734,
     "lon": 141.3686,
     "intensity": null,
@@ -7109,7 +7109,7 @@
   "NIED_HKD032": {
     "source": "NIED",
     "code": "HKD032",
-    "name": NaN,
+    "name": "NIED_HKD032",
     "lat": 44.0235,
     "lon": 142.4123,
     "intensity": null,
@@ -7132,7 +7132,7 @@
   "NIED_HKD033": {
     "source": "NIED",
     "code": "HKD033",
-    "name": NaN,
+    "name": "NIED_HKD033",
     "lat": 43.909,
     "lon": 142.5699,
     "intensity": null,
@@ -7155,7 +7155,7 @@
   "NIED_HKD034": {
     "source": "NIED",
     "code": "HKD034",
-    "name": NaN,
+    "name": "NIED_HKD034",
     "lat": 43.8543,
     "lon": 142.7686,
     "intensity": null,
@@ -7178,7 +7178,7 @@
   "NIED_HKD037": {
     "source": "NIED",
     "code": "HKD037",
-    "name": NaN,
+    "name": "NIED_HKD037",
     "lat": 43.5889,
     "lon": 142.4673,
     "intensity": null,
@@ -7201,7 +7201,7 @@
   "NIED_HKD038": {
     "source": "NIED",
     "code": "HKD038",
-    "name": NaN,
+    "name": "NIED_HKD038",
     "lat": 43.1666,
     "lon": 142.5662,
     "intensity": null,
@@ -7224,7 +7224,7 @@
   "NIED_HKD040": {
     "source": "NIED",
     "code": "HKD040",
-    "name": NaN,
+    "name": "NIED_HKD040",
     "lat": 42.9806,
     "lon": 142.3994,
     "intensity": null,
@@ -7247,7 +7247,7 @@
   "NIED_HKD041": {
     "source": "NIED",
     "code": "HKD041",
-    "name": NaN,
+    "name": "NIED_HKD041",
     "lat": 43.6246,
     "lon": 142.6839,
     "intensity": null,
@@ -7270,7 +7270,7 @@
   "NIED_HKD045": {
     "source": "NIED",
     "code": "HKD045",
-    "name": NaN,
+    "name": "NIED_HKD045",
     "lat": 44.3288,
     "lon": 142.9453,
     "intensity": null,
@@ -7293,7 +7293,7 @@
   "NIED_HKD046": {
     "source": "NIED",
     "code": "HKD046",
-    "name": NaN,
+    "name": "NIED_HKD046",
     "lat": 44.192,
     "lon": 143.0767,
     "intensity": null,
@@ -7316,7 +7316,7 @@
   "NIED_HKD047": {
     "source": "NIED",
     "code": "HKD047",
-    "name": NaN,
+    "name": "NIED_HKD047",
     "lat": 44.3677,
     "lon": 143.3454,
     "intensity": null,
@@ -7339,7 +7339,7 @@
   "NIED_HKD049": {
     "source": "NIED",
     "code": "HKD049",
-    "name": NaN,
+    "name": "NIED_HKD049",
     "lat": 44.0921,
     "lon": 143.5336,
     "intensity": null,
@@ -7362,7 +7362,7 @@
   "NIED_HKD050": {
     "source": "NIED",
     "code": "HKD050",
-    "name": NaN,
+    "name": "NIED_HKD050",
     "lat": 43.8785,
     "lon": 143.1747,
     "intensity": null,
@@ -7385,7 +7385,7 @@
   "NIED_HKD053": {
     "source": "NIED",
     "code": "HKD053",
-    "name": NaN,
+    "name": "NIED_HKD053",
     "lat": 43.7849,
     "lon": 143.6072,
     "intensity": null,
@@ -7408,7 +7408,7 @@
   "NIED_HKD056": {
     "source": "NIED",
     "code": "HKD056",
-    "name": NaN,
+    "name": "NIED_HKD056",
     "lat": 43.6705,
     "lon": 143.5781,
     "intensity": null,
@@ -7431,7 +7431,7 @@
   "NIED_HKD061": {
     "source": "NIED",
     "code": "HKD061",
-    "name": NaN,
+    "name": "NIED_HKD061",
     "lat": 44.0699,
     "lon": 144.9973,
     "intensity": null,
@@ -7454,7 +7454,7 @@
   "NIED_HKD063": {
     "source": "NIED",
     "code": "HKD063",
-    "name": NaN,
+    "name": "NIED_HKD063",
     "lat": 44.106,
     "lon": 145.2478,
     "intensity": null,
@@ -7477,7 +7477,7 @@
   "NIED_HKD067": {
     "source": "NIED",
     "code": "HKD067",
-    "name": NaN,
+    "name": "NIED_HKD067",
     "lat": 43.555,
     "lon": 144.9726,
     "intensity": null,
@@ -7500,7 +7500,7 @@
   "NIED_HKD068": {
     "source": "NIED",
     "code": "HKD068",
-    "name": NaN,
+    "name": "NIED_HKD068",
     "lat": 43.4108,
     "lon": 144.7704,
     "intensity": null,
@@ -7523,7 +7523,7 @@
   "NIED_HKD071": {
     "source": "NIED",
     "code": "HKD071",
-    "name": NaN,
+    "name": "NIED_HKD071",
     "lat": 43.2326,
     "lon": 145.2604,
     "intensity": null,
@@ -7546,7 +7546,7 @@
   "NIED_HKD074": {
     "source": "NIED",
     "code": "HKD074",
-    "name": NaN,
+    "name": "NIED_HKD074",
     "lat": 43.368,
     "lon": 145.8026,
     "intensity": null,
@@ -7569,7 +7569,7 @@
   "NIED_HKD077": {
     "source": "NIED",
     "code": "HKD077",
-    "name": NaN,
+    "name": "NIED_HKD077",
     "lat": 42.9845,
     "lon": 144.3824,
     "intensity": null,
@@ -7592,7 +7592,7 @@
   "NIED_HKD087": {
     "source": "NIED",
     "code": "HKD087",
-    "name": NaN,
+    "name": "NIED_HKD087",
     "lat": 43.1502,
     "lon": 143.8916,
     "intensity": null,
@@ -7615,7 +7615,7 @@
   "NIED_HKD088": {
     "source": "NIED",
     "code": "HKD088",
-    "name": NaN,
+    "name": "NIED_HKD088",
     "lat": 43.4704,
     "lon": 143.7488,
     "intensity": null,
@@ -7638,7 +7638,7 @@
   "NIED_HKD089": {
     "source": "NIED",
     "code": "HKD089",
-    "name": NaN,
+    "name": "NIED_HKD089",
     "lat": 43.2436,
     "lon": 143.5544,
     "intensity": null,
@@ -7661,7 +7661,7 @@
   "NIED_HKD099": {
     "source": "NIED",
     "code": "HKD099",
-    "name": NaN,
+    "name": "NIED_HKD099",
     "lat": 43.0736,
     "lon": 142.8392,
     "intensity": null,
@@ -7684,7 +7684,7 @@
   "NIED_HKD100": {
     "source": "NIED",
     "code": "HKD100",
-    "name": NaN,
+    "name": "NIED_HKD100",
     "lat": 42.2864,
     "lon": 143.312,
     "intensity": null,
@@ -7707,7 +7707,7 @@
   "NIED_HKD101": {
     "source": "NIED",
     "code": "HKD101",
-    "name": NaN,
+    "name": "NIED_HKD101",
     "lat": 43.3338,
     "lon": 142.9473,
     "intensity": null,
@@ -7730,7 +7730,7 @@
   "NIED_HKD102": {
     "source": "NIED",
     "code": "HKD102",
-    "name": NaN,
+    "name": "NIED_HKD102",
     "lat": 42.8778,
     "lon": 142.4481,
     "intensity": null,
@@ -7753,7 +7753,7 @@
   "NIED_HKD104": {
     "source": "NIED",
     "code": "HKD104",
-    "name": NaN,
+    "name": "NIED_HKD104",
     "lat": 42.5886,
     "lon": 142.131,
     "intensity": null,
@@ -7776,7 +7776,7 @@
   "NIED_HKD111": {
     "source": "NIED",
     "code": "HKD111",
-    "name": NaN,
+    "name": "NIED_HKD111",
     "lat": 42.017,
     "lon": 143.1487,
     "intensity": null,
@@ -7799,7 +7799,7 @@
   "NIED_HKD112": {
     "source": "NIED",
     "code": "HKD112",
-    "name": NaN,
+    "name": "NIED_HKD112",
     "lat": 41.937,
     "lon": 143.2403,
     "intensity": null,
@@ -7822,7 +7822,7 @@
   "NIED_HKD115": {
     "source": "NIED",
     "code": "HKD115",
-    "name": NaN,
+    "name": "NIED_HKD115",
     "lat": 44.007,
     "lon": 142.1485,
     "intensity": null,
@@ -7845,7 +7845,7 @@
   "NIED_HKD123": {
     "source": "NIED",
     "code": "HKD123",
-    "name": NaN,
+    "name": "NIED_HKD123",
     "lat": 42.9933,
     "lon": 142.0085,
     "intensity": null,
@@ -7868,7 +7868,7 @@
   "NIED_HKD126": {
     "source": "NIED",
     "code": "HKD126",
-    "name": NaN,
+    "name": "NIED_HKD126",
     "lat": 42.5748,
     "lon": 141.9284,
     "intensity": null,
@@ -7891,7 +7891,7 @@
   "NIED_HKD131": {
     "source": "NIED",
     "code": "HKD131",
-    "name": NaN,
+    "name": "NIED_HKD131",
     "lat": 42.4206,
     "lon": 141.0809,
     "intensity": null,
@@ -7914,7 +7914,7 @@
   "NIED_HKD132": {
     "source": "NIED",
     "code": "HKD132",
-    "name": NaN,
+    "name": "NIED_HKD132",
     "lat": 42.3484,
     "lon": 141.0318,
     "intensity": null,
@@ -7937,7 +7937,7 @@
   "NIED_HKD133": {
     "source": "NIED",
     "code": "HKD133",
-    "name": NaN,
+    "name": "NIED_HKD133",
     "lat": 42.4727,
     "lon": 140.8657,
     "intensity": null,
@@ -7960,7 +7960,7 @@
   "NIED_HKD135": {
     "source": "NIED",
     "code": "HKD135",
-    "name": NaN,
+    "name": "NIED_HKD135",
     "lat": 42.5533,
     "lon": 140.8864,
     "intensity": null,
@@ -7983,7 +7983,7 @@
   "NIED_HKD136": {
     "source": "NIED",
     "code": "HKD136",
-    "name": NaN,
+    "name": "NIED_HKD136",
     "lat": 42.5901,
     "lon": 140.6441,
     "intensity": null,
@@ -8006,7 +8006,7 @@
   "NIED_HKD137": {
     "source": "NIED",
     "code": "HKD137",
-    "name": NaN,
+    "name": "NIED_HKD137",
     "lat": 43.3236,
     "lon": 140.3791,
     "intensity": null,
@@ -8029,7 +8029,7 @@
   "NIED_HKD138": {
     "source": "NIED",
     "code": "HKD138",
-    "name": NaN,
+    "name": "NIED_HKD138",
     "lat": 43.2923,
     "lon": 140.6013,
     "intensity": null,
@@ -8052,7 +8052,7 @@
   "NIED_HKD140": {
     "source": "NIED",
     "code": "HKD140",
-    "name": NaN,
+    "name": "NIED_HKD140",
     "lat": 43.1908,
     "lon": 140.9933,
     "intensity": null,
@@ -8075,7 +8075,7 @@
   "NIED_HKD141": {
     "source": "NIED",
     "code": "HKD141",
-    "name": NaN,
+    "name": "NIED_HKD141",
     "lat": 43.1449,
     "lon": 140.4355,
     "intensity": null,
@@ -8098,7 +8098,7 @@
   "NIED_HKD145": {
     "source": "NIED",
     "code": "HKD145",
-    "name": NaN,
+    "name": "NIED_HKD145",
     "lat": 42.7978,
     "lon": 140.9361,
     "intensity": null,
@@ -8121,7 +8121,7 @@
   "NIED_HKD147": {
     "source": "NIED",
     "code": "HKD147",
-    "name": NaN,
+    "name": "NIED_HKD147",
     "lat": 42.8056,
     "lon": 140.5305,
     "intensity": null,
@@ -8144,7 +8144,7 @@
   "NIED_HKD149": {
     "source": "NIED",
     "code": "HKD149",
-    "name": NaN,
+    "name": "NIED_HKD149",
     "lat": 42.7905,
     "lon": 140.2305,
     "intensity": null,
@@ -8167,7 +8167,7 @@
   "NIED_HKD150": {
     "source": "NIED",
     "code": "HKD150",
-    "name": NaN,
+    "name": "NIED_HKD150",
     "lat": 42.701,
     "lon": 140.0619,
     "intensity": null,
@@ -8190,7 +8190,7 @@
   "NIED_HKD153": {
     "source": "NIED",
     "code": "HKD153",
-    "name": NaN,
+    "name": "NIED_HKD153",
     "lat": 42.1245,
     "lon": 140.3755,
     "intensity": null,
@@ -8213,7 +8213,7 @@
   "NIED_HKD156": {
     "source": "NIED",
     "code": "HKD156",
-    "name": NaN,
+    "name": "NIED_HKD156",
     "lat": 41.8996,
     "lon": 140.696,
     "intensity": null,
@@ -8236,7 +8236,7 @@
   "NIED_HKD157": {
     "source": "NIED",
     "code": "HKD157",
-    "name": NaN,
+    "name": "NIED_HKD157",
     "lat": 41.9053,
     "lon": 140.9698,
     "intensity": null,
@@ -8259,7 +8259,7 @@
   "NIED_HKD162": {
     "source": "NIED",
     "code": "HKD162",
-    "name": NaN,
+    "name": "NIED_HKD162",
     "lat": 41.4859,
     "lon": 140.2469,
     "intensity": null,
@@ -8282,7 +8282,7 @@
   "NIED_HKD163": {
     "source": "NIED",
     "code": "HKD163",
-    "name": NaN,
+    "name": "NIED_HKD163",
     "lat": 41.4338,
     "lon": 140.1117,
     "intensity": null,
@@ -8305,7 +8305,7 @@
   "NIED_HKD164": {
     "source": "NIED",
     "code": "HKD164",
-    "name": NaN,
+    "name": "NIED_HKD164",
     "lat": 42.4502,
     "lon": 139.8533,
     "intensity": null,
@@ -8328,7 +8328,7 @@
   "NIED_HKD165": {
     "source": "NIED",
     "code": "HKD165",
-    "name": NaN,
+    "name": "NIED_HKD165",
     "lat": 42.4287,
     "lon": 140.0178,
     "intensity": null,
@@ -8351,7 +8351,7 @@
   "NIED_HKD166": {
     "source": "NIED",
     "code": "HKD166",
-    "name": NaN,
+    "name": "NIED_HKD166",
     "lat": 42.2286,
     "lon": 139.8186,
     "intensity": null,
@@ -8374,7 +8374,7 @@
   "NIED_HKD167": {
     "source": "NIED",
     "code": "HKD167",
-    "name": NaN,
+    "name": "NIED_HKD167",
     "lat": 42.1297,
     "lon": 139.9813,
     "intensity": null,
@@ -8397,7 +8397,7 @@
   "NIED_HKD168": {
     "source": "NIED",
     "code": "HKD168",
-    "name": NaN,
+    "name": "NIED_HKD168",
     "lat": 41.8691,
     "lon": 140.1266,
     "intensity": null,
@@ -8420,7 +8420,7 @@
   "NIED_HKD170": {
     "source": "NIED",
     "code": "HKD170",
-    "name": NaN,
+    "name": "NIED_HKD170",
     "lat": 41.7495,
     "lon": 140.251,
     "intensity": null,
@@ -8443,7 +8443,7 @@
   "NIED_HKD171": {
     "source": "NIED",
     "code": "HKD171",
-    "name": NaN,
+    "name": "NIED_HKD171",
     "lat": 41.649,
     "lon": 139.9979,
     "intensity": null,
@@ -8466,7 +8466,7 @@
   "NIED_HKD172": {
     "source": "NIED",
     "code": "HKD172",
-    "name": NaN,
+    "name": "NIED_HKD172",
     "lat": 42.2402,
     "lon": 139.5519,
     "intensity": null,
@@ -8489,7 +8489,7 @@
   "NIED_HKD174": {
     "source": "NIED",
     "code": "HKD174",
-    "name": NaN,
+    "name": "NIED_HKD174",
     "lat": 42.595,
     "lon": 139.8286,
     "intensity": null,
@@ -8512,7 +8512,7 @@
   "NIED_HKD175": {
     "source": "NIED",
     "code": "HKD175",
-    "name": NaN,
+    "name": "NIED_HKD175",
     "lat": 43.6015,
     "lon": 141.3882,
     "intensity": null,
@@ -8535,7 +8535,7 @@
   "NIED_HKD176": {
     "source": "NIED",
     "code": "HKD176",
-    "name": NaN,
+    "name": "NIED_HKD176",
     "lat": 43.5324,
     "lon": 141.5924,
     "intensity": null,
@@ -8558,7 +8558,7 @@
   "NIED_HKD183": {
     "source": "NIED",
     "code": "HKD183",
-    "name": NaN,
+    "name": "NIED_HKD183",
     "lat": 42.9714,
     "lon": 141.1779,
     "intensity": null,
@@ -8581,7 +8581,7 @@
   "NIED_HKD185": {
     "source": "NIED",
     "code": "HKD185",
-    "name": NaN,
+    "name": "NIED_HKD185",
     "lat": 42.7756,
     "lon": 141.4016,
     "intensity": null,
@@ -8604,7 +8604,7 @@
   "NIED_IWT005": {
     "source": "NIED",
     "code": "IWT005",
-    "name": NaN,
+    "name": "NIED_IWT005",
     "lat": 39.6478,
     "lon": 141.9465,
     "intensity": null,
@@ -8627,7 +8627,7 @@
   "NIED_IWT006": {
     "source": "NIED",
     "code": "IWT006",
-    "name": NaN,
+    "name": "NIED_IWT006",
     "lat": 39.485,
     "lon": 141.9748,
     "intensity": null,
@@ -8650,7 +8650,7 @@
   "NIED_IWT008": {
     "source": "NIED",
     "code": "IWT008",
-    "name": NaN,
+    "name": "NIED_IWT008",
     "lat": 39.0815,
     "lon": 141.7093,
     "intensity": null,
@@ -8673,7 +8673,7 @@
   "NIED_IWT009": {
     "source": "NIED",
     "code": "IWT009",
-    "name": NaN,
+    "name": "NIED_IWT009",
     "lat": 39.019,
     "lon": 141.4053,
     "intensity": null,
@@ -8696,7 +8696,7 @@
   "NIED_IWT016": {
     "source": "NIED",
     "code": "IWT016",
-    "name": NaN,
+    "name": "NIED_IWT016",
     "lat": 39.6,
     "lon": 141.679,
     "intensity": null,
@@ -8719,7 +8719,7 @@
   "NIED_IWT017": {
     "source": "NIED",
     "code": "IWT017",
-    "name": NaN,
+    "name": "NIED_IWT017",
     "lat": 39.6339,
     "lon": 141.4379,
     "intensity": null,
@@ -8742,7 +8742,7 @@
   "NIED_IWT018": {
     "source": "NIED",
     "code": "IWT018",
-    "name": NaN,
+    "name": "NIED_IWT018",
     "lat": 39.6954,
     "lon": 141.1477,
     "intensity": null,
@@ -8765,7 +8765,7 @@
   "NIED_IWT019": {
     "source": "NIED",
     "code": "IWT019",
-    "name": NaN,
+    "name": "NIED_IWT019",
     "lat": 39.803,
     "lon": 141.6584,
     "intensity": null,
@@ -8788,7 +8788,7 @@
   "NIED_IWT023": {
     "source": "NIED",
     "code": "IWT023",
-    "name": NaN,
+    "name": "NIED_IWT023",
     "lat": 40.037,
     "lon": 141.4501,
     "intensity": null,
@@ -8811,7 +8811,7 @@
   "NIED_IWT025": {
     "source": "NIED",
     "code": "IWT025",
-    "name": NaN,
+    "name": "NIED_IWT025",
     "lat": 39.5169,
     "lon": 140.8299,
     "intensity": null,
@@ -8834,7 +8834,7 @@
   "NIED_MYG001": {
     "source": "NIED",
     "code": "MYG001",
-    "name": NaN,
+    "name": "NIED_MYG001",
     "lat": 38.9017,
     "lon": 141.5709,
     "intensity": null,
@@ -8857,7 +8857,7 @@
   "NIED_MYG002": {
     "source": "NIED",
     "code": "MYG002",
-    "name": NaN,
+    "name": "NIED_MYG002",
     "lat": 38.7261,
     "lon": 141.511,
     "intensity": null,
@@ -8880,7 +8880,7 @@
   "NIED_MYG003": {
     "source": "NIED",
     "code": "MYG003",
-    "name": NaN,
+    "name": "NIED_MYG003",
     "lat": 38.7349,
     "lon": 141.3116,
     "intensity": null,
@@ -8903,7 +8903,7 @@
   "NIED_MYG007": {
     "source": "NIED",
     "code": "MYG007",
-    "name": NaN,
+    "name": "NIED_MYG007",
     "lat": 38.5877,
     "lon": 141.251,
     "intensity": null,
@@ -8926,7 +8926,7 @@
   "NIED_MYG008": {
     "source": "NIED",
     "code": "MYG008",
-    "name": NaN,
+    "name": "NIED_MYG008",
     "lat": 38.5676,
     "lon": 141.4267,
     "intensity": null,
@@ -8949,7 +8949,7 @@
   "NIED_MYG011": {
     "source": "NIED",
     "code": "MYG011",
-    "name": NaN,
+    "name": "NIED_MYG011",
     "lat": 38.302,
     "lon": 141.5079,
     "intensity": null,
@@ -8972,7 +8972,7 @@
   "NIED_MYG012": {
     "source": "NIED",
     "code": "MYG012",
-    "name": NaN,
+    "name": "NIED_MYG012",
     "lat": 38.3288,
     "lon": 141.0128,
     "intensity": null,
@@ -8995,7 +8995,7 @@
   "NIED_MYG014": {
     "source": "NIED",
     "code": "MYG014",
-    "name": NaN,
+    "name": "NIED_MYG014",
     "lat": 38.3173,
     "lon": 140.6362,
     "intensity": null,
@@ -9018,7 +9018,7 @@
   "NIED_MYG018": {
     "source": "NIED",
     "code": "MYG018",
-    "name": NaN,
+    "name": "NIED_MYG018",
     "lat": 38.7194,
     "lon": 141.5228,
     "intensity": null,
@@ -9041,7 +9041,7 @@
   "NIED_MYG019": {
     "source": "NIED",
     "code": "MYG019",
-    "name": NaN,
+    "name": "NIED_MYG019",
     "lat": 38.7513,
     "lon": 140.7226,
     "intensity": null,
@@ -9064,7 +9064,7 @@
   "NIED_NIG006": {
     "source": "NIED",
     "code": "NIG006",
-    "name": NaN,
+    "name": "NIED_NIG006",
     "lat": 38.4514,
     "lon": 139.4963,
     "intensity": null,
@@ -9087,7 +9087,7 @@
   "NIED_TCG002": {
     "source": "NIED",
     "code": "TCG002",
-    "name": NaN,
+    "name": "NIED_TCG002",
     "lat": 36.9903,
     "lon": 139.8029,
     "intensity": null,
@@ -9110,7 +9110,7 @@
   "NIED_YMT004": {
     "source": "NIED",
     "code": "YMT004",
-    "name": NaN,
+    "name": "NIED_YMT004",
     "lat": 38.6208,
     "lon": 139.5889,
     "intensity": null,
@@ -9133,7 +9133,7 @@
   "NIED_YMT012": {
     "source": "NIED",
     "code": "YMT012",
-    "name": NaN,
+    "name": "NIED_YMT012",
     "lat": 38.1087,
     "lon": 140.043,
     "intensity": null,
@@ -9156,7 +9156,7 @@
   "NIED_YMT013": {
     "source": "NIED",
     "code": "YMT013",
-    "name": NaN,
+    "name": "NIED_YMT013",
     "lat": 38.0631,
     "lon": 139.7596,
     "intensity": null,
@@ -9179,7 +9179,7 @@
   "NIED_YMT016": {
     "source": "NIED",
     "code": "YMT016",
-    "name": NaN,
+    "name": "NIED_YMT016",
     "lat": 38.7906,
     "lon": 140.0207,
     "intensity": null,

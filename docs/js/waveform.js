@@ -1,12 +1,6 @@
 /**
- * waveform.js - 波形比較機能
+ * waveform.js - 波形比較機能（FFTによる速度・変位計算）
  */
-
-const waveformFiles = {
-    'acceleration': 'waveform.csv',
-    'velocity': 'velocity.csv',
-    'displacement': 'displacement.csv'
-};
 
 const waveformUnits = {
     'acceleration': 'gal',
@@ -20,23 +14,14 @@ const waveformNames = {
     'displacement': '変位'
 };
 
-// 波形データをロード
+// 波形データをロード（signal.jsのgetProcessedDataを使用）
 async function loadWaveformData(stationCode, waveformType) {
-    const filename = waveformFiles[waveformType];
-    const data = await loadCSV(stationCode, filename);
-
-    if (data.length === 0) {
+    const processed = await getProcessedData(stationCode);
+    if (!processed) {
         return null;
     }
 
-    // 時刻を秒に変換
-    const startTime = new Date(data[0].datetime).getTime();
-    return {
-        time: data.map(row => (new Date(row.datetime).getTime() - startTime) / 1000),
-        NS: data.map(row => row.NS),
-        EW: data.map(row => row.EW),
-        UD: data.map(row => row.UD)
-    };
+    return processed.waveforms[waveformType];
 }
 
 // 波形プロットを更新
