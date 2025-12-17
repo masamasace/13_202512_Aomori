@@ -195,7 +195,7 @@ function createMarker(station, colorColumn) {
                 showlegend: true,
                 legend: { orientation: 'h', y: -0.15, font: { size: 8 } },
                 margin: { l: 35, r: 5, t: 25, b: 30 },
-                width: 280,
+                width: 250,
                 height: 180
             };
 
