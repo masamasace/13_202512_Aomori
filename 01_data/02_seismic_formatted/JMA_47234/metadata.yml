@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47234'
+  name: 秋田美郷町六郷東根
+  lat: 39.3988
+  lon: 140.6297
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 15.434
+  EW: -21.632
+  UD: -9.866
+  H: 21.657
+  total: 21.664
+max_velocity:
+  NS: 1.995
+  EW: 1.92
+  UD: 1.299
+  total: 2.196
+max_displacement:
+  NS: 0.65
+  EW: 0.526
+  UD: 0.526
+  total: 0.733
+max_velocity_calculated:
+  NS: 1.863
+  EW: 1.837
+  UD: -1.281
+  H: 1.97
+  total: 2.065
+max_displacement_calculated:
+  NS: -0.589
+  EW: 0.486
+  UD: 0.434
+  H: 0.75
+  total: 0.75
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

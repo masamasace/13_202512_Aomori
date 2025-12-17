@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47407'
+  name: 旭川市宮前１条
+  lat: 43.7577
+  lon: 142.373
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:21:49.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 12.625
+  EW: 8.591
+  UD: 4.891
+  H: 12.863
+  total: 12.863
+max_velocity:
+  NS: 2.963
+  EW: 1.863
+  UD: 2.09
+  total: 3.276
+max_displacement:
+  NS: 1.59
+  EW: 1.041
+  UD: 1.185
+  total: 1.667
+max_velocity_calculated:
+  NS: -3.287
+  EW: -1.622
+  UD: 1.662
+  H: 3.299
+  total: 3.676
+max_displacement_calculated:
+  NS: -1.796
+  EW: 1.224
+  UD: -0.937
+  H: 1.797
+  total: 1.832
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

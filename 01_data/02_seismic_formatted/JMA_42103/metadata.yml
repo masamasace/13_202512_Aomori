@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42103'
+  name: 余市町朝日町
+  lat: 43.1952
+  lon: 140.7835
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 10.922
+  EW: -11.54
+  UD: 7.659
+  H: 12.583
+  total: 12.852
+max_velocity:
+  NS: 2.347
+  EW: 1.757
+  UD: 1.36
+  total: 2.44
+max_displacement:
+  NS: 0.867
+  EW: 0.638
+  UD: 0.603
+  total: 0.967
+max_velocity_calculated:
+  NS: 2.127
+  EW: 1.741
+  UD: -1.257
+  H: 2.325
+  total: 2.341
+max_displacement_calculated:
+  NS: -0.892
+  EW: -0.847
+  UD: -0.524
+  H: 1.064
+  total: 1.094
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

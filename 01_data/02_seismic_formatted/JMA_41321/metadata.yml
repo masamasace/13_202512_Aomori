@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41321'
+  name: 青梅市東青梅
+  lat: 35.788
+  lon: 139.2751
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:18:49.990'
+  sampling_rate_hz: 100
+  duration_s: 60.0
+  num_samples: 6000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.085
+  EW: -0.951
+  UD: -0.528
+  H: 1.308
+  total: 1.31
+max_velocity:
+  NS: 0.261
+  EW: 0.211
+  UD: 0.12
+  total: 0.307
+max_displacement:
+  NS: 0.117
+  EW: 0.116
+  UD: 0.075
+  total: 0.135
+max_velocity_calculated:
+  NS: 0.27
+  EW: -0.309
+  UD: -0.152
+  H: 0.405
+  total: 0.422
+max_displacement_calculated:
+  NS: 3.657
+  EW: -4.451
+  UD: -1.767
+  H: 5.755
+  total: 6.019
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

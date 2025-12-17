@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47615'
+  name: 宇都宮市明保野町
+  lat: 36.5498
+  lon: 139.8683
+record:
+  start_time: '2025-12-08T23:16:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -4.927
+  EW: -5.013
+  UD: -1.622
+  H: 5.254
+  total: 5.311
+max_velocity:
+  NS: 0.747
+  EW: 0.71
+  UD: 0.389
+  total: 0.815
+max_displacement:
+  NS: 0.224
+  EW: 0.294
+  UD: 0.182
+  total: 0.297
+max_velocity_calculated:
+  NS: -0.723
+  EW: 0.692
+  UD: -0.354
+  H: 0.807
+  total: 0.807
+max_displacement_calculated:
+  NS: -1.133
+  EW: -1.064
+  UD: 0.137
+  H: 1.554
+  total: 1.555
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

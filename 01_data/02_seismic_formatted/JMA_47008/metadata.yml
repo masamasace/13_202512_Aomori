@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47008'
+  name: 六ヶ所村出戸
+  lat: 41.0073
+  lon: 141.3664
+record:
+  start_time: '2025-12-08T23:15:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 127.999
+  EW: 125.332
+  UD: -47.593
+  H: 129.929
+  total: 130.421
+max_velocity:
+  NS: 11.77
+  EW: 7.923
+  UD: 3.313
+  total: 11.88
+max_displacement:
+  NS: 3.37
+  EW: 2.11
+  UD: 1.009
+  total: 3.81
+max_velocity_calculated:
+  NS: -10.824
+  EW: -8.263
+  UD: 3.575
+  H: 10.925
+  total: 11.495
+max_displacement_calculated:
+  NS: -4.121
+  EW: 1.905
+  UD: 1.357
+  H: 4.284
+  total: 4.462
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

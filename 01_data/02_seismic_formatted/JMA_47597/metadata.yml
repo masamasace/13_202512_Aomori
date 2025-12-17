@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47597'
+  name: 白河市郭内
+  lat: 37.1322
+  lon: 140.2155
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -4.415
+  EW: 5.039
+  UD: 2.185
+  H: 5.052
+  total: 5.065
+max_velocity:
+  NS: 0.891
+  EW: 0.977
+  UD: 0.436
+  total: 1.152
+max_displacement:
+  NS: 0.248
+  EW: 0.395
+  UD: 0.156
+  total: 0.465
+max_velocity_calculated:
+  NS: -0.874
+  EW: -0.948
+  UD: 0.418
+  H: 1.106
+  total: 1.107
+max_displacement_calculated:
+  NS: -0.244
+  EW: 0.331
+  UD: -0.166
+  H: 0.349
+  total: 0.356
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

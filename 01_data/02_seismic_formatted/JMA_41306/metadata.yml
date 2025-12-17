@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41306'
+  name: 富岡市七日市
+  lat: 36.2639
+  lon: 138.8803
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.397
+  EW: -1.741
+  UD: 0.839
+  H: 2.046
+  total: 2.059
+max_velocity:
+  NS: 0.675
+  EW: 0.861
+  UD: 0.278
+  total: 1.022
+max_displacement:
+  NS: 0.394
+  EW: 0.523
+  UD: 0.156
+  total: 0.656
+max_velocity_calculated:
+  NS: -0.693
+  EW: 0.714
+  UD: -0.261
+  H: 0.981
+  total: 0.982
+max_displacement_calculated:
+  NS: 4.57
+  EW: 6.124
+  UD: -0.533
+  H: 7.641
+  total: 7.647
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

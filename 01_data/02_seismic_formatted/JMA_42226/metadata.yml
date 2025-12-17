@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42226'
+  name: 棚倉町棚倉中居野
+  lat: 37.0292
+  lon: 140.3802
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -5.886
+  EW: -7.521
+  UD: 3.047
+  H: 8.251
+  total: 8.272
+max_velocity:
+  NS: 0.701
+  EW: 0.643
+  UD: 0.405
+  total: 0.767
+max_displacement:
+  NS: 0.199
+  EW: 0.251
+  UD: 0.117
+  total: 0.288
+max_velocity_calculated:
+  NS: -0.713
+  EW: 0.638
+  UD: 0.431
+  H: 0.714
+  total: 0.714
+max_displacement_calculated:
+  NS: 0.38
+  EW: -0.267
+  UD: 0.132
+  H: 0.427
+  total: 0.437
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

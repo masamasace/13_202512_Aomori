@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47690'
+  name: 日光市中宮祠
+  lat: 36.7404
+  lon: 139.4957
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:18:29.990'
+  sampling_rate_hz: 100
+  duration_s: 60.0
+  num_samples: 6000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: -1.161
+  EW: 1.029
+  UD: -0.637
+  H: 1.291
+  total: 1.292
+max_velocity:
+  NS: 0.241
+  EW: 0.281
+  UD: 0.147
+  total: 0.313
+max_displacement:
+  NS: 0.11
+  EW: 0.173
+  UD: 0.066
+  total: 0.197
+max_velocity_calculated:
+  NS: 0.221
+  EW: 0.249
+  UD: 0.244
+  H: 0.287
+  total: 0.306
+max_displacement_calculated:
+  NS: 1.861
+  EW: -2.525
+  UD: 1.566
+  H: 3.121
+  total: 3.489
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

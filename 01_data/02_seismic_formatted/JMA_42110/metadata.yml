@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42110'
+  name: 弟子屈町美里
+  lat: 43.4809
+  lon: 144.4366
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:22:39.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -13.508
+  EW: -12.455
+  UD: 8.96
+  H: 14.848
+  total: 15.084
+max_velocity:
+  NS: 2.23
+  EW: 1.658
+  UD: 0.828
+  total: 2.307
+max_displacement:
+  NS: 0.687
+  EW: 0.641
+  UD: 0.217
+  total: 0.752
+max_velocity_calculated:
+  NS: 2.122
+  EW: -1.691
+  UD: -0.757
+  H: 2.14
+  total: 2.141
+max_displacement_calculated:
+  NS: 0.945
+  EW: 0.642
+  UD: -0.298
+  H: 0.993
+  total: 0.999
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

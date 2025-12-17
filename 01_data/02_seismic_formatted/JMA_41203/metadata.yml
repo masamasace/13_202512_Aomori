@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41203'
+  name: 二戸市福岡
+  lat: 40.2722
+  lon: 141.3037
+record:
+  start_time: '2025-12-08T23:15:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 89.411
+  EW: -79.067
+  UD: 40.254
+  H: 91.516
+  total: 93.914
+max_velocity:
+  NS: 12.581
+  EW: 8.987
+  UD: 4.432
+  total: 12.708
+max_displacement:
+  NS: 4.195
+  EW: 2.191
+  UD: 0.791
+  total: 4.279
+max_velocity_calculated:
+  NS: -13.155
+  EW: 8.65
+  UD: -4.32
+  H: 13.38
+  total: 13.393
+max_displacement_calculated:
+  NS: -4.191
+  EW: 2.169
+  UD: -0.849
+  H: 4.346
+  total: 4.355
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

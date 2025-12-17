@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47670'
+  name: 横浜中区山手町
+  lat: 35.4398
+  lon: 139.6529
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:22:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 4.001
+  EW: -5.826
+  UD: -1.33
+  H: 6.618
+  total: 6.63
+max_velocity:
+  NS: 0.836
+  EW: 1.094
+  UD: 0.361
+  total: 1.212
+max_displacement:
+  NS: 0.454
+  EW: 0.432
+  UD: 0.244
+  total: 0.47
+max_velocity_calculated:
+  NS: -0.866
+  EW: -1.038
+  UD: 0.338
+  H: 1.148
+  total: 1.151
+max_displacement_calculated:
+  NS: 2.245
+  EW: 4.653
+  UD: 2.113
+  H: 5.018
+  total: 5.444
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

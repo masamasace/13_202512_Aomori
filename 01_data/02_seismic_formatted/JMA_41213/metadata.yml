@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41213'
+  name: 鶴岡市馬場町
+  lat: 38.7271
+  lon: 139.8274
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 7.944
+  EW: 8.06
+  UD: 2.939
+  H: 9.155
+  total: 9.156
+max_velocity:
+  NS: 1.338
+  EW: 2.237
+  UD: 0.644
+  total: 2.276
+max_displacement:
+  NS: 0.609
+  EW: 1.008
+  UD: 0.272
+  total: 1.037
+max_velocity_calculated:
+  NS: -1.202
+  EW: 2.075
+  UD: 0.668
+  H: 2.092
+  total: 2.112
+max_displacement_calculated:
+  NS: -0.836
+  EW: -1.207
+  UD: 0.321
+  H: 1.218
+  total: 1.219
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

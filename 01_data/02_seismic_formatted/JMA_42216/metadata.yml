@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42216'
+  name: 北秋田市花園町
+  lat: 40.226
+  lon: 140.3707
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 20.736
+  EW: 28.943
+  UD: -7.416
+  H: 30.272
+  total: 30.29
+max_velocity:
+  NS: 3.239
+  EW: 2.869
+  UD: 1.075
+  total: 3.654
+max_displacement:
+  NS: 1.279
+  EW: 0.985
+  UD: 0.396
+  total: 1.459
+max_velocity_calculated:
+  NS: -3.261
+  EW: 2.662
+  UD: 1.093
+  H: 3.742
+  total: 3.756
+max_displacement_calculated:
+  NS: -1.346
+  EW: -1.012
+  UD: 0.329
+  H: 1.51
+  total: 1.523
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

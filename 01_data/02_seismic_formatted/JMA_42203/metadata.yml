@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42203'
+  name: 六ヶ所村尾駮
+  lat: 40.9669
+  lon: 141.3739
+record:
+  start_time: '2025-12-08T23:15:10.000'
+  end_time: '2025-12-08T23:22:09.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: -166.959
+  EW: -130.308
+  UD: 74.665
+  H: 175.935
+  total: 177.814
+max_velocity:
+  NS: 17.325
+  EW: 12.46
+  UD: 5.614
+  total: 17.341
+max_displacement:
+  NS: 5.467
+  EW: 4.27
+  UD: 1.816
+  total: 6.513
+max_velocity_calculated:
+  NS: -16.758
+  EW: -11.048
+  UD: 5.588
+  H: 16.883
+  total: 16.917
+max_displacement_calculated:
+  NS: -7.309
+  EW: 4.164
+  UD: -2.204
+  H: 8.07
+  total: 8.172
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

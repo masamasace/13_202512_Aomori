@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47249'
+  name: 酒田市飛島
+  lat: 39.1978
+  lon: 139.5531
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.675
+  EW: 2.229
+  UD: 1.226
+  H: 2.791
+  total: 2.847
+max_velocity:
+  NS: 1.046
+  EW: 0.959
+  UD: 0.398
+  total: 1.334
+max_displacement:
+  NS: 0.683
+  EW: 0.655
+  UD: 0.257
+  total: 0.794
+max_velocity_calculated:
+  NS: 0.955
+  EW: -0.934
+  UD: -0.405
+  H: 1.205
+  total: 1.218
+max_displacement_calculated:
+  NS: -14.744
+  EW: 4.807
+  UD: 4.495
+  H: 15.507
+  total: 16.145
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

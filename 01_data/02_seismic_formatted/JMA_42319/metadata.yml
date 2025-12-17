@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42319'
+  name: 南魚沼市六日町
+  lat: 37.0656
+  lon: 138.876
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -4.578
+  EW: 4.965
+  UD: -0.549
+  H: 5.055
+  total: 5.056
+max_velocity:
+  NS: 0.771
+  EW: 1.098
+  UD: 0.163
+  total: 1.099
+max_displacement:
+  NS: 0.205
+  EW: 0.27
+  UD: 0.089
+  total: 0.277
+max_velocity_calculated:
+  NS: -0.766
+  EW: 1.053
+  UD: 0.128
+  H: 1.053
+  total: 1.053
+max_displacement_calculated:
+  NS: 0.29
+  EW: 0.247
+  UD: -0.114
+  H: 0.317
+  total: 0.322
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

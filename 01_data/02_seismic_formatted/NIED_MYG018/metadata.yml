@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: MYG018
+  lat: 38.7194
+  lon: 141.5228
+  height_m: 24.0
+record:
+  start_time: '2025-12-08T23:15:53.000'
+  end_time: '2025-12-08T23:18:09.990'
+  sampling_rate_hz: 100
+  duration_s: 137
+  num_samples: 13700
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: 19.285
+  EW: 18.955
+  UD: -30.312
+  H: 21.973
+  total: 33.767
+max_velocity_calculated:
+  NS: 0.749
+  EW: 0.784
+  UD: -0.773
+  H: 0.893
+  total: 0.896
+max_displacement_calculated:
+  NS: -0.79
+  EW: 0.614
+  UD: 0.422
+  H: 1.0
+  total: 1.081
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

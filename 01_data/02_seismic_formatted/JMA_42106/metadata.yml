@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42106'
+  name: 斜里町本町
+  lat: 43.9114
+  lon: 144.6711
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:22:59.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -10.128
+  EW: 9.179
+  UD: -4.438
+  H: 10.737
+  total: 10.753
+max_velocity:
+  NS: 2.265
+  EW: 1.731
+  UD: 0.834
+  total: 2.506
+max_displacement:
+  NS: 1.14
+  EW: 0.88
+  UD: 0.4
+  total: 1.187
+max_velocity_calculated:
+  NS: -2.172
+  EW: -1.931
+  UD: 0.885
+  H: 2.297
+  total: 2.32
+max_displacement_calculated:
+  NS: -0.994
+  EW: 0.95
+  UD: -0.721
+  H: 1.233
+  total: 1.331
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

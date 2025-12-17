@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47019'
+  name: ひたちなか市山ノ上町
+  lat: 36.3405
+  lon: 140.5868
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.777
+  EW: 2.413
+  UD: -1.111
+  H: 3.108
+  total: 3.218
+max_velocity:
+  NS: 0.302
+  EW: 0.41
+  UD: 0.199
+  total: 0.45
+max_displacement:
+  NS: 0.095
+  EW: 0.123
+  UD: 0.095
+  total: 0.148
+max_velocity_calculated:
+  NS: 0.534
+  EW: 0.605
+  UD: 0.2
+  H: 0.791
+  total: 0.8
+max_displacement_calculated:
+  NS: 21.951
+  EW: 26.028
+  UD: -4.96
+  H: 34.047
+  total: 34.406
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

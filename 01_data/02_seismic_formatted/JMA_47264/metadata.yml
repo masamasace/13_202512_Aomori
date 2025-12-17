@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47264'
+  name: 横須賀市光の丘
+  lat: 35.2269
+  lon: 139.6629
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.043
+  EW: -2.262
+  UD: -1.181
+  H: 2.398
+  total: 2.51
+max_velocity:
+  NS: 0.431
+  EW: 0.479
+  UD: 0.362
+  total: 0.593
+max_displacement:
+  NS: 0.254
+  EW: 0.245
+  UD: 0.22
+  total: 0.294
+max_velocity_calculated:
+  NS: -0.472
+  EW: -0.468
+  UD: 0.314
+  H: 0.55
+  total: 0.571
+max_displacement_calculated:
+  NS: 9.086
+  EW: 0.342
+  UD: 1.922
+  H: 9.087
+  total: 9.284
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

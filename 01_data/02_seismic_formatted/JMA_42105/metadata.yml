@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42105'
+  name: 美幌町東３条
+  lat: 43.8161
+  lon: 144.1033
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:21:49.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 14.792
+  EW: -16.734
+  UD: -6.937
+  H: 17.39
+  total: 17.42
+max_velocity:
+  NS: 2.197
+  EW: 2.809
+  UD: 0.927
+  total: 2.821
+max_displacement:
+  NS: 0.766
+  EW: 0.809
+  UD: 0.424
+  total: 0.848
+max_velocity_calculated:
+  NS: -2.144
+  EW: -2.67
+  UD: 0.91
+  H: 2.69
+  total: 2.691
+max_displacement_calculated:
+  NS: 0.796
+  EW: 0.948
+  UD: 0.374
+  H: 0.97
+  total: 0.986
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

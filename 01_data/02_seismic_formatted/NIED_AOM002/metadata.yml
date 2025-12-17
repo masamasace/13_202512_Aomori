@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: AOM002
+  lat: 41.328
+  lon: 140.8132
+  height_m: 13.0
+record:
+  start_time: '2025-12-08T23:15:31.000'
+  end_time: '2025-12-08T23:18:12.990'
+  sampling_rate_hz: 100
+  duration_s: 162
+  num_samples: 16200
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: 77.123
+  EW: 130.016
+  UD: 43.376
+  H: 131.05
+  total: 131.597
+max_velocity_calculated:
+  NS: -2.779
+  EW: -3.983
+  UD: 1.352
+  H: 4.099
+  total: 4.109
+max_displacement_calculated:
+  NS: 0.683
+  EW: -0.846
+  UD: 0.809
+  H: 0.86
+  total: 0.982
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

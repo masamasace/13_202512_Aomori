@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41205'
+  name: 釜石市只越町
+  lat: 39.276
+  lon: 141.8856
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 42.318
+  EW: 43.44
+  UD: 19.394
+  H: 52.61
+  total: 53.115
+max_velocity:
+  NS: 1.309
+  EW: 2.388
+  UD: 0.896
+  total: 2.416
+max_displacement:
+  NS: 0.24
+  EW: 0.995
+  UD: 0.268
+  total: 0.996
+max_velocity_calculated:
+  NS: -1.332
+  EW: 2.215
+  UD: 0.868
+  H: 2.215
+  total: 2.229
+max_displacement_calculated:
+  NS: 0.635
+  EW: 0.841
+  UD: 0.393
+  H: 0.912
+  total: 0.95
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42310'
+  name: 板倉町板倉
+  lat: 36.2249
+  lon: 139.6015
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:21:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -6.406
+  EW: 6.849
+  UD: -2.619
+  H: 6.964
+  total: 7.029
+max_velocity:
+  NS: 1.718
+  EW: 1.605
+  UD: 0.578
+  total: 1.811
+max_displacement:
+  NS: 0.601
+  EW: 0.515
+  UD: 0.168
+  total: 0.67
+max_velocity_calculated:
+  NS: 1.566
+  EW: 1.471
+  UD: 0.57
+  H: 1.584
+  total: 1.626
+max_displacement_calculated:
+  NS: 5.326
+  EW: 3.296
+  UD: -8.916
+  H: 6.263
+  total: 10.895
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

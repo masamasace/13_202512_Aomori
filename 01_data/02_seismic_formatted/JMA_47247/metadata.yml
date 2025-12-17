@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47247'
+  name: 大玉村南小屋
+  lat: 37.56
+  lon: 140.3338
+record:
+  start_time: '2025-12-08T23:16:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 8.904
+  EW: -5.448
+  UD: -4.553
+  H: 8.993
+  total: 9.02
+max_velocity:
+  NS: 1.195
+  EW: 0.804
+  UD: 0.688
+  total: 1.258
+max_displacement:
+  NS: 0.527
+  EW: 0.27
+  UD: 0.187
+  total: 0.543
+max_velocity_calculated:
+  NS: -1.256
+  EW: 0.762
+  UD: -0.703
+  H: 1.318
+  total: 1.339
+max_displacement_calculated:
+  NS: -0.512
+  EW: -0.348
+  UD: 0.264
+  H: 0.562
+  total: 0.563
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

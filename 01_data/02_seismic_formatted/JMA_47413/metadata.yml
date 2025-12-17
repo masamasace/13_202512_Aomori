@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47413'
+  name: 岩見沢市５条
+  lat: 43.2125
+  lon: 141.7856
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -46.101
+  EW: -52.185
+  UD: 20.953
+  H: 52.965
+  total: 53.304
+max_velocity:
+  NS: 5.947
+  EW: 7.11
+  UD: 2.616
+  total: 7.28
+max_displacement:
+  NS: 2.113
+  EW: 2.401
+  UD: 1.172
+  total: 2.582
+max_velocity_calculated:
+  NS: 5.961
+  EW: -6.805
+  UD: 2.638
+  H: 6.863
+  total: 6.887
+max_displacement_calculated:
+  NS: 2.728
+  EW: 2.492
+  UD: 1.171
+  H: 2.85
+  total: 2.852
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

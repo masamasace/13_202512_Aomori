@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41313'
+  name: 香取市佐原平田
+  lat: 35.8864
+  lon: 140.5066
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 6.68
+  EW: -5.245
+  UD: -3.889
+  H: 6.901
+  total: 7.052
+max_velocity:
+  NS: 1.095
+  EW: 1.27
+  UD: 0.525
+  total: 1.276
+max_displacement:
+  NS: 0.639
+  EW: 0.782
+  UD: 0.209
+  total: 0.782
+max_velocity_calculated:
+  NS: 1.047
+  EW: 1.209
+  UD: 0.51
+  H: 1.209
+  total: 1.211
+max_displacement_calculated:
+  NS: -0.852
+  EW: -4.579
+  UD: -5.685
+  H: 4.609
+  total: 7.318
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

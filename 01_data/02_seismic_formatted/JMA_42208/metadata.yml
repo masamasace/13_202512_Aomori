@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42208'
+  name: 山田町八幡町
+  lat: 39.4676
+  lon: 141.9492
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 52.44
+  EW: 30.515
+  UD: 21.781
+  H: 54.207
+  total: 54.516
+max_velocity:
+  NS: 2.247
+  EW: 2.356
+  UD: 1.254
+  total: 2.928
+max_displacement:
+  NS: 0.263
+  EW: 0.902
+  UD: 0.328
+  total: 0.902
+max_velocity_calculated:
+  NS: 2.261
+  EW: 2.329
+  UD: 1.103
+  H: 2.738
+  total: 2.74
+max_displacement_calculated:
+  NS: 0.263
+  EW: 0.983
+  UD: 0.682
+  H: 0.984
+  total: 1.081
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

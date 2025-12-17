@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47224'
+  name: 羅臼町春日
+  lat: 43.94
+  lon: 145.1201
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.933
+  EW: -6.506
+  UD: 3.232
+  H: 7.585
+  total: 7.589
+max_velocity:
+  NS: 0.462
+  EW: 0.688
+  UD: 0.369
+  total: 0.703
+max_displacement:
+  NS: 0.23
+  EW: 0.372
+  UD: 0.162
+  total: 0.378
+max_velocity_calculated:
+  NS: 0.433
+  EW: 0.502
+  UD: -0.381
+  H: 0.561
+  total: 0.649
+max_displacement_calculated:
+  NS: -0.252
+  EW: 0.348
+  UD: 0.149
+  H: 0.35
+  total: 0.35
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

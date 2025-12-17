@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41338'
+  name: 甲州市塩山下於曽
+  lat: 35.7003
+  lon: 138.7213
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:21:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.63
+  EW: 2.343
+  UD: -0.972
+  H: 2.374
+  total: 2.38
+max_velocity:
+  NS: 0.298
+  EW: 0.414
+  UD: 0.173
+  total: 0.421
+max_displacement:
+  NS: 0.13
+  EW: 0.13
+  UD: 0.08
+  total: 0.146
+max_velocity_calculated:
+  NS: 0.288
+  EW: -0.411
+  UD: 0.181
+  H: 0.412
+  total: 0.417
+max_displacement_calculated:
+  NS: -11.668
+  EW: -0.989
+  UD: -1.34
+  H: 11.709
+  total: 11.785
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

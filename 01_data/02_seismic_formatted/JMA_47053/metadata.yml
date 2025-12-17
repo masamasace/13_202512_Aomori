@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47053'
+  name: 東京墨田区横川
+  lat: 35.7039
+  lon: 139.815
+record:
+  start_time: '2025-12-08T23:17:10.000'
+  end_time: '2025-12-08T23:22:09.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.369
+  EW: -3.864
+  UD: 1.352
+  H: 5.377
+  total: 5.397
+max_velocity:
+  NS: 1.065
+  EW: 0.746
+  UD: 0.595
+  total: 1.156
+max_displacement:
+  NS: 0.694
+  EW: 0.453
+  UD: 0.333
+  total: 0.766
+max_velocity_calculated:
+  NS: 1.058
+  EW: 0.772
+  UD: 0.548
+  H: 1.068
+  total: 1.069
+max_displacement_calculated:
+  NS: 18.633
+  EW: 15.654
+  UD: -2.58
+  H: 24.331
+  total: 24.466
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41206'
+  name: 北上市柳原町
+  lat: 39.2929
+  lon: 141.1095
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:21:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -49.295
+  EW: -49.375
+  UD: -25.477
+  H: 56.14
+  total: 56.675
+max_velocity:
+  NS: 5.878
+  EW: 6.718
+  UD: 3.456
+  total: 8.524
+max_displacement:
+  NS: 1.303
+  EW: 1.31
+  UD: 0.67
+  total: 1.781
+max_velocity_calculated:
+  NS: 6.009
+  EW: 6.634
+  UD: 3.418
+  H: 8.364
+  total: 8.415
+max_displacement_calculated:
+  NS: 1.757
+  EW: -1.126
+  UD: 0.697
+  H: 1.94
+  total: 1.947
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

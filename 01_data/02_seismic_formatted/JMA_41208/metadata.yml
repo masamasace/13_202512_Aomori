@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41208'
+  name: 気仙沼市赤岩
+  lat: 38.8806
+  lon: 141.5743
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:21:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 42.333
+  EW: -52.705
+  UD: 11.045
+  H: 58.463
+  total: 58.487
+max_velocity:
+  NS: 1.796
+  EW: 2.511
+  UD: 1.056
+  total: 2.645
+max_displacement:
+  NS: 0.368
+  EW: 0.745
+  UD: 0.367
+  total: 0.831
+max_velocity_calculated:
+  NS: -1.79
+  EW: 2.414
+  UD: -1.026
+  H: 2.749
+  total: 2.82
+max_displacement_calculated:
+  NS: 1.172
+  EW: 1.029
+  UD: 0.679
+  H: 1.185
+  total: 1.303
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

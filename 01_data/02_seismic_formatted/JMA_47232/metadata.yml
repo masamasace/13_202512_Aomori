@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47232'
+  name: 大館市比内町味噌内
+  lat: 40.1916
+  lon: 140.6326
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 13.778
+  EW: 14.244
+  UD: 8.219
+  H: 18.043
+  total: 18.043
+max_velocity:
+  NS: 2.244
+  EW: 1.736
+  UD: 1.082
+  total: 2.58
+max_displacement:
+  NS: 1.252
+  EW: 0.963
+  UD: 0.512
+  total: 1.454
+max_velocity_calculated:
+  NS: -2.145
+  EW: 1.907
+  UD: -1.055
+  H: 2.411
+  total: 2.424
+max_displacement_calculated:
+  NS: -1.416
+  EW: 0.983
+  UD: -0.548
+  H: 1.582
+  total: 1.586
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

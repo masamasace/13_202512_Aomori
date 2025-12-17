@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47222'
+  name: 厚岸町尾幌
+  lat: 42.9972
+  lon: 144.6926
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -14.49
+  EW: -18.941
+  UD: 5.817
+  H: 18.942
+  total: 19.239
+max_velocity:
+  NS: 1.331
+  EW: 1.275
+  UD: 0.82
+  total: 1.675
+max_displacement:
+  NS: 0.526
+  EW: 0.546
+  UD: 0.438
+  total: 0.705
+max_velocity_calculated:
+  NS: 1.228
+  EW: -1.412
+  UD: 0.875
+  H: 1.601
+  total: 1.619
+max_displacement_calculated:
+  NS: -0.523
+  EW: 0.51
+  UD: -0.369
+  H: 0.644
+  total: 0.665
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

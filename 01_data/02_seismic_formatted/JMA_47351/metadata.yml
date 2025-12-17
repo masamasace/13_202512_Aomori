@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47351'
+  name: 八戸市島守
+  lat: 40.3762
+  lon: 141.5117
+record:
+  start_time: '2025-12-08T23:15:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 55.909
+  EW: 60.808
+  UD: -26.362
+  H: 73.53
+  total: 74.95
+max_velocity:
+  NS: 8.128
+  EW: 7.135
+  UD: 2.18
+  total: 10.426
+max_displacement:
+  NS: 2.431
+  EW: 2.377
+  UD: 0.561
+  total: 3.398
+max_velocity_calculated:
+  NS: -7.96
+  EW: 7.361
+  UD: -2.06
+  H: 10.287
+  total: 10.315
+max_displacement_calculated:
+  NS: -2.093
+  EW: 2.549
+  UD: -0.417
+  H: 3.239
+  total: 3.249
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47590'
+  name: 仙台宮城野区五輪
+  lat: 38.2622
+  lon: 140.8968
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 12.899
+  EW: -13.291
+  UD: -6.655
+  H: 14.259
+  total: 14.259
+max_velocity:
+  NS: 1.73
+  EW: 1.788
+  UD: 0.616
+  total: 2.08
+max_displacement:
+  NS: 0.642
+  EW: 0.583
+  UD: 0.221
+  total: 0.777
+max_velocity_calculated:
+  NS: -1.662
+  EW: 1.831
+  UD: -0.588
+  H: 1.954
+  total: 1.964
+max_displacement_calculated:
+  NS: 0.574
+  EW: -0.735
+  UD: 0.342
+  H: 0.822
+  total: 0.844
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

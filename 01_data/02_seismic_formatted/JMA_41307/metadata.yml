@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41307'
+  name: 桐生市錦町
+  lat: 36.4042
+  lon: 139.3315
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.614
+  EW: 3.704
+  UD: -1.735
+  H: 4.205
+  total: 4.205
+max_velocity:
+  NS: 0.407
+  EW: 0.417
+  UD: 0.208
+  total: 0.487
+max_displacement:
+  NS: 0.211
+  EW: 0.119
+  UD: 0.085
+  total: 0.227
+max_velocity_calculated:
+  NS: -0.385
+  EW: -0.396
+  UD: -0.183
+  H: 0.482
+  total: 0.487
+max_displacement_calculated:
+  NS: -3.513
+  EW: 2.412
+  UD: 0.737
+  H: 4.259
+  total: 4.313
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

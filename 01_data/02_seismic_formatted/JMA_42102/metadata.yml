@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42102'
+  name: 岩内町高台
+  lat: 42.98
+  lon: 140.515
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 10.015
+  EW: -7.41
+  UD: 5.956
+  H: 11.682
+  total: 11.689
+max_velocity:
+  NS: 2.343
+  EW: 1.765
+  UD: 1.643
+  total: 2.366
+max_displacement:
+  NS: 1.662
+  EW: 1.032
+  UD: 0.711
+  total: 1.675
+max_velocity_calculated:
+  NS: -2.332
+  EW: 1.529
+  UD: -1.4
+  H: 2.379
+  total: 2.39
+max_displacement_calculated:
+  NS: -1.389
+  EW: 1.057
+  UD: 0.902
+  H: 1.397
+  total: 1.401
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

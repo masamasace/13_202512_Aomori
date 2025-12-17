@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42207'
+  name: 一関市大東町
+  lat: 39.0171
+  lon: 141.3956
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -28.949
+  EW: -42.331
+  UD: 12.167
+  H: 43.48
+  total: 44.266
+max_velocity:
+  NS: 1.118
+  EW: 1.755
+  UD: 0.781
+  total: 2.08
+max_displacement:
+  NS: 0.34
+  EW: 0.669
+  UD: 0.209
+  total: 0.758
+max_velocity_calculated:
+  NS: 1.135
+  EW: -1.845
+  UD: -0.771
+  H: 2.164
+  total: 2.172
+max_displacement_calculated:
+  NS: -0.309
+  EW: -0.7
+  UD: 0.219
+  H: 0.724
+  total: 0.732
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

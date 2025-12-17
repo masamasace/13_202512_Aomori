@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41326'
+  name: 村上市塩町
+  lat: 38.2286
+  lon: 139.4746
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.519
+  EW: 1.949
+  UD: 0.948
+  H: 1.991
+  total: 1.991
+max_velocity:
+  NS: 0.461
+  EW: 0.566
+  UD: 0.261
+  total: 0.7
+max_displacement:
+  NS: 0.206
+  EW: 0.382
+  UD: 0.141
+  total: 0.423
+max_velocity_calculated:
+  NS: -0.421
+  EW: 0.507
+  UD: 0.344
+  H: 0.548
+  total: 0.551
+max_displacement_calculated:
+  NS: -0.803
+  EW: 1.167
+  UD: 24.642
+  H: 1.409
+  total: 24.682
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

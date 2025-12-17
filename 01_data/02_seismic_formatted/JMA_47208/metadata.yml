@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47208'
+  name: 遠軽町丸瀬布金湧山
+  lat: 44.0092
+  lon: 143.3559
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 7.269
+  EW: 5.938
+  UD: -4.044
+  H: 7.967
+  total: 7.968
+max_velocity:
+  NS: 0.988
+  EW: 0.787
+  UD: 0.696
+  total: 1.25
+max_displacement:
+  NS: 0.33
+  EW: 0.311
+  UD: 0.222
+  total: 0.432
+max_velocity_calculated:
+  NS: -1.047
+  EW: -0.762
+  UD: -0.651
+  H: 1.218
+  total: 1.243
+max_displacement_calculated:
+  NS: -0.292
+  EW: 0.352
+  UD: -0.219
+  H: 0.352
+  total: 0.374
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

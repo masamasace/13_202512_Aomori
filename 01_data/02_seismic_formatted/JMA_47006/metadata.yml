@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47006'
+  name: せたな町北檜山区豊岡
+  lat: 42.4225
+  lon: 139.8767
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:19:39.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 6.403
+  EW: -7.484
+  UD: 3.427
+  H: 7.848
+  total: 7.918
+max_velocity:
+  NS: 0.864
+  EW: 1.236
+  UD: 0.661
+  total: 1.312
+max_displacement:
+  NS: 0.371
+  EW: 0.481
+  UD: 0.288
+  total: 0.525
+max_velocity_calculated:
+  NS: 0.746
+  EW: -0.866
+  UD: 0.438
+  H: 0.909
+  total: 0.924
+max_displacement_calculated:
+  NS: 0.349
+  EW: -0.373
+  UD: -0.288
+  H: 0.463
+  total: 0.466
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

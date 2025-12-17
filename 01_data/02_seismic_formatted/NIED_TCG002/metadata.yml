@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: TCG002
+  lat: 36.9903
+  lon: 139.8029
+  height_m: 619.0
+record:
+  start_time: '2025-12-08T23:17:23.000'
+  end_time: '2025-12-08T23:18:30.990'
+  sampling_rate_hz: 100
+  duration_s: 68
+  num_samples: 6800
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: -11.843
+  EW: -4.289
+  UD: 6.872
+  H: 12.03
+  total: 13.435
+max_velocity_calculated:
+  NS: 0.382
+  EW: -0.27
+  UD: 0.209
+  H: 0.42
+  total: 0.463
+max_displacement_calculated:
+  NS: 1.831
+  EW: -4.149
+  UD: 1.351
+  H: 4.532
+  total: 4.729
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

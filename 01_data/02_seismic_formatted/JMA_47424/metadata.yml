@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47424'
+  name: 苫小牧市末広町
+  lat: 42.6381
+  lon: 141.6124
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: -73.059
+  EW: 118.307
+  UD: -33.794
+  H: 121.99
+  total: 124.048
+max_velocity:
+  NS: 18.644
+  EW: 14.902
+  UD: 3.275
+  total: 20.385
+max_displacement:
+  NS: 7.204
+  EW: 5.864
+  UD: 1.264
+  total: 8.262
+max_velocity_calculated:
+  NS: 19.692
+  EW: -12.758
+  UD: 2.317
+  H: 22.938
+  total: 22.944
+max_displacement_calculated:
+  NS: -7.163
+  EW: 6.416
+  UD: -3.454
+  H: 8.409
+  total: 8.684
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

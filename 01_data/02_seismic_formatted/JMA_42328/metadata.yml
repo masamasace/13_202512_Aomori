@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42328'
+  name: 上野原市四方津
+  lat: 35.6134
+  lon: 139.0815
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.07
+  EW: 1.086
+  UD: -0.66
+  H: 1.264
+  total: 1.322
+max_velocity:
+  NS: 0.201
+  EW: 0.237
+  UD: 0.149
+  total: 0.286
+max_displacement:
+  NS: 0.132
+  EW: 0.163
+  UD: 0.094
+  total: 0.204
+max_velocity_calculated:
+  NS: 0.232
+  EW: 0.258
+  UD: 0.135
+  H: 0.286
+  total: 0.287
+max_displacement_calculated:
+  NS: -1.052
+  EW: 2.949
+  UD: 0.926
+  H: 3.13
+  total: 3.262
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

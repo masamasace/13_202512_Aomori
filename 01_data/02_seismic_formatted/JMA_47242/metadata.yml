@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47242'
+  name: 白鷹町黒鴨
+  lat: 38.2243
+  lon: 140.062
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.289
+  EW: -6.765
+  UD: -2.686
+  H: 8.0
+  total: 8.045
+max_velocity:
+  NS: 1.209
+  EW: 1.682
+  UD: 0.569
+  total: 1.7
+max_displacement:
+  NS: 0.623
+  EW: 0.837
+  UD: 0.262
+  total: 0.94
+max_velocity_calculated:
+  NS: 1.113
+  EW: 1.667
+  UD: 0.571
+  H: 1.677
+  total: 1.677
+max_displacement_calculated:
+  NS: 0.503
+  EW: 0.653
+  UD: -0.231
+  H: 0.763
+  total: 0.766
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

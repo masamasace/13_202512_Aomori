@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42210'
+  name: 柴田町船岡
+  lat: 38.0547
+  lon: 140.7626
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -8.5
+  EW: 8.56
+  UD: -2.895
+  H: 10.543
+  total: 10.549
+max_velocity:
+  NS: 0.616
+  EW: 0.997
+  UD: 0.495
+  total: 1.009
+max_displacement:
+  NS: 0.204
+  EW: 0.554
+  UD: 0.188
+  total: 0.579
+max_velocity_calculated:
+  NS: -0.618
+  EW: -1.064
+  UD: 0.497
+  H: 1.075
+  total: 1.079
+max_displacement_calculated:
+  NS: -0.229
+  EW: 0.445
+  UD: 0.205
+  H: 0.465
+  total: 0.505
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

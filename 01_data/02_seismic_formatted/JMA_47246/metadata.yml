@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47246'
+  name: 川内村下川内
+  lat: 37.3695
+  lon: 140.8712
+record:
+  start_time: '2025-12-08T23:17:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.197
+  EW: -5.923
+  UD: 2.292
+  H: 6.105
+  total: 6.121
+max_velocity:
+  NS: 0.489
+  EW: 0.521
+  UD: 0.349
+  total: 0.553
+max_displacement:
+  NS: 0.199
+  EW: 0.271
+  UD: 0.181
+  total: 0.314
+max_velocity_calculated:
+  NS: 0.487
+  EW: -1.933
+  UD: -0.385
+  H: 1.977
+  total: 1.978
+max_displacement_calculated:
+  NS: -16.719
+  EW: -82.685
+  UD: 2.654
+  H: 84.359
+  total: 84.399
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

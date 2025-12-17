@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47360'
+  name: 根室市豊里
+  lat: 43.3675
+  lon: 145.7388
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -5.364
+  EW: -4.544
+  UD: 2.243
+  H: 6.005
+  total: 6.056
+max_velocity:
+  NS: 0.54
+  EW: 0.491
+  UD: 0.456
+  total: 0.567
+max_displacement:
+  NS: 0.272
+  EW: 0.297
+  UD: 0.238
+  total: 0.31
+max_velocity_calculated:
+  NS: 0.372
+  EW: -0.415
+  UD: -0.587
+  H: 0.439
+  total: 0.649
+max_displacement_calculated:
+  NS: 9.977
+  EW: 6.77
+  UD: -25.246
+  H: 12.057
+  total: 27.977
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

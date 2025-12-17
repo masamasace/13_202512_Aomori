@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47584'
+  name: 盛岡市山王町
+  lat: 39.6987
+  lon: 141.1658
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:22:19.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -77.176
+  EW: -78.297
+  UD: -27.928
+  H: 85.515
+  total: 85.752
+max_velocity:
+  NS: 4.173
+  EW: 6.465
+  UD: 1.46
+  total: 6.527
+max_displacement:
+  NS: 0.54
+  EW: 1.096
+  UD: 0.412
+  total: 1.107
+max_velocity_calculated:
+  NS: 4.089
+  EW: -6.478
+  UD: 1.284
+  H: 6.525
+  total: 6.539
+max_displacement_calculated:
+  NS: 0.704
+  EW: 1.263
+  UD: 0.441
+  H: 1.263
+  total: 1.274
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

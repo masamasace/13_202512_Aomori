@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47041'
+  name: 標津町古多糠
+  lat: 43.7756
+  lon: 145.0046
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -9.435
+  EW: 8.689
+  UD: 6.676
+  H: 12.043
+  total: 12.227
+max_velocity:
+  NS: 1.229
+  EW: 1.068
+  UD: 0.855
+  total: 1.469
+max_displacement:
+  NS: 0.634
+  EW: 0.525
+  UD: 0.268
+  total: 0.637
+max_velocity_calculated:
+  NS: 1.316
+  EW: -0.919
+  UD: 0.864
+  H: 1.358
+  total: 1.462
+max_displacement_calculated:
+  NS: 0.684
+  EW: 0.592
+  UD: -0.234
+  H: 0.904
+  total: 0.911
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

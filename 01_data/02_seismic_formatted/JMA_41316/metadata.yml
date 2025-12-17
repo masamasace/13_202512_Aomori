@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41316'
+  name: 鴨川市八色
+  lat: 35.114
+  lon: 140.0982
+record:
+  start_time: '2025-12-08T23:18:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.112
+  EW: 2.781
+  UD: 0.798
+  H: 2.785
+  total: 2.785
+max_velocity:
+  NS: 0.425
+  EW: 0.672
+  UD: 0.274
+  total: 0.678
+max_displacement:
+  NS: 0.203
+  EW: 0.304
+  UD: 0.169
+  total: 0.314
+max_velocity_calculated:
+  NS: 0.381
+  EW: -0.58
+  UD: 0.253
+  H: 0.581
+  total: 0.584
+max_displacement_calculated:
+  NS: 1.107
+  EW: -1.552
+  UD: -1.691
+  H: 1.687
+  total: 2.387
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

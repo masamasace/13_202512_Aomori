@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47648'
+  name: 銚子市川口町
+  lat: 35.7399
+  lon: 140.858
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.512
+  EW: -3.354
+  UD: -0.903
+  H: 3.632
+  total: 3.633
+max_velocity:
+  NS: 0.404
+  EW: 0.49
+  UD: 0.22
+  total: 0.538
+max_displacement:
+  NS: 0.142
+  EW: 0.193
+  UD: 0.095
+  total: 0.211
+max_velocity_calculated:
+  NS: 0.432
+  EW: 0.502
+  UD: -0.182
+  H: 0.507
+  total: 0.526
+max_displacement_calculated:
+  NS: -3.034
+  EW: 0.275
+  UD: 1.33
+  H: 3.04
+  total: 3.317
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

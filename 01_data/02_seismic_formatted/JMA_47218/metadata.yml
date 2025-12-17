@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47218'
+  name: 足寄町上螺湾
+  lat: 43.2993
+  lon: 143.7656
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -20.237
+  EW: 24.276
+  UD: 8.158
+  H: 26.305
+  total: 26.334
+max_velocity:
+  NS: 1.432
+  EW: 1.302
+  UD: 0.843
+  total: 1.734
+max_displacement:
+  NS: 0.599
+  EW: 0.552
+  UD: 0.322
+  total: 0.705
+max_velocity_calculated:
+  NS: 1.408
+  EW: -1.275
+  UD: 0.761
+  H: 1.724
+  total: 1.725
+max_displacement_calculated:
+  NS: 0.378
+  EW: 0.542
+  UD: -0.383
+  H: 0.554
+  total: 0.555
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47042'
+  name: 渡島松前町清部
+  lat: 41.5248
+  lon: 140.0069
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 9.858
+  EW: -7.972
+  UD: 4.175
+  H: 10.209
+  total: 10.234
+max_velocity:
+  NS: 0.686
+  EW: 0.916
+  UD: 0.794
+  total: 1.074
+max_displacement:
+  NS: 0.309
+  EW: 0.386
+  UD: 0.474
+  total: 0.519
+max_velocity_calculated:
+  NS: -0.615
+  EW: 0.869
+  UD: 0.78
+  H: 0.979
+  total: 1.178
+max_displacement_calculated:
+  NS: 0.337
+  EW: 0.383
+  UD: 0.43
+  H: 0.402
+  total: 0.478
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

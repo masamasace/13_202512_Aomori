@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42111'
+  name: 別海町常盤
+  lat: 43.3946
+  lon: 145.118
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:22:49.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 27.207
+  EW: -34.973
+  UD: 13.096
+  H: 37.135
+  total: 37.144
+max_velocity:
+  NS: 2.363
+  EW: 2.651
+  UD: 1.156
+  total: 2.97
+max_displacement:
+  NS: 1.73
+  EW: 1.327
+  UD: 0.587
+  total: 1.733
+max_velocity_calculated:
+  NS: -2.17
+  EW: 2.591
+  UD: -1.07
+  H: 2.856
+  total: 2.856
+max_displacement_calculated:
+  NS: -1.673
+  EW: 1.397
+  UD: 0.476
+  H: 1.676
+  total: 1.676
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

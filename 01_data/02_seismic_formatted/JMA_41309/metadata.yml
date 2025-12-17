@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41309'
+  name: 川越市旭町
+  lat: 35.9003
+  lon: 139.4731
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -3.544
+  EW: 4.331
+  UD: 1.771
+  H: 4.468
+  total: 4.514
+max_velocity:
+  NS: 1.095
+  EW: 1.398
+  UD: 0.601
+  total: 1.471
+max_displacement:
+  NS: 0.662
+  EW: 0.878
+  UD: 0.266
+  total: 0.879
+max_velocity_calculated:
+  NS: -0.975
+  EW: 1.269
+  UD: -0.585
+  H: 1.287
+  total: 1.288
+max_displacement_calculated:
+  NS: -13.634
+  EW: -10.076
+  UD: 1.429
+  H: 16.954
+  total: 17.014
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

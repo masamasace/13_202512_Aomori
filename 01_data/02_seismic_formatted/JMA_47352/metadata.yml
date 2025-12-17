@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47352'
+  name: 秋田市雄和女米木
+  lat: 39.5424
+  lon: 140.2053
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:21:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 11.729
+  EW: 10.346
+  UD: -4.474
+  H: 11.935
+  total: 11.95
+max_velocity:
+  NS: 2.626
+  EW: 1.949
+  UD: 1.286
+  total: 2.736
+max_displacement:
+  NS: 1.588
+  EW: 0.781
+  UD: 0.526
+  total: 1.619
+max_velocity_calculated:
+  NS: 2.894
+  EW: -1.816
+  UD: -1.315
+  H: 3.035
+  total: 3.038
+max_displacement_calculated:
+  NS: 1.465
+  EW: 0.788
+  UD: -0.513
+  H: 1.54
+  total: 1.545
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

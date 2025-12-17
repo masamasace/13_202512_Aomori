@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42211'
+  name: 松島町高城
+  lat: 38.3853
+  lon: 141.0691
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -28.579
+  EW: 35.53
+  UD: 8.747
+  H: 35.556
+  total: 35.606
+max_velocity:
+  NS: 3.283
+  EW: 4.254
+  UD: 0.895
+  total: 4.452
+max_displacement:
+  NS: 0.474
+  EW: 0.777
+  UD: 0.276
+  total: 0.809
+max_velocity_calculated:
+  NS: 3.308
+  EW: -4.387
+  UD: 0.893
+  H: 4.407
+  total: 4.461
+max_displacement_calculated:
+  NS: 0.397
+  EW: -0.795
+  UD: -0.338
+  H: 0.797
+  total: 0.802
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

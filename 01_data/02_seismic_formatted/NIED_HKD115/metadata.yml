@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: HKD115
+  lat: 44.007
+  lon: 142.1485
+  height_m: 157.0
+record:
+  start_time: '2025-12-08T23:16:08.000'
+  end_time: '2025-12-08T23:18:10.990'
+  sampling_rate_hz: 100
+  duration_s: 123
+  num_samples: 12300
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: 7.135
+  EW: 11.134
+  UD: -8.02
+  H: 11.762
+  total: 12.49
+max_velocity_calculated:
+  NS: 0.997
+  EW: 1.154
+  UD: -1.307
+  H: 1.228
+  total: 1.474
+max_displacement_calculated:
+  NS: -0.706
+  EW: 0.436
+  UD: -1.0
+  H: 0.732
+  total: 1.004
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

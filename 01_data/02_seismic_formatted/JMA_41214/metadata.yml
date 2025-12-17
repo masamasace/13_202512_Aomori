@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41214'
+  name: 米沢市駅前
+  lat: 37.9125
+  lon: 140.1211
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.572
+  EW: -5.778
+  UD: -2.783
+  H: 6.442
+  total: 6.497
+max_velocity:
+  NS: 1.17
+  EW: 1.07
+  UD: 0.542
+  total: 1.286
+max_displacement:
+  NS: 0.512
+  EW: 0.551
+  UD: 0.21
+  total: 0.761
+max_velocity_calculated:
+  NS: 1.185
+  EW: -1.105
+  UD: -0.541
+  H: 1.295
+  total: 1.302
+max_displacement_calculated:
+  NS: 0.497
+  EW: 0.594
+  UD: -0.174
+  H: 0.714
+  total: 0.718
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

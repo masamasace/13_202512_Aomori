@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41216'
+  name: 南相馬市原町区三島町
+  lat: 37.6413
+  lon: 140.9558
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 12.067
+  EW: 11.202
+  UD: 5.147
+  H: 13.465
+  total: 13.687
+max_velocity:
+  NS: 1.729
+  EW: 1.662
+  UD: 0.765
+  total: 1.87
+max_displacement:
+  NS: 0.502
+  EW: 0.743
+  UD: 0.326
+  total: 0.785
+max_velocity_calculated:
+  NS: 1.58
+  EW: 1.656
+  UD: -0.765
+  H: 1.75
+  total: 1.759
+max_displacement_calculated:
+  NS: -0.696
+  EW: -0.839
+  UD: 0.319
+  H: 0.84
+  total: 0.841
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41314'
+  name: 木更津市太田
+  lat: 35.3786
+  lon: 139.9448
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:21:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.626
+  EW: 3.746
+  UD: 1.834
+  H: 3.79
+  total: 3.876
+max_velocity:
+  NS: 0.935
+  EW: 0.895
+  UD: 0.558
+  total: 0.977
+max_displacement:
+  NS: 0.423
+  EW: 0.467
+  UD: 0.272
+  total: 0.494
+max_velocity_calculated:
+  NS: 0.936
+  EW: -0.874
+  UD: 0.498
+  H: 1.005
+  total: 1.006
+max_displacement_calculated:
+  NS: -6.089
+  EW: -13.283
+  UD: -4.587
+  H: 14.611
+  total: 15.313
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

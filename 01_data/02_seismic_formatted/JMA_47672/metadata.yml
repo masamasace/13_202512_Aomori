@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47672'
+  name: 館山市長須賀
+  lat: 34.9871
+  lon: 139.8654
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.281
+  EW: -3.494
+  UD: 2.01
+  H: 3.499
+  total: 3.514
+max_velocity:
+  NS: 0.919
+  EW: 0.68
+  UD: 0.402
+  total: 0.969
+max_displacement:
+  NS: 0.436
+  EW: 0.3
+  UD: 0.207
+  total: 0.457
+max_velocity_calculated:
+  NS: 0.858
+  EW: 0.641
+  UD: -0.425
+  H: 0.859
+  total: 0.868
+max_displacement_calculated:
+  NS: -17.477
+  EW: -6.219
+  UD: 1.342
+  H: 18.55
+  total: 18.593
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

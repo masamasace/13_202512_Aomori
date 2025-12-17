@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47020'
+  name: 潮来市堀之内
+  lat: 35.9659
+  lon: 140.5259
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -5.199
+  EW: -6.438
+  UD: -3.049
+  H: 6.988
+  total: 6.998
+max_velocity:
+  NS: 1.167
+  EW: 1.286
+  UD: 0.737
+  total: 1.4
+max_displacement:
+  NS: 0.598
+  EW: 0.731
+  UD: 0.275
+  total: 0.787
+max_velocity_calculated:
+  NS: 1.245
+  EW: 1.249
+  UD: -0.74
+  H: 1.318
+  total: 1.404
+max_displacement_calculated:
+  NS: -6.725
+  EW: -2.292
+  UD: -1.124
+  H: 7.104
+  total: 7.189
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

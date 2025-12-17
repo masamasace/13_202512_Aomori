@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42228'
+  name: 浪江町幾世橋
+  lat: 37.4945
+  lon: 140.9997
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 15.171
+  EW: -14.466
+  UD: 6.016
+  H: 18.447
+  total: 18.544
+max_velocity:
+  NS: 2.096
+  EW: 2.177
+  UD: 1.115
+  total: 2.507
+max_displacement:
+  NS: 0.691
+  EW: 0.878
+  UD: 0.465
+  total: 0.893
+max_velocity_calculated:
+  NS: -2.167
+  EW: 2.112
+  UD: -1.185
+  H: 2.342
+  total: 2.431
+max_displacement_calculated:
+  NS: -0.709
+  EW: -0.702
+  UD: -0.489
+  H: 0.767
+  total: 0.877
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

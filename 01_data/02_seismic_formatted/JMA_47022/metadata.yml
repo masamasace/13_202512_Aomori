@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47022'
+  name: 鴨川市内浦
+  lat: 35.16
+  lon: 140.1991
+record:
+  start_time: '2025-12-08T23:18:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: -1.355
+  EW: 1.336
+  UD: 0.644
+  H: 1.528
+  total: 1.528
+max_velocity:
+  NS: 0.328
+  EW: 0.416
+  UD: 0.191
+  total: 0.446
+max_displacement:
+  NS: 0.18
+  EW: 0.213
+  UD: 0.096
+  total: 0.228
+max_velocity_calculated:
+  NS: -0.334
+  EW: -0.415
+  UD: 0.19
+  H: 0.419
+  total: 0.427
+max_displacement_calculated:
+  NS: 1.085
+  EW: 3.514
+  UD: -2.903
+  H: 3.656
+  total: 4.668
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

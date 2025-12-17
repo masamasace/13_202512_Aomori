@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42217'
+  name: 五城目町西磯ノ目
+  lat: 39.9438
+  lon: 140.1111
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -12.864
+  EW: -12.731
+  UD: -5.006
+  H: 13.611
+  total: 13.699
+max_velocity:
+  NS: 2.335
+  EW: 2.659
+  UD: 1.058
+  total: 2.716
+max_displacement:
+  NS: 1.093
+  EW: 0.982
+  UD: 0.464
+  total: 1.385
+max_velocity_calculated:
+  NS: 2.067
+  EW: -2.452
+  UD: -1.043
+  H: 2.494
+  total: 2.494
+max_displacement_calculated:
+  NS: 1.353
+  EW: 0.938
+  UD: 0.433
+  H: 1.452
+  total: 1.457
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42308'
+  name: 大田原市黒羽田町
+  lat: 36.8633
+  lon: 140.1216
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.341
+  EW: -3.038
+  UD: 1.862
+  H: 3.039
+  total: 3.04
+max_velocity:
+  NS: 0.419
+  EW: 0.394
+  UD: 0.331
+  total: 0.501
+max_displacement:
+  NS: 0.135
+  EW: 0.185
+  UD: 0.144
+  total: 0.198
+max_velocity_calculated:
+  NS: -0.478
+  EW: -0.378
+  UD: -0.294
+  H: 0.508
+  total: 0.509
+max_displacement_calculated:
+  NS: 1.813
+  EW: 2.478
+  UD: 2.136
+  H: 3.071
+  total: 3.739
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

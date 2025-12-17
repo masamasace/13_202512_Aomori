@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47225'
+  name: 利尻富士町鬼脇
+  lat: 45.14
+  lon: 141.3074
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:22:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.036
+  EW: -3.25
+  UD: 1.518
+  H: 3.358
+  total: 3.367
+max_velocity:
+  NS: 2.443
+  EW: 2.24
+  UD: 0.821
+  total: 2.455
+max_displacement:
+  NS: 1.97
+  EW: 1.559
+  UD: 0.511
+  total: 1.98
+max_velocity_calculated:
+  NS: 1.933
+  EW: 2.108
+  UD: 0.73
+  H: 2.182
+  total: 2.194
+max_displacement_calculated:
+  NS: 20.778
+  EW: -1.709
+  UD: 2.528
+  H: 20.787
+  total: 20.94
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

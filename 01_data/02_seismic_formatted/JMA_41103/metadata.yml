@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41103'
+  name: 夕張市若菜
+  lat: 43.0287
+  lon: 141.9654
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 42.743
+  EW: -50.655
+  UD: -25.242
+  H: 50.666
+  total: 51.322
+max_velocity:
+  NS: 6.966
+  EW: 4.311
+  UD: 2.205
+  total: 7.869
+max_displacement:
+  NS: 4.015
+  EW: 1.408
+  UD: 0.966
+  total: 4.103
+max_velocity_calculated:
+  NS: -6.876
+  EW: -4.312
+  UD: -2.31
+  H: 7.418
+  total: 7.542
+max_displacement_calculated:
+  NS: 3.592
+  EW: 1.77
+  UD: -0.875
+  H: 3.616
+  total: 3.618
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

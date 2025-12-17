@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41329'
+  name: 糸魚川市一の宮
+  lat: 37.0388
+  lon: 137.8633
+record:
+  start_time: '2025-12-08T23:18:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 60.0
+  num_samples: 6000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 0.684
+  EW: -0.792
+  UD: -0.365
+  H: 0.834
+  total: 0.835
+max_velocity:
+  NS: 0.341
+  EW: 0.231
+  UD: 0.127
+  total: 0.352
+max_displacement:
+  NS: 0.203
+  EW: 0.133
+  UD: 0.078
+  total: 0.21
+max_velocity_calculated:
+  NS: -0.369
+  EW: 0.244
+  UD: -0.188
+  H: 0.373
+  total: 0.387
+max_displacement_calculated:
+  NS: -1.151
+  EW: 2.1
+  UD: -1.2
+  H: 2.243
+  total: 2.47
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

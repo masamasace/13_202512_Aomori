@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47372'
+  name: 浦河町野深
+  lat: 42.2826
+  lon: 142.7498
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 88.105
+  EW: 75.077
+  UD: 30.324
+  H: 92.488
+  total: 92.725
+max_velocity:
+  NS: 8.229
+  EW: 9.801
+  UD: 2.423
+  total: 12.603
+max_displacement:
+  NS: 2.297
+  EW: 2.947
+  UD: 0.841
+  total: 3.796
+max_velocity_calculated:
+  NS: -8.232
+  EW: 10.023
+  UD: -2.451
+  H: 12.663
+  total: 12.763
+max_displacement_calculated:
+  NS: 1.932
+  EW: 2.325
+  UD: -0.921
+  H: 2.726
+  total: 2.832
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

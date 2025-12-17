@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42206'
+  name: 八幡平市大更
+  lat: 39.9263
+  lon: 141.0951
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -64.524
+  EW: -111.876
+  UD: 35.643
+  H: 116.581
+  total: 116.944
+max_velocity:
+  NS: 7.674
+  EW: 7.696
+  UD: 3.513
+  total: 9.016
+max_displacement:
+  NS: 2.214
+  EW: 2.218
+  UD: 0.696
+  total: 2.713
+max_velocity_calculated:
+  NS: 7.467
+  EW: -7.664
+  UD: -3.303
+  H: 8.969
+  total: 9.028
+max_displacement_calculated:
+  NS: 2.141
+  EW: 2.019
+  UD: 0.833
+  H: 2.551
+  total: 2.574
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

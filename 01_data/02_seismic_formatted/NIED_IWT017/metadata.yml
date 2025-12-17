@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: IWT017
+  lat: 39.6339
+  lon: 141.4379
+  height_m: 617.0
+record:
+  start_time: '2025-12-08T23:15:37.000'
+  end_time: '2025-12-08T23:18:21.990'
+  sampling_rate_hz: 100
+  duration_s: 165
+  num_samples: 16500
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: -96.613
+  EW: -56.64
+  UD: -84.104
+  H: 96.781
+  total: 108.078
+max_velocity_calculated:
+  NS: 3.977
+  EW: -3.075
+  UD: -1.72
+  H: 4.02
+  total: 4.044
+max_displacement_calculated:
+  NS: 0.655
+  EW: 0.835
+  UD: -0.464
+  H: 0.987
+  total: 1.003
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

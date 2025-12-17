@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47209'
+  name: 恵庭市漁平
+  lat: 42.8435
+  lon: 141.4459
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -23.318
+  EW: 31.482
+  UD: 22.037
+  H: 34.34
+  total: 36.857
+max_velocity:
+  NS: 5.425
+  EW: 6.828
+  UD: 3.705
+  total: 8.552
+max_displacement:
+  NS: 2.519
+  EW: 2.921
+  UD: 1.546
+  total: 3.387
+max_velocity_calculated:
+  NS: 5.023
+  EW: 6.596
+  UD: 3.055
+  H: 7.658
+  total: 7.913
+max_displacement_calculated:
+  NS: -2.331
+  EW: -2.064
+  UD: -1.594
+  H: 3.037
+  total: 3.346
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

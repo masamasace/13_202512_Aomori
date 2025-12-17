@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47223'
+  name: 芦別市旭町
+  lat: 43.5068
+  lon: 142.2192
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -21.267
+  EW: 20.93
+  UD: 9.771
+  H: 24.096
+  total: 24.12
+max_velocity:
+  NS: 5.018
+  EW: 3.047
+  UD: 3.57
+  total: 5.432
+max_displacement:
+  NS: 3.017
+  EW: 1.241
+  UD: 2.257
+  total: 3.25
+max_velocity_calculated:
+  NS: -5.468
+  EW: 2.961
+  UD: 3.093
+  H: 5.526
+  total: 5.605
+max_displacement_calculated:
+  NS: -2.907
+  EW: -1.144
+  UD: -2.137
+  H: 3.014
+  total: 3.12
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

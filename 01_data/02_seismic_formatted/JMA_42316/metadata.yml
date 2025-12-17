@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42316'
+  name: 胎内市新和町
+  lat: 38.0596
+  lon: 139.4102
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.773
+  EW: -2.52
+  UD: -2.028
+  H: 2.944
+  total: 3.015
+max_velocity:
+  NS: 1.007
+  EW: 0.864
+  UD: 0.817
+  total: 1.106
+max_displacement:
+  NS: 0.619
+  EW: 0.58
+  UD: 0.461
+  total: 0.792
+max_velocity_calculated:
+  NS: 0.879
+  EW: -0.925
+  UD: -0.68
+  H: 1.151
+  total: 1.194
+max_displacement_calculated:
+  NS: 11.268
+  EW: -6.76
+  UD: 1.923
+  H: 13.131
+  total: 13.271
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

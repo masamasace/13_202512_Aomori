@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47017'
+  name: 米沢市アルカディア
+  lat: 37.9127
+  lon: 140.1436
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 10.077
+  EW: 7.599
+  UD: 3.36
+  H: 10.078
+  total: 10.182
+max_velocity:
+  NS: 1.47
+  EW: 1.422
+  UD: 0.431
+  total: 1.511
+max_displacement:
+  NS: 0.419
+  EW: 0.517
+  UD: 0.172
+  total: 0.671
+max_velocity_calculated:
+  NS: -1.475
+  EW: 1.37
+  UD: -0.405
+  H: 1.48
+  total: 1.48
+max_displacement_calculated:
+  NS: -1.12
+  EW: -0.68
+  UD: -0.145
+  H: 1.201
+  total: 1.202
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

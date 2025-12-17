@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47430'
+  name: 函館市美原
+  lat: 41.8169
+  lon: 140.7541
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -62.829
+  EW: 67.239
+  UD: -30.888
+  H: 71.531
+  total: 71.622
+max_velocity:
+  NS: 3.563
+  EW: 4.076
+  UD: 1.839
+  total: 4.518
+max_displacement:
+  NS: 0.655
+  EW: 0.938
+  UD: 0.91
+  total: 1.207
+max_velocity_calculated:
+  NS: 3.284
+  EW: 3.769
+  UD: -1.67
+  H: 4.302
+  total: 4.434
+max_displacement_calculated:
+  NS: -0.638
+  EW: -1.133
+  UD: 1.033
+  H: 1.155
+  total: 1.435
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

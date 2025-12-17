@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47624'
+  name: 前橋市昭和町
+  lat: 36.4055
+  lon: 139.0608
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:21:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: -2.114
+  EW: -1.626
+  UD: 1.151
+  H: 2.115
+  total: 2.117
+max_velocity:
+  NS: 0.971
+  EW: 0.881
+  UD: 0.358
+  total: 1.0
+max_displacement:
+  NS: 0.69
+  EW: 0.644
+  UD: 0.213
+  total: 0.723
+max_velocity_calculated:
+  NS: -0.867
+  EW: 0.891
+  UD: -0.365
+  H: 0.904
+  total: 0.921
+max_displacement_calculated:
+  NS: 0.755
+  EW: 1.476
+  UD: -2.759
+  H: 1.484
+  total: 3.117
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

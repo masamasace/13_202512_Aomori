@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47370'
+  name: 銚子市小畑新町
+  lat: 35.7211
+  lon: 140.8578
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: -2.092
+  EW: 2.07
+  UD: 0.634
+  H: 2.5
+  total: 2.502
+max_velocity:
+  NS: 0.405
+  EW: 0.377
+  UD: 0.175
+  total: 0.508
+max_displacement:
+  NS: 0.142
+  EW: 0.177
+  UD: 0.107
+  total: 0.197
+max_velocity_calculated:
+  NS: 0.388
+  EW: 0.301
+  UD: -0.162
+  H: 0.413
+  total: 0.438
+max_displacement_calculated:
+  NS: 10.082
+  EW: 1.149
+  UD: 0.557
+  H: 10.147
+  total: 10.161
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

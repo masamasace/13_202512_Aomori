@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41347'
+  name: 静岡清水区千歳町
+  lat: 35.0168
+  lon: 138.4848
+record:
+  start_time: '2025-12-08T23:18:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 1.654
+  EW: 2.335
+  UD: 0.534
+  H: 2.357
+  total: 2.367
+max_velocity:
+  NS: 0.325
+  EW: 0.461
+  UD: 0.193
+  total: 0.546
+max_displacement:
+  NS: 0.12
+  EW: 0.23
+  UD: 0.1
+  total: 0.26
+max_velocity_calculated:
+  NS: -0.327
+  EW: -0.47
+  UD: -0.207
+  H: 0.537
+  total: 0.552
+max_displacement_calculated:
+  NS: -0.173
+  EW: 1.842
+  UD: -1.217
+  H: 1.846
+  total: 2.211
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

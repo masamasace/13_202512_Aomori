@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47405'
+  name: 雄武町雄武
+  lat: 44.5825
+  lon: 142.9618
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.223
+  EW: -2.53
+  UD: 1.834
+  H: 2.645
+  total: 2.7
+max_velocity:
+  NS: 0.66
+  EW: 0.699
+  UD: 0.623
+  total: 0.703
+max_displacement:
+  NS: 0.311
+  EW: 0.332
+  UD: 0.29
+  total: 0.377
+max_velocity_calculated:
+  NS: 0.505
+  EW: -0.567
+  UD: 0.414
+  H: 0.58
+  total: 0.638
+max_displacement_calculated:
+  NS: 2.745
+  EW: -4.366
+  UD: 9.871
+  H: 5.156
+  total: 11.135
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

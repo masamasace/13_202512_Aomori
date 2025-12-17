@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47626'
+  name: 熊谷市桜町
+  lat: 36.1504
+  lon: 139.3807
+record:
+  start_time: '2025-12-08T23:16:50.000'
+  end_time: '2025-12-08T23:21:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -4.257
+  EW: -4.415
+  UD: -1.485
+  H: 4.93
+  total: 5.008
+max_velocity:
+  NS: 1.196
+  EW: 1.391
+  UD: 0.445
+  total: 1.831
+max_displacement:
+  NS: 0.535
+  EW: 0.761
+  UD: 0.227
+  total: 0.799
+max_velocity_calculated:
+  NS: -1.245
+  EW: 1.414
+  UD: 0.394
+  H: 1.88
+  total: 1.886
+max_displacement_calculated:
+  NS: -29.922
+  EW: -11.537
+  UD: 20.263
+  H: 32.069
+  total: 37.935
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

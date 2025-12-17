@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47629'
+  name: 水戸市金町
+  lat: 36.3816
+  lon: 140.468
+record:
+  start_time: '2025-12-08T23:16:10.000'
+  end_time: '2025-12-08T23:21:09.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -7.456
+  EW: 6.928
+  UD: -3.358
+  H: 7.547
+  total: 7.596
+max_velocity:
+  NS: 1.543
+  EW: 1.398
+  UD: 0.693
+  total: 1.586
+max_displacement:
+  NS: 0.493
+  EW: 0.543
+  UD: 0.286
+  total: 0.621
+max_velocity_calculated:
+  NS: -1.572
+  EW: -1.37
+  UD: 0.693
+  H: 1.592
+  total: 1.619
+max_displacement_calculated:
+  NS: -12.326
+  EW: -12.664
+  UD: -2.286
+  H: 17.672
+  total: 17.819
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

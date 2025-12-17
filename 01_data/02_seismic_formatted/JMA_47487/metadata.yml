@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47487'
+  name: 新千歳空港
+  lat: 42.7839
+  lon: 141.6788
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: 105.678
+  EW: -97.094
+  UD: -47.99
+  H: 108.842
+  total: 110.142
+max_velocity:
+  NS: 15.772
+  EW: 20.225
+  UD: 3.682
+  total: 21.77
+max_displacement:
+  NS: 6.127
+  EW: 6.302
+  UD: 1.449
+  total: 6.589
+max_velocity_calculated:
+  NS: -16.456
+  EW: -20.124
+  UD: -3.226
+  H: 20.716
+  total: 20.743
+max_displacement_calculated:
+  NS: 7.168
+  EW: 5.939
+  UD: -2.582
+  H: 9.304
+  total: 9.394
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

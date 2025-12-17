@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47206'
+  name: 上川地方上川町越路
+  lat: 43.8763
+  lon: 142.7437
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 6.351
+  EW: -5.206
+  UD: -2.559
+  H: 6.395
+  total: 6.478
+max_velocity:
+  NS: 1.01
+  EW: 0.828
+  UD: 0.829
+  total: 1.285
+max_displacement:
+  NS: 0.51
+  EW: 0.451
+  UD: 0.477
+  total: 0.559
+max_velocity_calculated:
+  NS: 1.015
+  EW: -0.731
+  UD: -0.683
+  H: 1.121
+  total: 1.159
+max_displacement_calculated:
+  NS: 0.375
+  EW: 0.378
+  UD: 0.448
+  H: 0.438
+  total: 0.531
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47512'
+  name: 大船渡市大船渡町
+  lat: 39.0653
+  lon: 141.7146
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:21:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 50.033
+  EW: -49.522
+  UD: 14.511
+  H: 59.662
+  total: 59.71
+max_velocity:
+  NS: 1.854
+  EW: 2.323
+  UD: 0.812
+  total: 2.675
+max_displacement:
+  NS: 0.345
+  EW: 0.791
+  UD: 0.189
+  total: 0.839
+max_velocity_calculated:
+  NS: 1.78
+  EW: -2.221
+  UD: 0.771
+  H: 2.573
+  total: 2.578
+max_displacement_calculated:
+  NS: 0.578
+  EW: -0.826
+  UD: 0.178
+  H: 0.993
+  total: 0.999
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

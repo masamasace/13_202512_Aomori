@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47217'
+  name: えりも町本町
+  lat: 42.0174
+  lon: 143.1533
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 17.118
+  EW: 16.267
+  UD: -13.158
+  H: 19.044
+  total: 19.602
+max_velocity:
+  NS: 2.412
+  EW: 2.119
+  UD: 1.656
+  total: 2.579
+max_displacement:
+  NS: 0.957
+  EW: 0.821
+  UD: 0.565
+  total: 1.065
+max_velocity_calculated:
+  NS: -1.871
+  EW: -1.91
+  UD: -1.454
+  H: 2.37
+  total: 2.37
+max_displacement_calculated:
+  NS: 0.847
+  EW: -1.007
+  UD: 0.633
+  H: 1.057
+  total: 1.067
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

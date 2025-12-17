@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47575'
+  name: 青森市花園
+  lat: 40.822
+  lon: 140.7686
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:22:19.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 74.257
+  EW: -95.491
+  UD: -37.856
+  H: 96.011
+  total: 96.666
+max_velocity:
+  NS: 12.685
+  EW: 11.538
+  UD: 3.111
+  total: 12.879
+max_displacement:
+  NS: 4.8
+  EW: 3.283
+  UD: 1.001
+  total: 4.988
+max_velocity_calculated:
+  NS: 12.75
+  EW: -11.539
+  UD: -2.694
+  H: 12.852
+  total: 12.852
+max_displacement_calculated:
+  NS: -4.49
+  EW: 3.135
+  UD: 1.23
+  H: 4.564
+  total: 4.564
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

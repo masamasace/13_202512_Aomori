@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: AKT004
+  lat: 40.3886
+  lon: 139.9822
+  height_m: 27.0
+record:
+  start_time: '2025-12-08T23:15:42.000'
+  end_time: '2025-12-08T23:18:00.990'
+  sampling_rate_hz: 100
+  duration_s: 139
+  num_samples: 13900
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: 7.326
+  EW: -5.561
+  UD: -31.567
+  H: 8.227
+  total: 31.731
+max_velocity_calculated:
+  NS: 1.112
+  EW: -0.784
+  UD: -0.624
+  H: 1.182
+  total: 1.188
+max_displacement_calculated:
+  NS: -0.8
+  EW: -0.599
+  UD: -0.511
+  H: 0.809
+  total: 0.819
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

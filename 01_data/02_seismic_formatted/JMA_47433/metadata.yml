@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47433'
+  name: 倶知安町南１条
+  lat: 42.9009
+  lon: 140.7573
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -19.0
+  EW: 16.137
+  UD: 8.722
+  H: 20.636
+  total: 20.843
+max_velocity:
+  NS: 4.343
+  EW: 4.336
+  UD: 1.425
+  total: 4.549
+max_displacement:
+  NS: 1.717
+  EW: 1.157
+  UD: 0.436
+  total: 1.728
+max_velocity_calculated:
+  NS: -4.338
+  EW: -4.37
+  UD: -1.109
+  H: 4.527
+  total: 4.545
+max_displacement_calculated:
+  NS: 1.767
+  EW: 1.149
+  UD: 0.506
+  H: 1.866
+  total: 1.867
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

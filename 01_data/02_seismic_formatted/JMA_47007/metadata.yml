@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47007'
+  name: 東通村砂子又蒲谷地
+  lat: 41.2653
+  lon: 141.3374
+record:
+  start_time: '2025-12-08T23:15:10.000'
+  end_time: '2025-12-08T23:21:09.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: 186.788
+  EW: 162.272
+  UD: -109.064
+  H: 189.895
+  total: 192.703
+max_velocity:
+  NS: 16.421
+  EW: 12.775
+  UD: 9.774
+  total: 17.026
+max_displacement:
+  NS: 3.508
+  EW: 1.79
+  UD: 1.145
+  total: 3.666
+max_velocity_calculated:
+  NS: 16.211
+  EW: 12.191
+  UD: 9.411
+  H: 16.28
+  total: 16.771
+max_displacement_calculated:
+  NS: -3.114
+  EW: 1.811
+  UD: 1.246
+  H: 3.43
+  total: 3.497
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

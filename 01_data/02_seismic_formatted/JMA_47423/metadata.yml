@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47423'
+  name: 室蘭市山手町
+  lat: 42.3118
+  lon: 140.9752
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -22.087
+  EW: 24.999
+  UD: 17.088
+  H: 31.027
+  total: 31.056
+max_velocity:
+  NS: 1.921
+  EW: 2.079
+  UD: 1.818
+  total: 2.65
+max_displacement:
+  NS: 0.515
+  EW: 0.632
+  UD: 0.709
+  total: 0.85
+max_velocity_calculated:
+  NS: -1.761
+  EW: 1.977
+  UD: -1.527
+  H: 2.135
+  total: 2.138
+max_displacement_calculated:
+  NS: 0.578
+  EW: -0.62
+  UD: -0.698
+  H: 0.665
+  total: 0.964
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

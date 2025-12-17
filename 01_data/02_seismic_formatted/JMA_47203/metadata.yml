@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47203'
+  name: 初山別村有明
+  lat: 44.4017
+  lon: 141.8493
+record:
+  start_time: '2025-12-08T23:16:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -4.314
+  EW: -5.122
+  UD: -2.745
+  H: 5.233
+  total: 5.242
+max_velocity:
+  NS: 1.181
+  EW: 1.41
+  UD: 1.164
+  total: 1.706
+max_displacement:
+  NS: 0.913
+  EW: 0.873
+  UD: 0.778
+  total: 1.146
+max_velocity_calculated:
+  NS: -1.118
+  EW: -1.508
+  UD: 1.019
+  H: 1.518
+  total: 1.518
+max_displacement_calculated:
+  NS: 12.344
+  EW: -1.047
+  UD: -0.768
+  H: 12.355
+  total: 12.355
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

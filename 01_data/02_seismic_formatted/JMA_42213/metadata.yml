@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42213'
+  name: 登米市中田町
+  lat: 38.7103
+  lon: 141.2357
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -41.697
+  EW: 43.69
+  UD: 22.383
+  H: 46.858
+  total: 48.286
+max_velocity:
+  NS: 5.281
+  EW: 5.0
+  UD: 1.967
+  total: 6.09
+max_displacement:
+  NS: 1.071
+  EW: 1.24
+  UD: 0.376
+  total: 1.556
+max_velocity_calculated:
+  NS: -5.039
+  EW: 5.069
+  UD: -2.036
+  H: 6.139
+  total: 6.139
+max_displacement_calculated:
+  NS: -1.098
+  EW: -1.312
+  UD: 0.574
+  H: 1.333
+  total: 1.371
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

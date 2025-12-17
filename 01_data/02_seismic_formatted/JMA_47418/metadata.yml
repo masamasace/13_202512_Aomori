@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47418'
+  name: 釧路市幸町
+  lat: 42.9867
+  lon: 144.3782
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:21:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -18.114
+  EW: 16.776
+  UD: -8.062
+  H: 19.829
+  total: 19.866
+max_velocity:
+  NS: 1.624
+  EW: 1.347
+  UD: 0.705
+  total: 1.908
+max_displacement:
+  NS: 0.691
+  EW: 0.515
+  UD: 0.366
+  total: 0.72
+max_velocity_calculated:
+  NS: 1.493
+  EW: 1.241
+  UD: -0.568
+  H: 1.526
+  total: 1.533
+max_displacement_calculated:
+  NS: 0.675
+  EW: 0.707
+  UD: 0.785
+  H: 0.812
+  total: 1.003
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

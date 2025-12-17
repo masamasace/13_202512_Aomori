@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47054'
+  name: 東京江東区青海
+  lat: 35.6168
+  lon: 139.7812
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 6.448
+  EW: -4.853
+  UD: -1.79
+  H: 6.869
+  total: 6.902
+max_velocity:
+  NS: 1.176
+  EW: 1.1
+  UD: 0.439
+  total: 1.213
+max_displacement:
+  NS: 0.594
+  EW: 0.566
+  UD: 0.222
+  total: 0.7
+max_velocity_calculated:
+  NS: 1.069
+  EW: -1.06
+  UD: -0.378
+  H: 1.106
+  total: 1.107
+max_displacement_calculated:
+  NS: 3.601
+  EW: -0.508
+  UD: -3.247
+  H: 3.603
+  total: 4.85
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

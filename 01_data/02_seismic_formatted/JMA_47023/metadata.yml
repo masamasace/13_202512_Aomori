@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47023'
+  name: 東京利島村東山
+  lat: 34.5236
+  lon: 139.2883
+record:
+  start_time: '2025-12-08T23:18:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 0.962
+  EW: 0.921
+  UD: -0.341
+  H: 1.004
+  total: 1.01
+max_velocity:
+  NS: 0.283
+  EW: 0.233
+  UD: 0.097
+  total: 0.301
+max_displacement:
+  NS: 0.218
+  EW: 0.163
+  UD: 0.062
+  total: 0.226
+max_velocity_calculated:
+  NS: -0.25
+  EW: -0.289
+  UD: 0.092
+  H: 0.305
+  total: 0.306
+max_displacement_calculated:
+  NS: 2.739
+  EW: -8.488
+  UD: -0.321
+  H: 8.91
+  total: 8.916
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

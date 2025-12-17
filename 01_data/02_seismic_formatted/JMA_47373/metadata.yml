@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47373'
+  name: 南房総市上堀
+  lat: 35.0353
+  lon: 139.8874
+record:
+  start_time: '2025-12-08T23:18:00.000'
+  end_time: '2025-12-08T23:21:59.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -1.895
+  EW: -2.047
+  UD: 1.49
+  H: 2.172
+  total: 2.349
+max_velocity:
+  NS: 0.675
+  EW: 0.617
+  UD: 0.373
+  total: 0.748
+max_displacement:
+  NS: 0.343
+  EW: 0.316
+  UD: 0.203
+  total: 0.378
+max_velocity_calculated:
+  NS: 0.653
+  EW: 0.641
+  UD: 0.327
+  H: 0.777
+  total: 0.783
+max_displacement_calculated:
+  NS: -3.777
+  EW: -0.791
+  UD: -5.342
+  H: 3.846
+  total: 6.579
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

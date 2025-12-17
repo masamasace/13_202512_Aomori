@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41327'
+  name: 新潟秋葉区程島
+  lat: 37.7877
+  lon: 139.1121
+record:
+  start_time: '2025-12-08T23:17:10.000'
+  end_time: '2025-12-08T23:21:09.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.559
+  EW: 3.616
+  UD: 1.215
+  H: 3.814
+  total: 3.892
+max_velocity:
+  NS: 0.997
+  EW: 0.914
+  UD: 0.486
+  total: 1.118
+max_displacement:
+  NS: 0.623
+  EW: 0.621
+  UD: 0.258
+  total: 0.773
+max_velocity_calculated:
+  NS: -0.883
+  EW: -0.962
+  UD: 0.437
+  H: 1.008
+  total: 1.008
+max_displacement_calculated:
+  NS: -12.24
+  EW: 22.247
+  UD: -11.054
+  H: 25.375
+  total: 27.675
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41301'
+  name: 坂東市岩井
+  lat: 36.0407
+  lon: 139.8832
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -7.467
+  EW: -5.472
+  UD: 1.907
+  H: 7.526
+  total: 7.528
+max_velocity:
+  NS: 1.32
+  EW: 1.129
+  UD: 0.62
+  total: 1.489
+max_displacement:
+  NS: 0.673
+  EW: 0.539
+  UD: 0.246
+  total: 0.739
+max_velocity_calculated:
+  NS: 1.287
+  EW: -1.159
+  UD: -0.634
+  H: 1.437
+  total: 1.472
+max_displacement_calculated:
+  NS: -2.296
+  EW: -1.29
+  UD: 2.419
+  H: 2.456
+  total: 3.447
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

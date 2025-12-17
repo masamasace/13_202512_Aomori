@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42115'
+  name: 七飯町桜町
+  lat: 41.9033
+  lon: 140.688
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 54.241
+  EW: 67.949
+  UD: -16.547
+  H: 69.368
+  total: 69.547
+max_velocity:
+  NS: 4.161
+  EW: 4.217
+  UD: 2.373
+  total: 4.412
+max_displacement:
+  NS: 0.719
+  EW: 0.944
+  UD: 0.638
+  total: 0.962
+max_velocity_calculated:
+  NS: -4.034
+  EW: -3.969
+  UD: 1.711
+  H: 4.169
+  total: 4.202
+max_displacement_calculated:
+  NS: -0.825
+  EW: 0.713
+  UD: 0.717
+  H: 1.014
+  total: 1.032
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

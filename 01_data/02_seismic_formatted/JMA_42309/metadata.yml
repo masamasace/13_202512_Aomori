@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42309'
+  name: 東吾妻町原町
+  lat: 36.5714
+  lon: 138.8212
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:18:29.990'
+  sampling_rate_hz: 100
+  duration_s: 60.0
+  num_samples: 6000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 0.723
+  EW: 0.664
+  UD: 0.389
+  H: 0.724
+  total: 0.76
+max_velocity:
+  NS: 0.321
+  EW: 0.331
+  UD: 0.148
+  total: 0.358
+max_displacement:
+  NS: 0.164
+  EW: 0.269
+  UD: 0.073
+  total: 0.3
+max_velocity_calculated:
+  NS: -0.271
+  EW: -0.326
+  UD: -0.132
+  H: 0.336
+  total: 0.336
+max_displacement_calculated:
+  NS: -0.554
+  EW: -0.978
+  UD: 1.341
+  H: 1.12
+  total: 1.747
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41104'
+  name: 滝川市大町
+  lat: 43.5574
+  lon: 141.9108
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -20.766
+  EW: -19.138
+  UD: -11.409
+  H: 25.527
+  total: 25.795
+max_velocity:
+  NS: 4.87
+  EW: 3.609
+  UD: 2.417
+  total: 5.488
+max_displacement:
+  NS: 2.237
+  EW: 1.956
+  UD: 1.058
+  total: 2.819
+max_velocity_calculated:
+  NS: -4.931
+  EW: 3.548
+  UD: -2.374
+  H: 5.059
+  total: 5.108
+max_displacement_calculated:
+  NS: -2.171
+  EW: -1.56
+  UD: 0.988
+  H: 2.412
+  total: 2.413
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

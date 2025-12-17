@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47682'
+  name: 千葉中央区中央港
+  lat: 35.6027
+  lon: 140.1046
+record:
+  start_time: '2025-12-08T23:16:50.000'
+  end_time: '2025-12-08T23:22:49.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -9.101
+  EW: -8.615
+  UD: -2.442
+  H: 10.284
+  total: 10.285
+max_velocity:
+  NS: 1.543
+  EW: 1.391
+  UD: 0.423
+  total: 1.782
+max_displacement:
+  NS: 0.777
+  EW: 0.536
+  UD: 0.258
+  total: 0.857
+max_velocity_calculated:
+  NS: -1.441
+  EW: 1.436
+  UD: 0.439
+  H: 1.626
+  total: 1.637
+max_displacement_calculated:
+  NS: -30.144
+  EW: 14.678
+  UD: -17.721
+  H: 33.526
+  total: 37.922
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

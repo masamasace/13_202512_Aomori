@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47668'
+  name: 熱海市網代
+  lat: 35.0482
+  lon: 139.0925
+record:
+  start_time: '2025-12-08T23:18:00.000'
+  end_time: '2025-12-08T23:18:59.990'
+  sampling_rate_hz: 100
+  duration_s: 60.0
+  num_samples: 6000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.036
+  EW: -1.2
+  UD: 0.499
+  H: 1.212
+  total: 1.215
+max_velocity:
+  NS: 0.131
+  EW: 0.226
+  UD: 0.09
+  total: 0.232
+max_displacement:
+  NS: 0.068
+  EW: 0.085
+  UD: 0.052
+  total: 0.099
+max_velocity_calculated:
+  NS: -0.18
+  EW: 0.321
+  UD: 0.089
+  H: 0.356
+  total: 0.364
+max_displacement_calculated:
+  NS: -2.399
+  EW: 4.437
+  UD: 1.021
+  H: 5.043
+  total: 5.145
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41319'
+  name: 国分寺市並木町
+  lat: 35.7152
+  lon: 139.4502
+record:
+  start_time: '2025-12-08T23:17:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.661
+  EW: -3.168
+  UD: 1.367
+  H: 3.364
+  total: 3.411
+max_velocity:
+  NS: 0.843
+  EW: 0.885
+  UD: 0.417
+  total: 1.079
+max_displacement:
+  NS: 0.467
+  EW: 0.55
+  UD: 0.223
+  total: 0.666
+max_velocity_calculated:
+  NS: 0.734
+  EW: -0.883
+  UD: -0.446
+  H: 0.968
+  total: 0.997
+max_displacement_calculated:
+  NS: -5.654
+  EW: 17.645
+  UD: 2.67
+  H: 18.524
+  total: 18.715
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

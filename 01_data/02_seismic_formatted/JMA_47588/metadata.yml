@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47588'
+  name: 山形市緑町
+  lat: 38.2562
+  lon: 140.3459
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.475
+  EW: 3.976
+  UD: 2.854
+  H: 5.596
+  total: 5.671
+max_velocity:
+  NS: 1.011
+  EW: 1.15
+  UD: 0.579
+  total: 1.231
+max_displacement:
+  NS: 0.386
+  EW: 0.562
+  UD: 0.253
+  total: 0.581
+max_velocity_calculated:
+  NS: -1.016
+  EW: 1.034
+  UD: 0.536
+  H: 1.109
+  total: 1.112
+max_displacement_calculated:
+  NS: 0.462
+  EW: 1.099
+  UD: -0.392
+  H: 1.099
+  total: 1.099
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

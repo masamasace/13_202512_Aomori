@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42311'
+  name: 鳩山町大豆戸
+  lat: 35.9814
+  lon: 139.3341
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.211
+  EW: 3.636
+  UD: 2.103
+  H: 3.669
+  total: 4.223
+max_velocity:
+  NS: 0.856
+  EW: 0.976
+  UD: 0.554
+  total: 1.012
+max_displacement:
+  NS: 0.483
+  EW: 0.432
+  UD: 0.236
+  total: 0.56
+max_velocity_calculated:
+  NS: 0.828
+  EW: 0.935
+  UD: 0.507
+  H: 0.942
+  total: 0.956
+max_displacement_calculated:
+  NS: -2.003
+  EW: 1.372
+  UD: -4.997
+  H: 2.411
+  total: 5.537
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

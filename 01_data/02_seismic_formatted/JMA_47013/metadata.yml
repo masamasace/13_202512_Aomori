@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47013'
+  name: 大崎市古川大崎
+  lat: 38.6022
+  lon: 140.9112
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:21:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 19.219
+  EW: -17.575
+  UD: 7.855
+  H: 20.613
+  total: 21.132
+max_velocity:
+  NS: 2.961
+  EW: 3.358
+  UD: 1.783
+  total: 3.722
+max_displacement:
+  NS: 1.401
+  EW: 1.477
+  UD: 0.603
+  total: 1.602
+max_velocity_calculated:
+  NS: 2.953
+  EW: 3.299
+  UD: 1.719
+  H: 3.561
+  total: 3.639
+max_displacement_calculated:
+  NS: -1.122
+  EW: -1.264
+  UD: 0.613
+  H: 1.325
+  total: 1.334
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41101'
+  name: 千歳市北栄
+  lat: 42.8259
+  lon: 141.6414
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: -93.796
+  EW: -130.159
+  UD: -44.172
+  H: 130.17
+  total: 131.961
+max_velocity:
+  NS: 14.58
+  EW: 16.366
+  UD: 3.497
+  total: 17.848
+max_displacement:
+  NS: 6.551
+  EW: 5.941
+  UD: 1.558
+  total: 7.173
+max_velocity_calculated:
+  NS: -13.549
+  EW: -16.004
+  UD: -3.337
+  H: 16.694
+  total: 16.718
+max_displacement_calculated:
+  NS: 11.908
+  EW: 8.018
+  UD: -1.941
+  H: 13.829
+  total: 13.845
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41106'
+  name: 名寄市大通
+  lat: 44.3557
+  lon: 142.4632
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 4.641
+  EW: -5.721
+  UD: -2.649
+  H: 6.172
+  total: 6.181
+max_velocity:
+  NS: 1.256
+  EW: 1.542
+  UD: 0.722
+  total: 1.582
+max_displacement:
+  NS: 0.644
+  EW: 0.566
+  UD: 0.446
+  total: 0.738
+max_velocity_calculated:
+  NS: -1.24
+  EW: -1.539
+  UD: 0.696
+  H: 1.539
+  total: 1.54
+max_displacement_calculated:
+  NS: -0.584
+  EW: 0.593
+  UD: -0.583
+  H: 0.617
+  total: 0.753
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

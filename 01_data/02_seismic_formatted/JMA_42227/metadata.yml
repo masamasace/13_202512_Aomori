@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42227'
+  name: 田村市船引町
+  lat: 37.4401
+  lon: 140.5765
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -7.904
+  EW: -7.078
+  UD: -1.501
+  H: 8.453
+  total: 8.455
+max_velocity:
+  NS: 0.516
+  EW: 0.519
+  UD: 0.29
+  total: 0.658
+max_displacement:
+  NS: 0.291
+  EW: 0.257
+  UD: 0.133
+  total: 0.389
+max_velocity_calculated:
+  NS: -0.497
+  EW: 0.517
+  UD: 0.284
+  H: 0.651
+  total: 0.675
+max_displacement_calculated:
+  NS: 0.347
+  EW: -0.232
+  UD: -0.12
+  H: 0.402
+  total: 0.402
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

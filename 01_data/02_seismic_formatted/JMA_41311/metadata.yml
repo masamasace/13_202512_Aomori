@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41311'
+  name: 柏市旭町
+  lat: 35.86
+  lon: 139.9587
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 4.468
+  EW: 7.188
+  UD: -1.734
+  H: 7.256
+  total: 7.27
+max_velocity:
+  NS: 1.165
+  EW: 0.876
+  UD: 0.37
+  total: 1.193
+max_displacement:
+  NS: 0.508
+  EW: 0.594
+  UD: 0.188
+  total: 0.619
+max_velocity_calculated:
+  NS: 1.063
+  EW: -0.833
+  UD: 0.365
+  H: 1.122
+  total: 1.124
+max_displacement_calculated:
+  NS: -1.884
+  EW: 1.356
+  UD: -1.748
+  H: 2.044
+  total: 2.666
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42304'
+  name: 筑西市舟生
+  lat: 36.2509
+  lon: 139.9321
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 11.208
+  EW: 14.355
+  UD: 3.648
+  H: 14.386
+  total: 14.387
+max_velocity:
+  NS: 2.199
+  EW: 1.942
+  UD: 0.793
+  total: 2.796
+max_displacement:
+  NS: 1.607
+  EW: 0.947
+  UD: 0.379
+  total: 1.749
+max_velocity_calculated:
+  NS: -2.319
+  EW: 1.784
+  UD: 0.757
+  H: 2.467
+  total: 2.474
+max_displacement_calculated:
+  NS: 1.365
+  EW: 0.872
+  UD: 0.395
+  H: 1.575
+  total: 1.575
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

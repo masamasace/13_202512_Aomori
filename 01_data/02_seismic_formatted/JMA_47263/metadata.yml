@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47263'
+  name: 長南町総合グラウンド
+  lat: 35.3842
+  lon: 140.2355
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:22:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.523
+  EW: 4.656
+  UD: -1.554
+  H: 4.659
+  total: 4.666
+max_velocity:
+  NS: 0.755
+  EW: 1.266
+  UD: 0.413
+  total: 1.314
+max_displacement:
+  NS: 0.516
+  EW: 0.475
+  UD: 0.295
+  total: 0.558
+max_velocity_calculated:
+  NS: -0.665
+  EW: 1.071
+  UD: 0.378
+  H: 1.111
+  total: 1.111
+max_displacement_calculated:
+  NS: -1.596
+  EW: 16.889
+  UD: -9.784
+  H: 16.925
+  total: 19.549
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

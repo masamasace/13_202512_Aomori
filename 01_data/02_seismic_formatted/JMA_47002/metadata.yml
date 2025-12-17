@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47002'
+  name: 広尾町白樺通
+  lat: 42.2913
+  lon: 143.2988
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -38.718
+  EW: 37.448
+  UD: 18.447
+  H: 44.018
+  total: 44.054
+max_velocity:
+  NS: 2.94
+  EW: 2.703
+  UD: 1.357
+  total: 3.859
+max_displacement:
+  NS: 0.656
+  EW: 0.891
+  UD: 0.454
+  total: 1.074
+max_velocity_calculated:
+  NS: -2.821
+  EW: 2.242
+  UD: -1.415
+  H: 3.306
+  total: 3.448
+max_displacement_calculated:
+  NS: -0.546
+  EW: 1.027
+  UD: -0.455
+  H: 1.028
+  total: 1.047
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

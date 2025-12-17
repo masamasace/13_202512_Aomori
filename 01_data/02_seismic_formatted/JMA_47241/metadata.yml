@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47241'
+  name: 鶴岡市温海川
+  lat: 38.5961
+  lon: 139.7104
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.966
+  EW: 7.174
+  UD: 3.53
+  H: 7.408
+  total: 7.462
+max_velocity:
+  NS: 0.929
+  EW: 1.017
+  UD: 0.6
+  total: 1.211
+max_displacement:
+  NS: 0.319
+  EW: 0.476
+  UD: 0.169
+  total: 0.52
+max_velocity_calculated:
+  NS: -0.947
+  EW: 1.039
+  UD: 0.598
+  H: 1.184
+  total: 1.202
+max_displacement_calculated:
+  NS: -0.253
+  EW: 0.467
+  UD: -0.157
+  H: 0.481
+  total: 0.485
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

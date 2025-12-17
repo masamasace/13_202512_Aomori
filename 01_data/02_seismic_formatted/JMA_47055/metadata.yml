@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47055'
+  name: 東京新宿区西新宿
+  lat: 35.6907
+  lon: 139.6953
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -3.18
+  EW: -3.955
+  UD: 1.514
+  H: 4.354
+  total: 4.372
+max_velocity:
+  NS: 1.152
+  EW: 1.049
+  UD: 0.557
+  total: 1.17
+max_displacement:
+  NS: 0.81
+  EW: 0.709
+  UD: 0.3
+  total: 0.833
+max_velocity_calculated:
+  NS: -1.129
+  EW: -0.973
+  UD: 0.54
+  H: 1.133
+  total: 1.144
+max_displacement_calculated:
+  NS: 11.311
+  EW: 3.202
+  UD: -5.221
+  H: 11.755
+  total: 12.862
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

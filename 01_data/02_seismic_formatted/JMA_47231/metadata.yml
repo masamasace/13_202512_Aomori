@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47231'
+  name: 深浦町長慶平
+  lat: 40.5955
+  lon: 140.0035
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 11.509
+  EW: -16.337
+  UD: -6.041
+  H: 16.369
+  total: 16.755
+max_velocity:
+  NS: 1.517
+  EW: 1.676
+  UD: 1.432
+  total: 2.041
+max_displacement:
+  NS: 0.631
+  EW: 1.043
+  UD: 0.789
+  total: 1.162
+max_velocity_calculated:
+  NS: 1.426
+  EW: -1.505
+  UD: -1.174
+  H: 1.763
+  total: 1.895
+max_displacement_calculated:
+  NS: 0.574
+  EW: 1.011
+  UD: 0.698
+  H: 1.034
+  total: 1.174
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

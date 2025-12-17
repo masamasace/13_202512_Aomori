@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47574'
+  name: 深浦町深浦岡町
+  lat: 40.6464
+  lon: 139.9334
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 25.727
+  EW: -27.696
+  UD: 9.844
+  H: 28.362
+  total: 28.895
+max_velocity:
+  NS: 3.329
+  EW: 2.26
+  UD: 1.428
+  total: 3.33
+max_displacement:
+  NS: 0.98
+  EW: 0.89
+  UD: 0.546
+  total: 1.144
+max_velocity_calculated:
+  NS: 3.179
+  EW: -2.164
+  UD: 1.166
+  H: 3.18
+  total: 3.183
+max_displacement_calculated:
+  NS: -1.005
+  EW: 1.101
+  UD: 0.507
+  H: 1.354
+  total: 1.354
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47252'
+  name: 阿賀野市畑江
+  lat: 37.8212
+  lon: 139.3142
+record:
+  start_time: '2025-12-08T23:17:00.000'
+  end_time: '2025-12-08T23:18:59.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 0.699
+  EW: -0.799
+  UD: -0.647
+  H: 0.841
+  total: 0.973
+max_velocity:
+  NS: 0.306
+  EW: 0.274
+  UD: 0.252
+  total: 0.382
+max_displacement:
+  NS: 0.2
+  EW: 0.174
+  UD: 0.143
+  total: 0.249
+max_velocity_calculated:
+  NS: -0.245
+  EW: -0.311
+  UD: 0.165
+  H: 0.341
+  total: 0.353
+max_displacement_calculated:
+  NS: 2.648
+  EW: 3.915
+  UD: -1.351
+  H: 4.725
+  total: 4.915
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

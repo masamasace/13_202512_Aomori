@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47411'
+  name: 小樽市勝納町
+  lat: 43.1828
+  lon: 141.017
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 23.915
+  EW: 26.242
+  UD: -13.48
+  H: 29.772
+  total: 29.785
+max_velocity:
+  NS: 2.599
+  EW: 1.868
+  UD: 1.257
+  total: 2.907
+max_displacement:
+  NS: 0.659
+  EW: 0.552
+  UD: 0.569
+  total: 0.742
+max_velocity_calculated:
+  NS: 2.317
+  EW: -1.703
+  UD: 1.174
+  H: 2.663
+  total: 2.71
+max_displacement_calculated:
+  NS: -4.339
+  EW: 3.274
+  UD: -0.727
+  H: 5.436
+  total: 5.441
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

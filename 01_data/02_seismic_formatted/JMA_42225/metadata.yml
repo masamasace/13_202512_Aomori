@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42225'
+  name: 猪苗代町城南
+  lat: 37.5589
+  lon: 140.1049
+record:
+  start_time: '2025-12-08T23:16:10.000'
+  end_time: '2025-12-08T23:21:09.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -7.464
+  EW: 6.212
+  UD: -2.719
+  H: 7.779
+  total: 8.145
+max_velocity:
+  NS: 1.745
+  EW: 1.731
+  UD: 0.774
+  total: 1.883
+max_displacement:
+  NS: 0.775
+  EW: 0.935
+  UD: 0.252
+  total: 0.997
+max_velocity_calculated:
+  NS: -1.599
+  EW: -1.677
+  UD: -0.718
+  H: 1.764
+  total: 1.778
+max_displacement_calculated:
+  NS: 0.923
+  EW: -0.881
+  UD: -0.638
+  H: 0.967
+  total: 1.041
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

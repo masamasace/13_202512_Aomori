@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47610'
+  name: 長野市箱清水
+  lat: 36.6627
+  lon: 138.1926
+record:
+  start_time: '2025-12-08T23:17:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: -0.924
+  EW: 1.431
+  UD: -0.534
+  H: 1.539
+  total: 1.562
+max_velocity:
+  NS: 0.414
+  EW: 0.547
+  UD: 0.19
+  total: 0.549
+max_displacement:
+  NS: 0.308
+  EW: 0.313
+  UD: 0.116
+  total: 0.333
+max_velocity_calculated:
+  NS: -0.418
+  EW: -0.549
+  UD: -0.188
+  H: 0.563
+  total: 0.563
+max_displacement_calculated:
+  NS: 8.704
+  EW: -2.134
+  UD: 2.576
+  H: 8.924
+  total: 9.287
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

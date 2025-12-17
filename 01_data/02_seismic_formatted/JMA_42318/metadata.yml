@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42318'
+  name: 新潟西蒲区役所
+  lat: 37.7607
+  lon: 138.8894
+record:
+  start_time: '2025-12-08T23:17:00.000'
+  end_time: '2025-12-08T23:21:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.513
+  EW: -3.034
+  UD: -1.272
+  H: 3.566
+  total: 3.58
+max_velocity:
+  NS: 1.204
+  EW: 1.508
+  UD: 0.564
+  total: 1.751
+max_displacement:
+  NS: 0.944
+  EW: 0.958
+  UD: 0.381
+  total: 1.014
+max_velocity_calculated:
+  NS: -1.116
+  EW: 1.43
+  UD: -0.543
+  H: 1.435
+  total: 1.453
+max_displacement_calculated:
+  NS: -24.241
+  EW: 2.14
+  UD: 7.354
+  H: 24.327
+  total: 25.413
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

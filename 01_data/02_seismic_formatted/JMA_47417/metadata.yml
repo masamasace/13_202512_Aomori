@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47417'
+  name: 帯広市東４条
+  lat: 42.9226
+  lon: 143.2122
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -56.406
+  EW: 62.232
+  UD: -20.616
+  H: 73.068
+  total: 73.283
+max_velocity:
+  NS: 7.577
+  EW: 9.214
+  UD: 3.151
+  total: 9.254
+max_displacement:
+  NS: 2.97
+  EW: 2.286
+  UD: 1.648
+  total: 3.172
+max_velocity_calculated:
+  NS: -8.411
+  EW: -8.7
+  UD: 2.923
+  H: 8.723
+  total: 8.736
+max_displacement_calculated:
+  NS: -2.944
+  EW: -2.718
+  UD: -1.464
+  H: 3.538
+  total: 3.592
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

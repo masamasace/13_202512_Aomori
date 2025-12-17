@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41302'
+  name: 土浦市常名
+  lat: 36.1041
+  lon: 140.1894
+record:
+  start_time: '2025-12-08T23:16:10.000'
+  end_time: '2025-12-08T23:23:09.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 7.941
+  EW: 7.651
+  UD: -4.685
+  H: 10.246
+  total: 10.263
+max_velocity:
+  NS: 1.611
+  EW: 1.366
+  UD: 0.948
+  total: 1.898
+max_displacement:
+  NS: 0.563
+  EW: 0.504
+  UD: 0.227
+  total: 0.644
+max_velocity_calculated:
+  NS: 1.547
+  EW: -1.383
+  UD: -0.944
+  H: 1.886
+  total: 1.887
+max_displacement_calculated:
+  NS: 0.64
+  EW: 0.84
+  UD: 1.096
+  H: 0.86
+  total: 1.35
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

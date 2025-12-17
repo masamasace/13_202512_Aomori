@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41340'
+  name: 上田市築地
+  lat: 36.3992
+  lon: 138.2081
+record:
+  start_time: '2025-12-08T23:18:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.286
+  EW: -0.847
+  UD: 0.455
+  H: 1.408
+  total: 1.408
+max_velocity:
+  NS: 0.244
+  EW: 0.229
+  UD: 0.155
+  total: 0.309
+max_displacement:
+  NS: 0.116
+  EW: 0.121
+  UD: 0.095
+  total: 0.146
+max_velocity_calculated:
+  NS: -0.304
+  EW: -0.286
+  UD: 0.123
+  H: 0.379
+  total: 0.387
+max_displacement_calculated:
+  NS: 6.473
+  EW: 5.854
+  UD: -0.171
+  H: 8.727
+  total: 8.727
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

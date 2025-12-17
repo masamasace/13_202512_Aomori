@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42114'
+  name: 渡島松前町福山
+  lat: 41.43
+  lon: 140.1104
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 12.6
+  EW: 12.961
+  UD: -7.101
+  H: 13.466
+  total: 13.981
+max_velocity:
+  NS: 0.76
+  EW: 1.114
+  UD: 1.44
+  total: 1.441
+max_displacement:
+  NS: 0.267
+  EW: 0.442
+  UD: 0.672
+  total: 0.689
+max_velocity_calculated:
+  NS: -0.732
+  EW: 1.073
+  UD: -0.914
+  H: 1.118
+  total: 1.221
+max_displacement_calculated:
+  NS: -0.234
+  EW: 0.431
+  UD: -0.706
+  H: 0.445
+  total: 0.761
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

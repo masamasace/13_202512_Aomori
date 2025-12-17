@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42302'
+  name: 常陸大宮市中富町
+  lat: 36.5427
+  lon: 140.4109
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -8.437
+  EW: 5.502
+  UD: -3.807
+  H: 8.985
+  total: 8.986
+max_velocity:
+  NS: 1.546
+  EW: 0.935
+  UD: 0.681
+  total: 1.709
+max_displacement:
+  NS: 0.638
+  EW: 0.377
+  UD: 0.263
+  total: 0.723
+max_velocity_calculated:
+  NS: -1.427
+  EW: -0.883
+  UD: -0.673
+  H: 1.556
+  total: 1.593
+max_displacement_calculated:
+  NS: 15.849
+  EW: 7.176
+  UD: 12.454
+  H: 17.397
+  total: 21.395
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

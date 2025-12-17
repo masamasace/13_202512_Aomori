@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47216'
+  name: 平取町仁世宇
+  lat: 42.7811
+  lon: 142.3599
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -15.399
+  EW: -20.355
+  UD: -9.535
+  H: 20.582
+  total: 20.64
+max_velocity:
+  NS: 2.205
+  EW: 2.585
+  UD: 1.564
+  total: 2.853
+max_displacement:
+  NS: 1.275
+  EW: 1.355
+  UD: 0.727
+  total: 1.477
+max_velocity_calculated:
+  NS: 1.731
+  EW: 2.027
+  UD: -1.545
+  H: 2.241
+  total: 2.246
+max_displacement_calculated:
+  NS: 1.371
+  EW: -1.322
+  UD: 0.694
+  H: 1.416
+  total: 1.418
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

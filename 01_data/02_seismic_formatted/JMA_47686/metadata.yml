@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47686'
+  name: 成田国際空港
+  lat: 35.7747
+  lon: 140.3823
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -5.638
+  EW: -5.982
+  UD: -2.134
+  H: 6.287
+  total: 6.296
+max_velocity:
+  NS: 0.96
+  EW: 0.844
+  UD: 0.452
+  total: 1.031
+max_displacement:
+  NS: 0.453
+  EW: 0.615
+  UD: 0.214
+  total: 0.75
+max_velocity_calculated:
+  NS: 0.907
+  EW: 0.754
+  UD: 0.428
+  H: 0.951
+  total: 0.951
+max_displacement_calculated:
+  NS: 5.827
+  EW: 2.301
+  UD: 25.914
+  H: 6.183
+  total: 26.641
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

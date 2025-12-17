@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42215'
+  name: 南三陸町志津川
+  lat: 38.6784
+  lon: 141.461
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:19:39.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 15.732
+  EW: 11.388
+  UD: -6.572
+  H: 15.841
+  total: 15.875
+max_velocity:
+  NS: 0.942
+  EW: 1.031
+  UD: 0.642
+  total: 1.215
+max_displacement:
+  NS: 0.264
+  EW: 0.413
+  UD: 0.27
+  total: 0.464
+max_velocity_calculated:
+  NS: 0.905
+  EW: 0.942
+  UD: -0.576
+  H: 0.957
+  total: 1.005
+max_displacement_calculated:
+  NS: 0.242
+  EW: 0.474
+  UD: 0.267
+  H: 0.519
+  total: 0.521
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

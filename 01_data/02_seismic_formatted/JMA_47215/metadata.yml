@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47215'
+  name: 登別市鉱山
+  lat: 42.4709
+  lon: 141.0346
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -96.289
+  EW: -100.661
+  UD: 16.61
+  H: 103.931
+  total: 103.932
+max_velocity:
+  NS: 2.648
+  EW: 2.843
+  UD: 1.12
+  total: 3.043
+max_displacement:
+  NS: 0.418
+  EW: 0.909
+  UD: 0.558
+  total: 1.016
+max_velocity_calculated:
+  NS: 2.638
+  EW: -2.521
+  UD: -0.893
+  H: 2.647
+  total: 2.657
+max_displacement_calculated:
+  NS: -0.335
+  EW: 0.691
+  UD: -0.506
+  H: 0.711
+  total: 0.85
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

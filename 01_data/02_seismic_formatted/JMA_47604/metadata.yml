@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47604'
+  name: 新潟中央区美咲町
+  lat: 37.8937
+  lon: 139.0188
+record:
+  start_time: '2025-12-08T23:16:50.000'
+  end_time: '2025-12-08T23:22:49.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -3.629
+  EW: 2.44
+  UD: 1.109
+  H: 3.644
+  total: 3.646
+max_velocity:
+  NS: 2.054
+  EW: 1.556
+  UD: 0.643
+  total: 2.089
+max_displacement:
+  NS: 1.334
+  EW: 1.109
+  UD: 0.441
+  total: 1.349
+max_velocity_calculated:
+  NS: 1.815
+  EW: -1.378
+  UD: -0.638
+  H: 1.855
+  total: 1.866
+max_displacement_calculated:
+  NS: 10.937
+  EW: 4.655
+  UD: -7.126
+  H: 11.887
+  total: 13.858
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

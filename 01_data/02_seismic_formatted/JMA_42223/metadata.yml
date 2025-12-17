@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42223'
+  name: 南会津町田島
+  lat: 37.2002
+  lon: 139.7732
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.326
+  EW: -2.733
+  UD: -1.01
+  H: 3.159
+  total: 3.181
+max_velocity:
+  NS: 0.388
+  EW: 0.464
+  UD: 0.244
+  total: 0.488
+max_displacement:
+  NS: 0.127
+  EW: 0.167
+  UD: 0.116
+  total: 0.192
+max_velocity_calculated:
+  NS: 0.343
+  EW: 0.441
+  UD: -0.233
+  H: 0.465
+  total: 0.465
+max_displacement_calculated:
+  NS: -3.738
+  EW: -3.773
+  UD: 0.505
+  H: 5.311
+  total: 5.334
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

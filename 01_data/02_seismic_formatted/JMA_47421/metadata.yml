@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47421'
+  name: 寿都町新栄
+  lat: 42.7956
+  lon: 140.2243
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -8.911
+  EW: -8.577
+  UD: -2.933
+  H: 9.237
+  total: 9.298
+max_velocity:
+  NS: 0.836
+  EW: 1.049
+  UD: 0.488
+  total: 1.076
+max_displacement:
+  NS: 0.472
+  EW: 0.357
+  UD: 0.24
+  total: 0.544
+max_velocity_calculated:
+  NS: -0.824
+  EW: -0.668
+  UD: 0.42
+  H: 0.994
+  total: 0.996
+max_displacement_calculated:
+  NS: 0.478
+  EW: 0.445
+  UD: 0.223
+  H: 0.549
+  total: 0.553
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

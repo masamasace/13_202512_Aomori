@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42303'
+  name: 鉾田市鉾田
+  lat: 36.1586
+  lon: 140.5166
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -5.292
+  EW: -4.529
+  UD: -2.505
+  H: 5.537
+  total: 5.537
+max_velocity:
+  NS: 1.232
+  EW: 1.067
+  UD: 0.407
+  total: 1.262
+max_displacement:
+  NS: 0.427
+  EW: 0.393
+  UD: 0.118
+  total: 0.47
+max_velocity_calculated:
+  NS: 1.253
+  EW: -1.067
+  UD: 0.394
+  H: 1.286
+  total: 1.287
+max_displacement_calculated:
+  NS: -0.373
+  EW: 0.377
+  UD: 0.11
+  H: 0.438
+  total: 0.439
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

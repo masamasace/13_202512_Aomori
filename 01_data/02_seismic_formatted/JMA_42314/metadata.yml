@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42314'
+  name: 一宮町一宮
+  lat: 35.3718
+  lon: 140.3684
+record:
+  start_time: '2025-12-08T23:17:40.000'
+  end_time: '2025-12-08T23:21:39.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.354
+  EW: -2.806
+  UD: -1.144
+  H: 3.043
+  total: 3.097
+max_velocity:
+  NS: 0.669
+  EW: 0.697
+  UD: 0.311
+  total: 0.829
+max_displacement:
+  NS: 0.356
+  EW: 0.399
+  UD: 0.209
+  total: 0.441
+max_velocity_calculated:
+  NS: -0.56
+  EW: 0.637
+  UD: -0.314
+  H: 0.76
+  total: 0.76
+max_displacement_calculated:
+  NS: 7.508
+  EW: -2.616
+  UD: -8.818
+  H: 7.937
+  total: 11.862
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

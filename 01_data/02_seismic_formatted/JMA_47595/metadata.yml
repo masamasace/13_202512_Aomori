@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47595'
+  name: 福島市花園町
+  lat: 37.7621
+  lon: 140.4734
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:21:49.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -14.913
+  EW: 11.505
+  UD: -4.739
+  H: 15.055
+  total: 15.073
+max_velocity:
+  NS: 1.552
+  EW: 1.68
+  UD: 0.661
+  total: 2.032
+max_displacement:
+  NS: 0.341
+  EW: 0.445
+  UD: 0.208
+  total: 0.487
+max_velocity_calculated:
+  NS: 1.572
+  EW: 1.677
+  UD: 0.574
+  H: 2.023
+  total: 2.027
+max_displacement_calculated:
+  NS: 0.909
+  EW: 0.434
+  UD: -0.292
+  H: 0.913
+  total: 0.959
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

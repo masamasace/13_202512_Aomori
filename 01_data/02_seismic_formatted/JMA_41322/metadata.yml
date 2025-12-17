@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41322'
+  name: 川崎中原区小杉陣屋町
+  lat: 35.5869
+  lon: 139.6551
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:23:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.072
+  EW: -4.131
+  UD: 1.406
+  H: 4.545
+  total: 4.59
+max_velocity:
+  NS: 0.743
+  EW: 0.745
+  UD: 0.357
+  total: 0.871
+max_displacement:
+  NS: 0.488
+  EW: 0.524
+  UD: 0.198
+  total: 0.55
+max_velocity_calculated:
+  NS: -0.723
+  EW: -0.791
+  UD: -0.353
+  H: 0.907
+  total: 0.91
+max_displacement_calculated:
+  NS: 16.166
+  EW: -22.156
+  UD: 7.184
+  H: 27.426
+  total: 28.351
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

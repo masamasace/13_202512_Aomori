@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47227'
+  name: 奥尻町松江
+  lat: 42.085
+  lon: 139.4705
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:18:39.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 3.27
+  EW: -2.678
+  UD: -1.762
+  H: 4.103
+  total: 4.105
+max_velocity:
+  NS: 0.479
+  EW: 0.657
+  UD: 0.453
+  total: 0.748
+max_displacement:
+  NS: 0.313
+  EW: 0.3
+  UD: 0.291
+  total: 0.386
+max_velocity_calculated:
+  NS: 0.437
+  EW: -0.485
+  UD: 0.376
+  H: 0.51
+  total: 0.553
+max_displacement_calculated:
+  NS: -0.234
+  EW: 0.245
+  UD: -0.281
+  H: 0.298
+  total: 0.332
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

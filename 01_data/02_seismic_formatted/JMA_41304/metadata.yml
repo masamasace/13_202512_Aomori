@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41304'
+  name: 栃木市旭町
+  lat: 36.3772
+  lon: 139.7363
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.543
+  EW: 2.922
+  UD: 1.472
+  H: 4.106
+  total: 4.107
+max_velocity:
+  NS: 0.446
+  EW: 0.584
+  UD: 0.294
+  total: 0.606
+max_displacement:
+  NS: 0.205
+  EW: 0.226
+  UD: 0.149
+  total: 0.236
+max_velocity_calculated:
+  NS: -0.452
+  EW: -0.606
+  UD: 0.268
+  H: 0.619
+  total: 0.62
+max_displacement_calculated:
+  NS: 7.414
+  EW: -4.599
+  UD: 7.673
+  H: 8.721
+  total: 11.616
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

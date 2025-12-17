@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47204'
+  name: 北竜町竜西
+  lat: 43.7454
+  lon: 141.7212
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -16.901
+  EW: 17.384
+  UD: 7.411
+  H: 17.869
+  total: 18.517
+max_velocity:
+  NS: 2.043
+  EW: 3.063
+  UD: 1.272
+  total: 3.083
+max_displacement:
+  NS: 0.87
+  EW: 1.15
+  UD: 0.73
+  total: 1.288
+max_velocity_calculated:
+  NS: 1.74
+  EW: 2.509
+  UD: 1.229
+  H: 2.516
+  total: 2.543
+max_displacement_calculated:
+  NS: -0.753
+  EW: -1.248
+  UD: -0.703
+  H: 1.263
+  total: 1.316
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

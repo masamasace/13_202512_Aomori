@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47210'
+  name: 積丹町日司町
+  lat: 43.3549
+  lon: 140.4723
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:18:49.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 2.609
+  EW: 2.573
+  UD: 1.65
+  H: 2.655
+  total: 2.75
+max_velocity:
+  NS: 0.74
+  EW: 0.875
+  UD: 0.58
+  total: 0.915
+max_displacement:
+  NS: 0.398
+  EW: 0.448
+  UD: 0.322
+  total: 0.504
+max_velocity_calculated:
+  NS: 0.616
+  EW: 0.506
+  UD: -0.423
+  H: 0.676
+  total: 0.681
+max_displacement_calculated:
+  NS: -0.44
+  EW: -0.435
+  UD: -0.363
+  H: 0.517
+  total: 0.54
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

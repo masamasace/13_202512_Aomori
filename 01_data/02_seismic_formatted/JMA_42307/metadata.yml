@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42307'
+  name: 那須烏山市神長
+  lat: 36.6591
+  lon: 140.1333
+record:
+  start_time: '2025-12-08T23:16:50.000'
+  end_time: '2025-12-08T23:21:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.493
+  EW: 3.905
+  UD: 2.718
+  H: 4.002
+  total: 4.133
+max_velocity:
+  NS: 0.639
+  EW: 0.56
+  UD: 0.376
+  total: 0.682
+max_displacement:
+  NS: 0.171
+  EW: 0.175
+  UD: 0.124
+  total: 0.219
+max_velocity_calculated:
+  NS: -0.641
+  EW: -0.518
+  UD: 0.375
+  H: 0.663
+  total: 0.664
+max_displacement_calculated:
+  NS: 8.369
+  EW: 7.997
+  UD: -16.767
+  H: 11.576
+  total: 20.367
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

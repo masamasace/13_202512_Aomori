@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47057'
+  name: 横浜鶴見区大黒ふ頭
+  lat: 35.4608
+  lon: 139.6733
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:23:19.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '-'
+max_acceleration:
+  NS: 5.134
+  EW: 4.119
+  UD: -1.932
+  H: 5.134
+  total: 5.146
+max_velocity:
+  NS: 1.472
+  EW: 1.181
+  UD: 0.683
+  total: 1.609
+max_displacement:
+  NS: 0.611
+  EW: 0.61
+  UD: 0.412
+  total: 0.685
+max_velocity_calculated:
+  NS: -1.461
+  EW: -1.277
+  UD: 0.636
+  H: 1.558
+  total: 1.558
+max_displacement_calculated:
+  NS: 9.162
+  EW: 1.003
+  UD: 3.515
+  H: 9.179
+  total: 9.821
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

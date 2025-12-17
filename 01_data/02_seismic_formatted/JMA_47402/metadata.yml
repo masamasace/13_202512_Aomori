@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47402'
+  name: 宗谷枝幸町本町
+  lat: 44.9402
+  lon: 142.5851
+record:
+  start_time: '2025-12-08T23:16:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.33
+  EW: -1.338
+  UD: 1.182
+  H: 1.721
+  total: 1.93
+max_velocity:
+  NS: 0.481
+  EW: 0.527
+  UD: 0.478
+  total: 0.601
+max_displacement:
+  NS: 0.262
+  EW: 0.301
+  UD: 0.255
+  total: 0.355
+max_velocity_calculated:
+  NS: 0.431
+  EW: -0.439
+  UD: 0.374
+  H: 0.519
+  total: 0.521
+max_displacement_calculated:
+  NS: -6.375
+  EW: -0.52
+  UD: -9.801
+  H: 6.379
+  total: 11.694
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

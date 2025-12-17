@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41202'
+  name: 五所川原市栄町
+  lat: 40.7995
+  lon: 140.4429
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: 94.785
+  EW: 75.71
+  UD: -26.203
+  H: 103.439
+  total: 103.54
+max_velocity:
+  NS: 14.434
+  EW: 10.904
+  UD: 4.195
+  total: 15.199
+max_displacement:
+  NS: 3.19
+  EW: 3.875
+  UD: 1.617
+  total: 4.539
+max_velocity_calculated:
+  NS: 13.81
+  EW: 10.972
+  UD: 4.135
+  H: 14.847
+  total: 14.896
+max_displacement_calculated:
+  NS: -3.912
+  EW: 3.396
+  UD: -1.329
+  H: 4.868
+  total: 4.878
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

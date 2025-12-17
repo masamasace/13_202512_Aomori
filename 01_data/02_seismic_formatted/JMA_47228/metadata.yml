@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47228'
+  name: むつ市大畑町奥薬研
+  lat: 41.3847
+  lon: 141.0447
+record:
+  start_time: '2025-12-08T23:15:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 148.887
+  EW: 125.428
+  UD: -52.261
+  H: 166.326
+  total: 166.369
+max_velocity:
+  NS: 3.644
+  EW: 4.009
+  UD: 2.112
+  total: 4.153
+max_displacement:
+  NS: 0.547
+  EW: 0.996
+  UD: 0.583
+  total: 1.077
+max_velocity_calculated:
+  NS: -3.459
+  EW: 3.841
+  UD: 1.987
+  H: 4.009
+  total: 4.339
+max_displacement_calculated:
+  NS: 0.634
+  EW: 1.141
+  UD: 0.507
+  H: 1.147
+  total: 1.148
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

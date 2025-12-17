@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47520'
+  name: 新庄市東谷地田町
+  lat: 38.7574
+  lon: 140.3122
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -9.036
+  EW: -10.374
+  UD: -4.3
+  H: 10.599
+  total: 10.606
+max_velocity:
+  NS: 2.275
+  EW: 2.794
+  UD: 1.245
+  total: 3.266
+max_displacement:
+  NS: 1.438
+  EW: 1.312
+  UD: 0.705
+  total: 1.626
+max_velocity_calculated:
+  NS: -2.225
+  EW: -2.783
+  UD: 1.29
+  H: 3.014
+  total: 3.019
+max_displacement_calculated:
+  NS: -1.304
+  EW: -1.224
+  UD: 0.573
+  H: 1.437
+  total: 1.437
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

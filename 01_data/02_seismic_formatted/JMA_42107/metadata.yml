@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42107'
+  name: 北見市留辺蘂町温根湯温泉
+  lat: 43.7585
+  lon: 143.5093
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:19:39.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -12.884
+  EW: -14.892
+  UD: 4.552
+  H: 15.332
+  total: 15.465
+max_velocity:
+  NS: 1.093
+  EW: 1.052
+  UD: 0.52
+  total: 1.246
+max_displacement:
+  NS: 0.347
+  EW: 0.395
+  UD: 0.249
+  total: 0.443
+max_velocity_calculated:
+  NS: 1.094
+  EW: 0.86
+  UD: -0.463
+  H: 1.126
+  total: 1.141
+max_displacement_calculated:
+  NS: -0.463
+  EW: -0.504
+  UD: 0.3
+  H: 0.533
+  total: 0.544
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

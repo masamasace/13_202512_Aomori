@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47598'
+  name: いわき市小名浜
+  lat: 36.9479
+  lon: 140.9033
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 11.177
+  EW: 9.043
+  UD: 4.768
+  H: 11.191
+  total: 11.69
+max_velocity:
+  NS: 1.447
+  EW: 1.555
+  UD: 0.628
+  total: 1.557
+max_displacement:
+  NS: 0.423
+  EW: 0.364
+  UD: 0.127
+  total: 0.424
+max_velocity_calculated:
+  NS: -1.46
+  EW: -1.57
+  UD: -0.719
+  H: 1.572
+  total: 1.572
+max_displacement_calculated:
+  NS: -15.267
+  EW: 21.321
+  UD: -51.526
+  H: 26.223
+  total: 57.815
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

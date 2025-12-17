@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: HKD170
+  lat: 41.7495
+  lon: 140.251
+  height_m: 83.0
+record:
+  start_time: '2025-12-08T23:15:42.000'
+  end_time: '2025-12-08T23:17:37.990'
+  sampling_rate_hz: 100
+  duration_s: 116
+  num_samples: 11600
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: 17.561
+  EW: -6.401
+  UD: -4.679
+  H: 17.695
+  total: 17.727
+max_velocity_calculated:
+  NS: -0.617
+  EW: -0.789
+  UD: 0.523
+  H: 0.803
+  total: 0.803
+max_displacement_calculated:
+  NS: -0.307
+  EW: 0.525
+  UD: 0.444
+  H: 0.594
+  total: 0.687
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

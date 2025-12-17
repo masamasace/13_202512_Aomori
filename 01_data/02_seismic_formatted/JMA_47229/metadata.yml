@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47229'
+  name: 五所川原市太田
+  lat: 41.0602
+  lon: 140.4077
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 30.231
+  EW: 26.821
+  UD: -12.292
+  H: 31.734
+  total: 32.467
+max_velocity:
+  NS: 3.841
+  EW: 5.256
+  UD: 1.898
+  total: 5.399
+max_displacement:
+  NS: 1.276
+  EW: 1.814
+  UD: 0.947
+  total: 1.993
+max_velocity_calculated:
+  NS: -4.047
+  EW: -5.455
+  UD: -1.625
+  H: 5.587
+  total: 5.647
+max_displacement_calculated:
+  NS: -1.118
+  EW: -1.799
+  UD: 0.691
+  H: 1.962
+  total: 2.003
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

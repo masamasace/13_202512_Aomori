@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47671'
+  name: 東京国際空港
+  lat: 35.5352
+  lon: 139.7998
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:23:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -5.251
+  EW: -3.621
+  UD: -1.558
+  H: 5.294
+  total: 5.299
+max_velocity:
+  NS: 1.22
+  EW: 1.111
+  UD: 0.531
+  total: 1.576
+max_displacement:
+  NS: 0.753
+  EW: 0.707
+  UD: 0.347
+  total: 0.774
+max_velocity_calculated:
+  NS: 1.213
+  EW: -1.039
+  UD: -0.52
+  H: 1.506
+  total: 1.506
+max_displacement_calculated:
+  NS: 19.86
+  EW: 10.953
+  UD: -8.098
+  H: 22.679
+  total: 24.081
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

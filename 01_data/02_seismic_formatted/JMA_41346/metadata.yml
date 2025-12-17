@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41346'
+  name: 富士宮市弓沢町
+  lat: 35.2232
+  lon: 138.621
+record:
+  start_time: '2025-12-08T23:18:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.791
+  EW: 1.783
+  UD: 0.956
+  H: 1.902
+  total: 1.912
+max_velocity:
+  NS: 0.45
+  EW: 0.538
+  UD: 0.193
+  total: 0.62
+max_displacement:
+  NS: 0.223
+  EW: 0.33
+  UD: 0.102
+  total: 0.354
+max_velocity_calculated:
+  NS: 0.48
+  EW: 0.494
+  UD: -0.203
+  H: 0.649
+  total: 0.65
+max_displacement_calculated:
+  NS: 5.456
+  EW: -3.256
+  UD: -2.278
+  H: 6.35
+  total: 6.745
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47420'
+  name: 根室市弥栄
+  lat: 43.331
+  lon: 145.5857
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -5.305
+  EW: 6.818
+  UD: 2.584
+  H: 6.834
+  total: 6.867
+max_velocity:
+  NS: 0.624
+  EW: 0.502
+  UD: 0.507
+  total: 0.73
+max_displacement:
+  NS: 0.27
+  EW: 0.333
+  UD: 0.236
+  total: 0.352
+max_velocity_calculated:
+  NS: -0.361
+  EW: 0.418
+  UD: -0.355
+  H: 0.438
+  total: 0.449
+max_displacement_calculated:
+  NS: 0.299
+  EW: 0.334
+  UD: 0.515
+  H: 0.335
+  total: 0.589
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42112'
+  name: 白老町竹浦
+  lat: 42.4928
+  lon: 141.2548
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: 120.353
+  EW: 110.91
+  UD: -32.197
+  H: 120.361
+  total: 120.779
+max_velocity:
+  NS: 9.085
+  EW: 11.078
+  UD: 3.008
+  total: 11.142
+max_displacement:
+  NS: 2.589
+  EW: 2.828
+  UD: 1.044
+  total: 3.108
+max_velocity_calculated:
+  NS: -8.897
+  EW: 10.663
+  UD: -2.951
+  H: 10.675
+  total: 10.68
+max_displacement_calculated:
+  NS: -2.766
+  EW: 2.427
+  UD: -1.135
+  H: 2.931
+  total: 2.933
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41330'
+  name: 小千谷市城内
+  lat: 37.3125
+  lon: 138.7927
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.612
+  EW: -1.262
+  UD: 0.849
+  H: 1.617
+  total: 1.629
+max_velocity:
+  NS: 0.649
+  EW: 0.547
+  UD: 0.343
+  total: 0.803
+max_displacement:
+  NS: 0.475
+  EW: 0.399
+  UD: 0.243
+  total: 0.551
+max_velocity_calculated:
+  NS: 0.59
+  EW: 0.472
+  UD: -0.35
+  H: 0.623
+  total: 0.624
+max_displacement_calculated:
+  NS: -2.816
+  EW: -8.865
+  UD: 7.747
+  H: 9.215
+  total: 12.034
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

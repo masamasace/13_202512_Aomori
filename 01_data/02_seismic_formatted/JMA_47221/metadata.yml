@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47221'
+  name: 中標津町養老牛
+  lat: 43.5875
+  lon: 144.7151
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 20.735
+  EW: -23.302
+  UD: 5.807
+  H: 23.89
+  total: 24.08
+max_velocity:
+  NS: 0.649
+  EW: 0.7
+  UD: 0.428
+  total: 0.724
+max_displacement:
+  NS: 0.279
+  EW: 0.318
+  UD: 0.221
+  total: 0.34
+max_velocity_calculated:
+  NS: 0.64
+  EW: 0.656
+  UD: 0.224
+  H: 0.668
+  total: 0.673
+max_displacement_calculated:
+  NS: 0.277
+  EW: -0.317
+  UD: -0.267
+  H: 0.321
+  total: 0.383
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

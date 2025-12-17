@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47404'
+  name: 羽幌町南３条
+  lat: 44.3633
+  lon: 141.7008
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -6.511
+  EW: 5.177
+  UD: -3.816
+  H: 6.899
+  total: 6.993
+max_velocity:
+  NS: 2.603
+  EW: 1.725
+  UD: 1.527
+  total: 2.673
+max_displacement:
+  NS: 1.231
+  EW: 0.91
+  UD: 0.887
+  total: 1.289
+max_velocity_calculated:
+  NS: -2.064
+  EW: 1.616
+  UD: -1.414
+  H: 2.41
+  total: 2.472
+max_displacement_calculated:
+  NS: 1.764
+  EW: -1.166
+  UD: 0.75
+  H: 1.798
+  total: 1.799
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

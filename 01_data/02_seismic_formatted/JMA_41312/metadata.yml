@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41312'
+  name: 成田市名古屋
+  lat: 35.8633
+  lon: 140.3619
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:23:19.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.233
+  EW: 3.352
+  UD: 2.181
+  H: 5.234
+  total: 5.383
+max_velocity:
+  NS: 1.009
+  EW: 0.777
+  UD: 0.454
+  total: 1.089
+max_displacement:
+  NS: 0.454
+  EW: 0.483
+  UD: 0.19
+  total: 0.525
+max_velocity_calculated:
+  NS: -0.95
+  EW: 0.745
+  UD: 0.42
+  H: 1.011
+  total: 1.015
+max_displacement_calculated:
+  NS: 0.764
+  EW: 1.019
+  UD: -0.259
+  H: 1.09
+  total: 1.108
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

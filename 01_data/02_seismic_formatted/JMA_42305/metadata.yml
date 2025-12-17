@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42305'
+  name: 利根町布川
+  lat: 35.8578
+  lon: 140.1391
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:22:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -4.452
+  EW: 5.12
+  UD: -2.464
+  H: 5.167
+  total: 5.21
+max_velocity:
+  NS: 1.023
+  EW: 1.098
+  UD: 0.583
+  total: 1.132
+max_displacement:
+  NS: 0.479
+  EW: 0.483
+  UD: 0.246
+  total: 0.491
+max_velocity_calculated:
+  NS: -1.045
+  EW: -1.015
+  UD: 0.625
+  H: 1.166
+  total: 1.167
+max_displacement_calculated:
+  NS: 30.185
+  EW: -24.274
+  UD: -23.701
+  H: 38.735
+  total: 45.41
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

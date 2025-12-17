@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47027'
+  name: 伊豆市中伊豆グラウンド
+  lat: 34.9588
+  lon: 139.0087
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 2.142
+  EW: -2.307
+  UD: -0.92
+  H: 2.501
+  total: 2.518
+max_velocity:
+  NS: 0.36
+  EW: 0.385
+  UD: 0.166
+  total: 0.458
+max_displacement:
+  NS: 0.143
+  EW: 0.196
+  UD: 0.064
+  total: 0.199
+max_velocity_calculated:
+  NS: 0.393
+  EW: 0.411
+  UD: -0.148
+  H: 0.494
+  total: 0.504
+max_displacement_calculated:
+  NS: -0.142
+  EW: -0.409
+  UD: 0.128
+  H: 0.413
+  total: 0.432
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42219'
+  name: 横手市雄物川町今宿
+  lat: 39.2912
+  lon: 140.4296
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 21.979
+  EW: -17.703
+  UD: 7.236
+  H: 23.664
+  total: 23.742
+max_velocity:
+  NS: 2.502
+  EW: 2.341
+  UD: 0.952
+  total: 3.2
+max_displacement:
+  NS: 0.993
+  EW: 0.832
+  UD: 0.342
+  total: 1.296
+max_velocity_calculated:
+  NS: 2.52
+  EW: -2.36
+  UD: -0.858
+  H: 3.426
+  total: 3.429
+max_displacement_calculated:
+  NS: 1.031
+  EW: -0.655
+  UD: 0.329
+  H: 1.191
+  total: 1.191
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

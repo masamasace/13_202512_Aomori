@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41212'
+  name: 湯沢市沖鶴
+  lat: 39.174
+  lon: 140.4796
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -16.775
+  EW: -18.157
+  UD: -6.028
+  H: 18.5
+  total: 18.537
+max_velocity:
+  NS: 2.147
+  EW: 2.539
+  UD: 0.89
+  total: 2.748
+max_displacement:
+  NS: 0.806
+  EW: 0.762
+  UD: 0.355
+  total: 0.955
+max_velocity_calculated:
+  NS: 1.967
+  EW: 2.487
+  UD: 0.967
+  H: 2.631
+  total: 2.652
+max_displacement_calculated:
+  NS: 0.906
+  EW: 0.743
+  UD: 0.44
+  H: 0.974
+  total: 0.974
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

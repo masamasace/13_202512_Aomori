@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41201'
+  name: 弘前市和田町
+  lat: 40.6114
+  lon: 140.4553
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:22:19.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 20.631
+  EW: -19.116
+  UD: -10.916
+  H: 22.983
+  total: 22.994
+max_velocity:
+  NS: 4.855
+  EW: 5.107
+  UD: 2.749
+  total: 5.315
+max_displacement:
+  NS: 3.404
+  EW: 3.445
+  UD: 1.281
+  total: 3.596
+max_velocity_calculated:
+  NS: -4.528
+  EW: 5.361
+  UD: 2.829
+  H: 5.439
+  total: 5.462
+max_displacement_calculated:
+  NS: 3.384
+  EW: -3.695
+  UD: 1.001
+  H: 3.812
+  total: 3.812
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

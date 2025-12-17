@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47362'
+  name: 北見市常呂町東浜
+  lat: 44.1185
+  lon: 144.0855
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -6.409
+  EW: -7.232
+  UD: -2.783
+  H: 7.424
+  total: 7.429
+max_velocity:
+  NS: 0.737
+  EW: 0.994
+  UD: 0.544
+  total: 1.128
+max_displacement:
+  NS: 0.287
+  EW: 0.374
+  UD: 0.226
+  total: 0.41
+max_velocity_calculated:
+  NS: -0.69
+  EW: 1.064
+  UD: -0.517
+  H: 1.064
+  total: 1.082
+max_displacement_calculated:
+  NS: 0.29
+  EW: 0.437
+  UD: 0.217
+  H: 0.492
+  total: 0.512
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

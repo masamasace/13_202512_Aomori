@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47412'
+  name: 札幌中央区北２条
+  lat: 43.0604
+  lon: 141.3289
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:21:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -23.204
+  EW: 18.164
+  UD: 15.283
+  H: 23.578
+  total: 23.976
+max_velocity:
+  NS: 3.112
+  EW: 3.06
+  UD: 1.706
+  total: 3.458
+max_displacement:
+  NS: 1.254
+  EW: 1.3
+  UD: 0.83
+  total: 1.566
+max_velocity_calculated:
+  NS: -2.726
+  EW: -3.346
+  UD: -1.665
+  H: 3.881
+  total: 3.885
+max_displacement_calculated:
+  NS: -1.629
+  EW: 1.198
+  UD: 1.284
+  H: 1.678
+  total: 2.003
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

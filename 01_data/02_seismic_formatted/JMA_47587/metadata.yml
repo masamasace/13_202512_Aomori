@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47587'
+  name: 酒田市亀ケ崎
+  lat: 38.9085
+  lon: 139.8435
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:22:49.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 19.827
+  EW: -19.666
+  UD: -4.261
+  H: 20.084
+  total: 20.188
+max_velocity:
+  NS: 5.323
+  EW: 5.127
+  UD: 1.878
+  total: 5.782
+max_displacement:
+  NS: 2.923
+  EW: 2.176
+  UD: 1.21
+  total: 3.226
+max_velocity_calculated:
+  NS: 4.801
+  EW: -4.206
+  UD: 1.53
+  H: 4.923
+  total: 4.927
+max_displacement_calculated:
+  NS: 3.263
+  EW: 2.778
+  UD: 1.68
+  H: 3.407
+  total: 3.436
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

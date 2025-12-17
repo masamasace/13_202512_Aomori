@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47238'
+  name: 大船渡市猪川町
+  lat: 39.0833
+  lon: 141.6649
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 35.47
+  EW: 29.746
+  UD: -11.236
+  H: 37.976
+  total: 38.05
+max_velocity:
+  NS: 1.247
+  EW: 1.597
+  UD: 0.898
+  total: 1.709
+max_displacement:
+  NS: 0.323
+  EW: 0.834
+  UD: 0.309
+  total: 0.889
+max_velocity_calculated:
+  NS: -1.28
+  EW: -1.675
+  UD: -0.981
+  H: 1.785
+  total: 1.788
+max_displacement_calculated:
+  NS: 0.561
+  EW: -0.997
+  UD: -0.281
+  H: 1.136
+  total: 1.137
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47641'
+  name: 秩父市上町
+  lat: 35.9897
+  lon: 139.0738
+record:
+  start_time: '2025-12-08T23:17:40.000'
+  end_time: '2025-12-08T23:19:39.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.716
+  EW: 3.081
+  UD: -1.243
+  H: 3.119
+  total: 3.185
+max_velocity:
+  NS: 0.525
+  EW: 0.484
+  UD: 0.37
+  total: 0.748
+max_displacement:
+  NS: 0.274
+  EW: 0.209
+  UD: 0.177
+  total: 0.322
+max_velocity_calculated:
+  NS: 0.495
+  EW: 0.507
+  UD: -0.348
+  H: 0.68
+  total: 0.744
+max_displacement_calculated:
+  NS: -3.573
+  EW: -4.045
+  UD: 1.682
+  H: 5.396
+  total: 5.649
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

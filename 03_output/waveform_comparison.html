@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>波形比較ビューア</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+            background: #f5f5f5;
+        }
+        .control-panel {
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .control-group label {
+            font-size: 12px;
+            color: #ccc;
+        }
+        .control-group select,
+        .control-group button {
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: none;
+            min-width: 150px;
+        }
+        .control-group select[multiple] {
+            min-height: 120px;
+            min-width: 300px;
+        }
+        .control-group button {
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+        }
+        .control-group button:hover {
+            background: #45a049;
+        }
+        .control-group button.secondary {
+            background: #666;
+        }
+        .control-group button.secondary:hover {
+            background: #555;
+        }
+        .control-group button:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+        #plot {
+            width: 100%;
+            height: calc(100vh - 180px);
+            background: white;
+        }
+        .info-bar {
+            background: #444;
+            color: #aaa;
+            padding: 8px 20px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            z-index: 1000;
+            display: none;
+        }
+        .loading.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">読み込み中...</div>
+    <div class="control-panel">
+        <div class="control-group">
+            <label>観測点選択（Ctrl/Cmd+クリックで複数選択）</label>
+            <select id="stationSelect" multiple>
+                        <option value="JMA_42204">[5強] 五戸町古舘 (JMA_42204)</option>
+                        <option value="JMA_47576">[5強] むつ市金曲 (JMA_47576)</option>
+                        <option value="JMA_47581">[5強] 八戸市湊町 (JMA_47581)</option>
+                        <option value="JMA_41101">[5弱] 千歳市北栄 (JMA_41101)</option>
+                        <option value="JMA_41202">[5弱] 五所川原市栄町 (JMA_41202)</option>
+                        <option value="JMA_42112">[5弱] 白老町竹浦 (JMA_42112)</option>
+                        <option value="JMA_42113">[5弱] 新ひだか町静内山手町 (JMA_42113)</option>
+                        <option value="JMA_42201">[5弱] 平内町小湊 (JMA_42201)</option>
+                        <option value="JMA_42203">[5弱] 六ヶ所村尾駮 (JMA_42203)</option>
+                        <option value="JMA_47004">[5弱] 厚真町鹿沼 (JMA_47004)</option>
+                        <option value="JMA_47007">[5弱] 東通村砂子又蒲谷地 (JMA_47007)</option>
+                        <option value="JMA_47010">[5弱] 久慈市枝成沢 (JMA_47010)</option>
+                        <option value="JMA_47424">[5弱] 苫小牧市末広町 (JMA_47424)</option>
+                        <option value="JMA_47426">[5弱] 浦河町潮見 (JMA_47426)</option>
+                        <option value="JMA_47487">[5弱] 新千歳空港 (JMA_47487)</option>
+                        <option value="JMA_41102">[4] 江別市高砂町 (JMA_41102)</option>
+                        <option value="JMA_41103">[4] 夕張市若菜 (JMA_41103)</option>
+                        <option value="JMA_41105">[4] 美唄市西５条 (JMA_41105)</option>
+                        <option value="JMA_41107">[4] 富良野市若松町 (JMA_41107)</option>
+                        <option value="JMA_41109">[4] 北見市公園町 (JMA_41109)</option>
+                        <option value="JMA_41110">[4] 胆振伊達市梅本 (JMA_41110)</option>
+                        <option value="JMA_41203">[4] 二戸市福岡 (JMA_41203)</option>
+                        <option value="JMA_41204">[4] 久慈市川崎町 (JMA_41204)</option>
+                        <option value="JMA_41206">[4] 北上市柳原町 (JMA_41206)</option>
+                        <option value="JMA_41207">[4] 奥州市水沢大鐘町 (JMA_41207)</option>
+                        <option value="JMA_41209">[4] 大崎市古川三日町 (JMA_41209)</option>
+                        <option value="JMA_42101">[4] 石狩市花川 (JMA_42101)</option>
+                        <option value="JMA_42108">[4] 十勝清水町南４条 (JMA_42108)</option>
+                        <option value="JMA_42115">[4] 七飯町桜町 (JMA_42115)</option>
+                        <option value="JMA_42202">[4] 鰺ヶ沢町舞戸町鳴戸 (JMA_42202)</option>
+                        <option value="JMA_42206">[4] 八幡平市大更 (JMA_42206)</option>
+                        <option value="JMA_42208">[4] 山田町八幡町 (JMA_42208)</option>
+                        <option value="JMA_42209">[4] 岩手洋野町種市 (JMA_42209)</option>
+                        <option value="JMA_42211">[4] 松島町高城 (JMA_42211)</option>
+                        <option value="JMA_42212">[4] 涌谷町新町裏 (JMA_42212)</option>
+                        <option value="JMA_42213">[4] 登米市中田町 (JMA_42213)</option>
+                        <option value="JMA_47003">[4] 新ひだか町静内御園 (JMA_47003)</option>
+                        <option value="JMA_47008">[4] 六ヶ所村出戸 (JMA_47008)</option>
+                        <option value="JMA_47209">[4] 恵庭市漁平 (JMA_47209)</option>
+                        <option value="JMA_47215">[4] 登別市鉱山 (JMA_47215)</option>
+                        <option value="JMA_47228">[4] むつ市大畑町奥薬研 (JMA_47228)</option>
+                        <option value="JMA_47229">[4] 五所川原市太田 (JMA_47229)</option>
+                        <option value="JMA_47230">[4] 七戸町北天間舘 (JMA_47230)</option>
+                        <option value="JMA_47235">[4] 葛巻町葛巻元木 (JMA_47235)</option>
+                        <option value="JMA_47351">[4] 八戸市島守 (JMA_47351)</option>
+                        <option value="JMA_47372">[4] 浦河町野深 (JMA_47372)</option>
+                        <option value="JMA_47413">[4] 岩見沢市５条 (JMA_47413)</option>
+                        <option value="JMA_47417">[4] 帯広市東４条 (JMA_47417)</option>
+                        <option value="JMA_47430">[4] 函館市美原 (JMA_47430)</option>
+                        <option value="JMA_47440">[4] 広尾町並木通 (JMA_47440)</option>
+                        <option value="JMA_47575">[4] 青森市花園 (JMA_47575)</option>
+                        <option value="JMA_47584">[4] 盛岡市山王町 (JMA_47584)</option>
+                        <option value="JMA_41104">[3] 滝川市大町 (JMA_41104)</option>
+                        <option value="JMA_41108">[3] 士別市東６条 (JMA_41108)</option>
+                        <option value="JMA_41201">[3] 弘前市和田町 (JMA_41201)</option>
+                        <option value="JMA_41205">[3] 釜石市只越町 (JMA_41205)</option>
+                        <option value="JMA_41208">[3] 気仙沼市赤岩 (JMA_41208)</option>
+                        <option value="JMA_41210">[3] 能代市緑町 (JMA_41210)</option>
+                        <option value="JMA_41211">[3] 由利本荘市石脇 (JMA_41211)</option>
+                        <option value="JMA_41212">[3] 湯沢市沖鶴 (JMA_41212)</option>
+                        <option value="JMA_41213">[3] 鶴岡市馬場町 (JMA_41213)</option>
+                        <option value="JMA_41215">[3] 郡山市朝日 (JMA_41215)</option>
+                        <option value="JMA_41216">[3] 南相馬市原町区三島町 (JMA_41216)</option>
+                        <option value="JMA_41302">[3] 土浦市常名 (JMA_41302)</option>
+                        <option value="JMA_41317">[3] 東京江戸川区中央 (JMA_41317)</option>
+                        <option value="JMA_42102">[3] 岩内町高台 (JMA_42102)</option>
+                        <option value="JMA_42103">[3] 余市町朝日町 (JMA_42103)</option>
+                        <option value="JMA_42104">[3] 上富良野町大町 (JMA_42104)</option>
+                        <option value="JMA_42105">[3] 美幌町東３条 (JMA_42105)</option>
+                        <option value="JMA_42106">[3] 斜里町本町 (JMA_42106)</option>
+                        <option value="JMA_42109">[3] 本別町北２丁目 (JMA_42109)</option>
+                        <option value="JMA_42110">[3] 弟子屈町美里 (JMA_42110)</option>
+                        <option value="JMA_42111">[3] 別海町常盤 (JMA_42111)</option>
+                        <option value="JMA_42114">[3] 渡島松前町福山 (JMA_42114)</option>
+                        <option value="JMA_42207">[3] 一関市大東町 (JMA_42207)</option>
+                        <option value="JMA_42216">[3] 北秋田市花園町 (JMA_42216)</option>
+                        <option value="JMA_42217">[3] 五城目町西磯ノ目 (JMA_42217)</option>
+                        <option value="JMA_42218">[3] 仙北市角館町中菅沢 (JMA_42218)</option>
+                        <option value="JMA_42219">[3] 横手市雄物川町今宿 (JMA_42219)</option>
+                        <option value="JMA_42220">[3] 河北町西里 (JMA_42220)</option>
+                        <option value="JMA_42222">[3] 遊佐町遊佐 (JMA_42222)</option>
+                        <option value="JMA_42228">[3] 浪江町幾世橋 (JMA_42228)</option>
+                        <option value="JMA_42304">[3] 筑西市舟生 (JMA_42304)</option>
+                        <option value="JMA_47002">[3] 広尾町白樺通 (JMA_47002)</option>
+                        <option value="JMA_47005">[3] 石狩市聚富 (JMA_47005)</option>
+                        <option value="JMA_47009">[3] 弘前市弥生 (JMA_47009)</option>
+                        <option value="JMA_47011">[3] 雫石町西根上駒木野 (JMA_47011)</option>
+                        <option value="JMA_47012">[3] 気仙沼市本吉町西川内 (JMA_47012)</option>
+                        <option value="JMA_47013">[3] 大崎市古川大崎 (JMA_47013)</option>
+                        <option value="JMA_47016">[3] 遊佐町小原田 (JMA_47016)</option>
+                        <option value="JMA_47017">[3] 米沢市アルカディア (JMA_47017)</option>
+                        <option value="JMA_47041">[3] 標津町古多糠 (JMA_47041)</option>
+                        <option value="JMA_47052">[3] 浦安市日の出 (JMA_47052)</option>
+                        <option value="JMA_47204">[3] 北竜町竜西 (JMA_47204)</option>
+                        <option value="JMA_47207">[3] 南富良野町幾寅 (JMA_47207)</option>
+                        <option value="JMA_47216">[3] 平取町仁世宇 (JMA_47216)</option>
+                        <option value="JMA_47217">[3] えりも町本町 (JMA_47217)</option>
+                        <option value="JMA_47218">[3] 足寄町上螺湾 (JMA_47218)</option>
+                        <option value="JMA_47219">[3] 幕別町忠類明和 (JMA_47219)</option>
+                        <option value="JMA_47222">[3] 厚岸町尾幌 (JMA_47222)</option>
+                        <option value="JMA_47223">[3] 芦別市旭町 (JMA_47223)</option>
+                        <option value="JMA_47231">[3] 深浦町長慶平 (JMA_47231)</option>
+                        <option value="JMA_47232">[3] 大館市比内町味噌内 (JMA_47232)</option>
+                        <option value="JMA_47234">[3] 秋田美郷町六郷東根 (JMA_47234)</option>
+                        <option value="JMA_47236">[3] 田野畑村田野畑 (JMA_47236)</option>
+                        <option value="JMA_47238">[3] 大船渡市猪川町 (JMA_47238)</option>
+                        <option value="JMA_47243">[3] 仙台青葉区大倉 (JMA_47243)</option>
+                        <option value="JMA_47352">[3] 秋田市雄和女米木 (JMA_47352)</option>
+                        <option value="JMA_47376">[3] 宮古市長沢 (JMA_47376)</option>
+                        <option value="JMA_47407">[3] 旭川市宮前１条 (JMA_47407)</option>
+                        <option value="JMA_47411">[3] 小樽市勝納町 (JMA_47411)</option>
+                        <option value="JMA_47412">[3] 札幌中央区北２条 (JMA_47412)</option>
+                        <option value="JMA_47418">[3] 釧路市幸町 (JMA_47418)</option>
+                        <option value="JMA_47423">[3] 室蘭市山手町 (JMA_47423)</option>
+                        <option value="JMA_47428">[3] 檜山江差町姥神 (JMA_47428)</option>
+                        <option value="JMA_47429">[3] 渡島森町御幸町 (JMA_47429)</option>
+                        <option value="JMA_47433">[3] 倶知安町南１条 (JMA_47433)</option>
+                        <option value="JMA_47512">[3] 大船渡市大船渡町 (JMA_47512)</option>
+                        <option value="JMA_47520">[3] 新庄市東谷地田町 (JMA_47520)</option>
+                        <option value="JMA_47569">[3] 仙台空港 (JMA_47569)</option>
+                        <option value="JMA_47574">[3] 深浦町深浦岡町 (JMA_47574)</option>
+                        <option value="JMA_47582">[3] 秋田市山王 (JMA_47582)</option>
+                        <option value="JMA_47587">[3] 酒田市亀ケ崎 (JMA_47587)</option>
+                        <option value="JMA_47590">[3] 仙台宮城野区五輪 (JMA_47590)</option>
+                        <option value="JMA_47592">[3] 石巻市泉町 (JMA_47592)</option>
+                        <option value="JMA_47595">[3] 福島市花園町 (JMA_47595)</option>
+                        <option value="JMA_47598">[3] いわき市小名浜 (JMA_47598)</option>
+                        <option value="JMA_47628">[3] 石岡市柿岡 (JMA_47628)</option>
+                        <option value="JMA_47682">[3] 千葉中央区中央港 (JMA_47682)</option>
+                        <option value="JMA_41106">[2] 名寄市大通 (JMA_41106)</option>
+                        <option value="JMA_41214">[2] 米沢市駅前 (JMA_41214)</option>
+                        <option value="JMA_41301">[2] 坂東市岩井 (JMA_41301)</option>
+                        <option value="JMA_41304">[2] 栃木市旭町 (JMA_41304)</option>
+                        <option value="JMA_41305">[2] 沼田市西倉内町 (JMA_41305)</option>
+                        <option value="JMA_41307">[2] 桐生市錦町 (JMA_41307)</option>
+                        <option value="JMA_41308">[2] さいたま浦和区高砂 (JMA_41308)</option>
+                        <option value="JMA_41309">[2] 川越市旭町 (JMA_41309)</option>
+                        <option value="JMA_41310">[2] 久喜市下早見 (JMA_41310)</option>
+                        <option value="JMA_41311">[2] 柏市旭町 (JMA_41311)</option>
+                        <option value="JMA_41312">[2] 成田市名古屋 (JMA_41312)</option>
+                        <option value="JMA_41313">[2] 香取市佐原平田 (JMA_41313)</option>
+                        <option value="JMA_41314">[2] 木更津市太田 (JMA_41314)</option>
+                        <option value="JMA_41315">[2] 東金市東新宿 (JMA_41315)</option>
+                        <option value="JMA_41316">[2] 鴨川市八色 (JMA_41316)</option>
+                        <option value="JMA_41318">[2] 東京杉並区阿佐谷 (JMA_41318)</option>
+                        <option value="JMA_41319">[2] 国分寺市並木町 (JMA_41319)</option>
+                        <option value="JMA_41322">[2] 川崎中原区小杉陣屋町 (JMA_41322)</option>
+                        <option value="JMA_41325">[2] 茅ヶ崎市茅ヶ崎 (JMA_41325)</option>
+                        <option value="JMA_41327">[2] 新潟秋葉区程島 (JMA_41327)</option>
+                        <option value="JMA_41343">[2] 御殿場市萩原 (JMA_41343)</option>
+                        <option value="JMA_41347">[2] 静岡清水区千歳町 (JMA_41347)</option>
+                        <option value="JMA_42107">[2] 北見市留辺蘂町温根湯温泉 (JMA_42107)</option>
+                        <option value="JMA_42210">[2] 柴田町船岡 (JMA_42210)</option>
+                        <option value="JMA_42215">[2] 南三陸町志津川 (JMA_42215)</option>
+                        <option value="JMA_42221">[2] 山形小国町岩井沢 (JMA_42221)</option>
+                        <option value="JMA_42223">[2] 南会津町田島 (JMA_42223)</option>
+                        <option value="JMA_42224">[2] 西会津町野沢 (JMA_42224)</option>
+                        <option value="JMA_42225">[2] 猪苗代町城南 (JMA_42225)</option>
+                        <option value="JMA_42226">[2] 棚倉町棚倉中居野 (JMA_42226)</option>
+                        <option value="JMA_42227">[2] 田村市船引町 (JMA_42227)</option>
+                        <option value="JMA_42301">[2] 茨城鹿嶋市鉢形 (JMA_42301)</option>
+                        <option value="JMA_42302">[2] 常陸大宮市中富町 (JMA_42302)</option>
+                        <option value="JMA_42303">[2] 鉾田市鉾田 (JMA_42303)</option>
+                        <option value="JMA_42305">[2] 利根町布川 (JMA_42305)</option>
+                        <option value="JMA_42306">[2] 益子町益子 (JMA_42306)</option>
+                        <option value="JMA_42307">[2] 那須烏山市神長 (JMA_42307)</option>
+                        <option value="JMA_42308">[2] 大田原市黒羽田町 (JMA_42308)</option>
+                        <option value="JMA_42310">[2] 板倉町板倉 (JMA_42310)</option>
+                        <option value="JMA_42311">[2] 鳩山町大豆戸 (JMA_42311)</option>
+                        <option value="JMA_42312">[2] 本庄市児玉町 (JMA_42312)</option>
+                        <option value="JMA_42313">[2] 多古町多古 (JMA_42313)</option>
+                        <option value="JMA_42314">[2] 一宮町一宮 (JMA_42314)</option>
+                        <option value="JMA_42315">[2] 湯河原町中央 (JMA_42315)</option>
+                        <option value="JMA_42316">[2] 胎内市新和町 (JMA_42316)</option>
+                        <option value="JMA_42318">[2] 新潟西蒲区役所 (JMA_42318)</option>
+                        <option value="JMA_42319">[2] 南魚沼市六日町 (JMA_42319)</option>
+                        <option value="JMA_47001">[2] 浜中町湯沸 (JMA_47001)</option>
+                        <option value="JMA_47006">[2] せたな町北檜山区豊岡 (JMA_47006)</option>
+                        <option value="JMA_47019">[2] ひたちなか市山ノ上町 (JMA_47019)</option>
+                        <option value="JMA_47020">[2] 潮来市堀之内 (JMA_47020)</option>
+                        <option value="JMA_47021">[2] 山武市松尾町富士見台 (JMA_47021)</option>
+                        <option value="JMA_47042">[2] 渡島松前町清部 (JMA_47042)</option>
+                        <option value="JMA_47044">[2] 南相馬市鹿島区栃窪 (JMA_47044)</option>
+                        <option value="JMA_47051">[2] 千葉美浜区ひび野 (JMA_47051)</option>
+                        <option value="JMA_47053">[2] 東京墨田区横川 (JMA_47053)</option>
+                        <option value="JMA_47054">[2] 東京江東区青海 (JMA_47054)</option>
+                        <option value="JMA_47055">[2] 東京新宿区西新宿 (JMA_47055)</option>
+                        <option value="JMA_47056">[2] 東京港区海岸 (JMA_47056)</option>
+                        <option value="JMA_47203">[2] 初山別村有明 (JMA_47203)</option>
+                        <option value="JMA_47205">[2] 士別市朝日町 (JMA_47205)</option>
+                        <option value="JMA_47206">[2] 上川地方上川町越路 (JMA_47206)</option>
+                        <option value="JMA_47208">[2] 遠軽町丸瀬布金湧山 (JMA_47208)</option>
+                        <option value="JMA_47211">[2] 島牧村江ノ島 (JMA_47211)</option>
+                        <option value="JMA_47212">[2] 八雲町上の湯 (JMA_47212)</option>
+                        <option value="JMA_47221">[2] 中標津町養老牛 (JMA_47221)</option>
+                        <option value="JMA_47224">[2] 羅臼町春日 (JMA_47224)</option>
+                        <option value="JMA_47225">[2] 利尻富士町鬼脇 (JMA_47225)</option>
+                        <option value="JMA_47233">[2] 男鹿市男鹿中 (JMA_47233)</option>
+                        <option value="JMA_47240">[2] 山形金山町中田 (JMA_47240)</option>
+                        <option value="JMA_47241">[2] 鶴岡市温海川 (JMA_47241)</option>
+                        <option value="JMA_47242">[2] 白鷹町黒鴨 (JMA_47242)</option>
+                        <option value="JMA_47244">[2] 石巻市大瓜 (JMA_47244)</option>
+                        <option value="JMA_47245">[2] 丸森町上滝 (JMA_47245)</option>
+                        <option value="JMA_47246">[2] 川内村下川内 (JMA_47246)</option>
+                        <option value="JMA_47247">[2] 大玉村南小屋 (JMA_47247)</option>
+                        <option value="JMA_47249">[2] 酒田市飛島 (JMA_47249)</option>
+                        <option value="JMA_47256">[2] 那須塩原市蟇沼 (JMA_47256)</option>
+                        <option value="JMA_47263">[2] 長南町総合グラウンド (JMA_47263)</option>
+                        <option value="JMA_47264">[2] 横須賀市光の丘 (JMA_47264)</option>
+                        <option value="JMA_47360">[2] 根室市豊里 (JMA_47360)</option>
+                        <option value="JMA_47362">[2] 北見市常呂町東浜 (JMA_47362)</option>
+                        <option value="JMA_47373">[2] 南房総市上堀 (JMA_47373)</option>
+                        <option value="JMA_47374">[2] いわき市三和町 (JMA_47374)</option>
+                        <option value="JMA_47404">[2] 羽幌町南３条 (JMA_47404)</option>
+                        <option value="JMA_47405">[2] 雄武町雄武 (JMA_47405)</option>
+                        <option value="JMA_47406">[2] 留萌市大町 (JMA_47406)</option>
+                        <option value="JMA_47409">[2] 網走市台町 (JMA_47409)</option>
+                        <option value="JMA_47420">[2] 根室市弥栄 (JMA_47420)</option>
+                        <option value="JMA_47421">[2] 寿都町新栄 (JMA_47421)</option>
+                        <option value="JMA_47435">[2] 紋別市南が丘町 (JMA_47435)</option>
+                        <option value="JMA_47570">[2] 会津若松市材木町 (JMA_47570)</option>
+                        <option value="JMA_47573">[2] 新潟空港 (JMA_47573)</option>
+                        <option value="JMA_47588">[2] 山形市緑町 (JMA_47588)</option>
+                        <option value="JMA_47597">[2] 白河市郭内 (JMA_47597)</option>
+                        <option value="JMA_47604">[2] 新潟中央区美咲町 (JMA_47604)</option>
+                        <option value="JMA_47615">[2] 宇都宮市明保野町 (JMA_47615)</option>
+                        <option value="JMA_47620">[2] 諏訪市湖岸通り (JMA_47620)</option>
+                        <option value="JMA_47622">[2] 軽井沢町追分 (JMA_47622)</option>
+                        <option value="JMA_47626">[2] 熊谷市桜町 (JMA_47626)</option>
+                        <option value="JMA_47629">[2] 水戸市金町 (JMA_47629)</option>
+                        <option value="JMA_47638">[2] 甲府市飯田 (JMA_47638)</option>
+                        <option value="JMA_47640">[2] 富士河口湖町船津 (JMA_47640)</option>
+                        <option value="JMA_47648">[2] 銚子市川口町 (JMA_47648)</option>
+                        <option value="JMA_47670">[2] 横浜中区山手町 (JMA_47670)</option>
+                        <option value="JMA_47671">[2] 東京国際空港 (JMA_47671)</option>
+                        <option value="JMA_47672">[2] 館山市長須賀 (JMA_47672)</option>
+                        <option value="JMA_47686">[2] 成田国際空港 (JMA_47686)</option>
+                        <option value="JMA_41303">[1] 日光市瀬川 (JMA_41303)</option>
+                        <option value="JMA_41306">[1] 富岡市七日市 (JMA_41306)</option>
+                        <option value="JMA_41320">[1] 八王子市大横町 (JMA_41320)</option>
+                        <option value="JMA_41321">[1] 青梅市東青梅 (JMA_41321)</option>
+                        <option value="JMA_41324">[1] 秦野市曽屋 (JMA_41324)</option>
+                        <option value="JMA_41326">[1] 村上市塩町 (JMA_41326)</option>
+                        <option value="JMA_41328">[1] 長岡市幸町 (JMA_41328)</option>
+                        <option value="JMA_41329">[1] 糸魚川市一の宮 (JMA_41329)</option>
+                        <option value="JMA_41330">[1] 小千谷市城内 (JMA_41330)</option>
+                        <option value="JMA_41338">[1] 甲州市塩山下於曽 (JMA_41338)</option>
+                        <option value="JMA_41340">[1] 上田市築地 (JMA_41340)</option>
+                        <option value="JMA_41346">[1] 富士宮市弓沢町 (JMA_41346)</option>
+                        <option value="JMA_42309">[1] 東吾妻町原町 (JMA_42309)</option>
+                        <option value="JMA_42317">[1] 五泉市村松乙 (JMA_42317)</option>
+                        <option value="JMA_42325">[1] 能登町宇出津 (JMA_42325)</option>
+                        <option value="JMA_42328">[1] 上野原市四方津 (JMA_42328)</option>
+                        <option value="JMA_42331">[1] 飯島町飯島 (JMA_42331)</option>
+                        <option value="JMA_42338">[1] 伊東市大原 (JMA_42338)</option>
+                        <option value="JMA_47018">[1] 古殿町松川横川 (JMA_47018)</option>
+                        <option value="JMA_47022">[1] 鴨川市内浦 (JMA_47022)</option>
+                        <option value="JMA_47023">[1] 東京利島村東山 (JMA_47023)</option>
+                        <option value="JMA_47027">[1] 伊豆市中伊豆グラウンド (JMA_47027)</option>
+                        <option value="JMA_47201">[1] 稚内市恵北 (JMA_47201)</option>
+                        <option value="JMA_47202">[1] 宗谷枝幸町岬町 (JMA_47202)</option>
+                        <option value="JMA_47210">[1] 積丹町日司町 (JMA_47210)</option>
+                        <option value="JMA_47227">[1] 奥尻町松江 (JMA_47227)</option>
+                        <option value="JMA_47248">[1] 柳津町大成沢 (JMA_47248)</option>
+                        <option value="JMA_47252">[1] 阿賀野市畑江 (JMA_47252)</option>
+                        <option value="JMA_47253">[1] 出雲崎町米田 (JMA_47253)</option>
+                        <option value="JMA_47259">[1] 常陸太田市町屋町 (JMA_47259)</option>
+                        <option value="JMA_47268">[1] 身延町大磯小磯 (JMA_47268)</option>
+                        <option value="JMA_47370">[1] 銚子市小畑新町 (JMA_47370)</option>
+                        <option value="JMA_47401">[1] 稚内市開運 (JMA_47401)</option>
+                        <option value="JMA_47402">[1] 宗谷枝幸町本町 (JMA_47402)</option>
+                        <option value="JMA_47600">[1] 輪島市鳳至町 (JMA_47600)</option>
+                        <option value="JMA_47610">[1] 長野市箱清水 (JMA_47610)</option>
+                        <option value="JMA_47612">[1] 上越市大手町 (JMA_47612)</option>
+                        <option value="JMA_47624">[1] 前橋市昭和町 (JMA_47624)</option>
+                        <option value="JMA_47637">[1] 飯田市高羽町 (JMA_47637)</option>
+                        <option value="JMA_47641">[1] 秩父市上町 (JMA_47641)</option>
+                        <option value="JMA_47657">[1] 三島市東本町 (JMA_47657)</option>
+                        <option value="JMA_47668">[1] 熱海市網代 (JMA_47668)</option>
+                        <option value="JMA_47674">[1] 勝浦市墨名 (JMA_47674)</option>
+                        <option value="JMA_47675">[1] 伊豆大島町元町 (JMA_47675)</option>
+                        <option value="JMA_47690">[1] 日光市中宮祠 (JMA_47690)</option>
+                        <option value="JMA_47747">[1] 豊岡市桜町 (JMA_47747)</option>
+                        <option value="JMA_47057">[-] 横浜鶴見区大黒ふ頭 (JMA_47057)</option>
+                        <option value="NIED_AKT001">[-] NIED_AKT001 (NIED_AKT001)</option>
+                        <option value="NIED_AKT004">[-] NIED_AKT004 (NIED_AKT004)</option>
+                        <option value="NIED_AKT007">[-] NIED_AKT007 (NIED_AKT007)</option>
+                        <option value="NIED_AKT008">[-] NIED_AKT008 (NIED_AKT008)</option>
+                        <option value="NIED_AKT010">[-] NIED_AKT010 (NIED_AKT010)</option>
+                        <option value="NIED_AKT011">[-] NIED_AKT011 (NIED_AKT011)</option>
+                        <option value="NIED_AKT012">[-] NIED_AKT012 (NIED_AKT012)</option>
+                        <option value="NIED_AKT014">[-] NIED_AKT014 (NIED_AKT014)</option>
+                        <option value="NIED_AKT018">[-] NIED_AKT018 (NIED_AKT018)</option>
+                        <option value="NIED_AKT019">[-] NIED_AKT019 (NIED_AKT019)</option>
+                        <option value="NIED_AKT021">[-] NIED_AKT021 (NIED_AKT021)</option>
+                        <option value="NIED_AKT022">[-] NIED_AKT022 (NIED_AKT022)</option>
+                        <option value="NIED_AOM001">[-] NIED_AOM001 (NIED_AOM001)</option>
+                        <option value="NIED_AOM002">[-] NIED_AOM002 (NIED_AOM002)</option>
+                        <option value="NIED_AOM004">[-] NIED_AOM004 (NIED_AOM004)</option>
+                        <option value="NIED_AOM007">[-] NIED_AOM007 (NIED_AOM007)</option>
+                        <option value="NIED_AOM013">[-] NIED_AOM013 (NIED_AOM013)</option>
+                        <option value="NIED_AOM017">[-] NIED_AOM017 (NIED_AOM017)</option>
+                        <option value="NIED_FKS004">[-] NIED_FKS004 (NIED_FKS004)</option>
+                        <option value="NIED_FKS006">[-] NIED_FKS006 (NIED_FKS006)</option>
+                        <option value="NIED_FKS009">[-] NIED_FKS009 (NIED_FKS009)</option>
+                        <option value="NIED_FKS025">[-] NIED_FKS025 (NIED_FKS025)</option>
+                        <option value="NIED_FKS026">[-] NIED_FKS026 (NIED_FKS026)</option>
+                        <option value="NIED_FKS030">[-] NIED_FKS030 (NIED_FKS030)</option>
+                        <option value="NIED_HKD023">[-] NIED_HKD023 (NIED_HKD023)</option>
+                        <option value="NIED_HKD032">[-] NIED_HKD032 (NIED_HKD032)</option>
+                        <option value="NIED_HKD033">[-] NIED_HKD033 (NIED_HKD033)</option>
+                        <option value="NIED_HKD034">[-] NIED_HKD034 (NIED_HKD034)</option>
+                        <option value="NIED_HKD037">[-] NIED_HKD037 (NIED_HKD037)</option>
+                        <option value="NIED_HKD038">[-] NIED_HKD038 (NIED_HKD038)</option>
+                        <option value="NIED_HKD040">[-] NIED_HKD040 (NIED_HKD040)</option>
+                        <option value="NIED_HKD041">[-] NIED_HKD041 (NIED_HKD041)</option>
+                        <option value="NIED_HKD045">[-] NIED_HKD045 (NIED_HKD045)</option>
+                        <option value="NIED_HKD046">[-] NIED_HKD046 (NIED_HKD046)</option>
+                        <option value="NIED_HKD047">[-] NIED_HKD047 (NIED_HKD047)</option>
+                        <option value="NIED_HKD049">[-] NIED_HKD049 (NIED_HKD049)</option>
+                        <option value="NIED_HKD050">[-] NIED_HKD050 (NIED_HKD050)</option>
+                        <option value="NIED_HKD053">[-] NIED_HKD053 (NIED_HKD053)</option>
+                        <option value="NIED_HKD056">[-] NIED_HKD056 (NIED_HKD056)</option>
+                        <option value="NIED_HKD061">[-] NIED_HKD061 (NIED_HKD061)</option>
+                        <option value="NIED_HKD063">[-] NIED_HKD063 (NIED_HKD063)</option>
+                        <option value="NIED_HKD067">[-] NIED_HKD067 (NIED_HKD067)</option>
+                        <option value="NIED_HKD068">[-] NIED_HKD068 (NIED_HKD068)</option>
+                        <option value="NIED_HKD071">[-] NIED_HKD071 (NIED_HKD071)</option>
+                        <option value="NIED_HKD074">[-] NIED_HKD074 (NIED_HKD074)</option>
+                        <option value="NIED_HKD077">[-] NIED_HKD077 (NIED_HKD077)</option>
+                        <option value="NIED_HKD087">[-] NIED_HKD087 (NIED_HKD087)</option>
+                        <option value="NIED_HKD088">[-] NIED_HKD088 (NIED_HKD088)</option>
+                        <option value="NIED_HKD089">[-] NIED_HKD089 (NIED_HKD089)</option>
+                        <option value="NIED_HKD099">[-] NIED_HKD099 (NIED_HKD099)</option>
+                        <option value="NIED_HKD100">[-] NIED_HKD100 (NIED_HKD100)</option>
+                        <option value="NIED_HKD101">[-] NIED_HKD101 (NIED_HKD101)</option>
+                        <option value="NIED_HKD102">[-] NIED_HKD102 (NIED_HKD102)</option>
+                        <option value="NIED_HKD104">[-] NIED_HKD104 (NIED_HKD104)</option>
+                        <option value="NIED_HKD111">[-] NIED_HKD111 (NIED_HKD111)</option>
+                        <option value="NIED_HKD112">[-] NIED_HKD112 (NIED_HKD112)</option>
+                        <option value="NIED_HKD115">[-] NIED_HKD115 (NIED_HKD115)</option>
+                        <option value="NIED_HKD123">[-] NIED_HKD123 (NIED_HKD123)</option>
+                        <option value="NIED_HKD126">[-] NIED_HKD126 (NIED_HKD126)</option>
+                        <option value="NIED_HKD131">[-] NIED_HKD131 (NIED_HKD131)</option>
+                        <option value="NIED_HKD132">[-] NIED_HKD132 (NIED_HKD132)</option>
+                        <option value="NIED_HKD133">[-] NIED_HKD133 (NIED_HKD133)</option>
+                        <option value="NIED_HKD135">[-] NIED_HKD135 (NIED_HKD135)</option>
+                        <option value="NIED_HKD136">[-] NIED_HKD136 (NIED_HKD136)</option>
+                        <option value="NIED_HKD137">[-] NIED_HKD137 (NIED_HKD137)</option>
+                        <option value="NIED_HKD138">[-] NIED_HKD138 (NIED_HKD138)</option>
+                        <option value="NIED_HKD140">[-] NIED_HKD140 (NIED_HKD140)</option>
+                        <option value="NIED_HKD141">[-] NIED_HKD141 (NIED_HKD141)</option>
+                        <option value="NIED_HKD145">[-] NIED_HKD145 (NIED_HKD145)</option>
+                        <option value="NIED_HKD147">[-] NIED_HKD147 (NIED_HKD147)</option>
+                        <option value="NIED_HKD149">[-] NIED_HKD149 (NIED_HKD149)</option>
+                        <option value="NIED_HKD150">[-] NIED_HKD150 (NIED_HKD150)</option>
+                        <option value="NIED_HKD153">[-] NIED_HKD153 (NIED_HKD153)</option>
+                        <option value="NIED_HKD156">[-] NIED_HKD156 (NIED_HKD156)</option>
+                        <option value="NIED_HKD157">[-] NIED_HKD157 (NIED_HKD157)</option>
+                        <option value="NIED_HKD162">[-] NIED_HKD162 (NIED_HKD162)</option>
+                        <option value="NIED_HKD163">[-] NIED_HKD163 (NIED_HKD163)</option>
+                        <option value="NIED_HKD164">[-] NIED_HKD164 (NIED_HKD164)</option>
+                        <option value="NIED_HKD165">[-] NIED_HKD165 (NIED_HKD165)</option>
+                        <option value="NIED_HKD166">[-] NIED_HKD166 (NIED_HKD166)</option>
+                        <option value="NIED_HKD167">[-] NIED_HKD167 (NIED_HKD167)</option>
+                        <option value="NIED_HKD168">[-] NIED_HKD168 (NIED_HKD168)</option>
+                        <option value="NIED_HKD170">[-] NIED_HKD170 (NIED_HKD170)</option>
+                        <option value="NIED_HKD171">[-] NIED_HKD171 (NIED_HKD171)</option>
+                        <option value="NIED_HKD172">[-] NIED_HKD172 (NIED_HKD172)</option>
+                        <option value="NIED_HKD174">[-] NIED_HKD174 (NIED_HKD174)</option>
+                        <option value="NIED_HKD175">[-] NIED_HKD175 (NIED_HKD175)</option>
+                        <option value="NIED_HKD176">[-] NIED_HKD176 (NIED_HKD176)</option>
+                        <option value="NIED_HKD183">[-] NIED_HKD183 (NIED_HKD183)</option>
+                        <option value="NIED_HKD185">[-] NIED_HKD185 (NIED_HKD185)</option>
+                        <option value="NIED_IWT005">[-] NIED_IWT005 (NIED_IWT005)</option>
+                        <option value="NIED_IWT006">[-] NIED_IWT006 (NIED_IWT006)</option>
+                        <option value="NIED_IWT008">[-] NIED_IWT008 (NIED_IWT008)</option>
+                        <option value="NIED_IWT009">[-] NIED_IWT009 (NIED_IWT009)</option>
+                        <option value="NIED_IWT016">[-] NIED_IWT016 (NIED_IWT016)</option>
+                        <option value="NIED_IWT017">[-] NIED_IWT017 (NIED_IWT017)</option>
+                        <option value="NIED_IWT018">[-] NIED_IWT018 (NIED_IWT018)</option>
+                        <option value="NIED_IWT019">[-] NIED_IWT019 (NIED_IWT019)</option>
+                        <option value="NIED_IWT023">[-] NIED_IWT023 (NIED_IWT023)</option>
+                        <option value="NIED_IWT025">[-] NIED_IWT025 (NIED_IWT025)</option>
+                        <option value="NIED_MYG001">[-] NIED_MYG001 (NIED_MYG001)</option>
+                        <option value="NIED_MYG002">[-] NIED_MYG002 (NIED_MYG002)</option>
+                        <option value="NIED_MYG003">[-] NIED_MYG003 (NIED_MYG003)</option>
+                        <option value="NIED_MYG007">[-] NIED_MYG007 (NIED_MYG007)</option>
+                        <option value="NIED_MYG008">[-] NIED_MYG008 (NIED_MYG008)</option>
+                        <option value="NIED_MYG011">[-] NIED_MYG011 (NIED_MYG011)</option>
+                        <option value="NIED_MYG012">[-] NIED_MYG012 (NIED_MYG012)</option>
+                        <option value="NIED_MYG014">[-] NIED_MYG014 (NIED_MYG014)</option>
+                        <option value="NIED_MYG018">[-] NIED_MYG018 (NIED_MYG018)</option>
+                        <option value="NIED_MYG019">[-] NIED_MYG019 (NIED_MYG019)</option>
+                        <option value="NIED_NIG006">[-] NIED_NIG006 (NIED_NIG006)</option>
+                        <option value="NIED_TCG002">[-] NIED_TCG002 (NIED_TCG002)</option>
+                        <option value="NIED_YMT004">[-] NIED_YMT004 (NIED_YMT004)</option>
+                        <option value="NIED_YMT012">[-] NIED_YMT012 (NIED_YMT012)</option>
+                        <option value="NIED_YMT013">[-] NIED_YMT013 (NIED_YMT013)</option>
+                        <option value="NIED_YMT016">[-] NIED_YMT016 (NIED_YMT016)</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>波形種類</label>
+            <select id="waveformType">
+                <option value="acceleration">加速度 (gal)</option>
+                <option value="velocity">速度 (cm/s)</option>
+                <option value="displacement">変位 (cm)</option>
+            </select>
+            <label style="margin-top: 10px;">成分</label>
+            <select id="componentSelect">
+                <option value="all">全成分 (NS/EW/UD)</option>
+                <option value="NS">NS成分のみ</option>
+                <option value="EW">EW成分のみ</option>
+                <option value="UD">UD成分のみ</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>表示形式</label>
+            <select id="displayMode">
+                <option value="subplot">サブプロット（縦並び）</option>
+                <option value="overlay">オーバーレイ（重ね描き）</option>
+            </select>
+            <div class="button-row" style="margin-top: 10px;">
+                <button id="updateBtn" onclick="updatePlot()">描画更新</button>
+                <button class="secondary" onclick="clearSelection()">選択解除</button>
+            </div>
+        </div>
+        <div class="control-group">
+            <label>クイック選択</label>
+            <div class="button-row">
+                <button class="secondary" onclick="selectByIntensity('5強')">震度5強</button>
+                <button class="secondary" onclick="selectByIntensity('5弱')">震度5弱</button>
+                <button class="secondary" onclick="selectByIntensity('4')">震度4</button>
+            </div>
+        </div>
+    </div>
+    <div class="info-bar">
+        <span id="stationCount">選択地点: 0</span>
+        <span id="dataInfo">データポイント: -</span>
+    </div>
+    <div id="plot"></div>
+
+    <script>
+        // 観測点メタデータ
+        const stations = {"JMA_41101": {"name": "千歳市北栄", "lat": 42.8259, "lon": 141.6414, "intensity": "5弱", "source": "JMA", "max_acc": 131.961, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41102": {"name": "江別市高砂町", "lat": 43.1037, "lon": 141.5359, "intensity": "4", "source": "JMA", "max_acc": 48.923, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41103": {"name": "夕張市若菜", "lat": 43.0287, "lon": 141.9654, "intensity": "4", "source": "JMA", "max_acc": 51.322, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41104": {"name": "滝川市大町", "lat": 43.5574, "lon": 141.9108, "intensity": "3", "source": "JMA", "max_acc": 25.795, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41105": {"name": "美唄市西５条", "lat": 43.3345, "lon": 141.8468, "intensity": "4", "source": "JMA", "max_acc": 35.185, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41106": {"name": "名寄市大通", "lat": 44.3557, "lon": 142.4632, "intensity": "2", "source": "JMA", "max_acc": 6.181, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41107": {"name": "富良野市若松町", "lat": 43.3457, "lon": 142.3843, "intensity": "4", "source": "JMA", "max_acc": 37.361, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41108": {"name": "士別市東６条", "lat": 44.1771, "lon": 142.4013, "intensity": "3", "source": "JMA", "max_acc": 10.896, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41109": {"name": "北見市公園町", "lat": 43.8177, "lon": 143.9032, "intensity": "4", "source": "JMA", "max_acc": 31.749, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41110": {"name": "胆振伊達市梅本", "lat": 42.4739, "lon": 140.8761, "intensity": "4", "source": "JMA", "max_acc": 60.07, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41201": {"name": "弘前市和田町", "lat": 40.6114, "lon": 140.4553, "intensity": "3", "source": "JMA", "max_acc": 22.994, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41202": {"name": "五所川原市栄町", "lat": 40.7995, "lon": 140.4429, "intensity": "5弱", "source": "JMA", "max_acc": 103.54, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41203": {"name": "二戸市福岡", "lat": 40.2722, "lon": 141.3037, "intensity": "4", "source": "JMA", "max_acc": 93.914, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41204": {"name": "久慈市川崎町", "lat": 40.1894, "lon": 141.7754, "intensity": "4", "source": "JMA", "max_acc": 64.757, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41205": {"name": "釜石市只越町", "lat": 39.276, "lon": 141.8856, "intensity": "3", "source": "JMA", "max_acc": 53.115, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41206": {"name": "北上市柳原町", "lat": 39.2929, "lon": 141.1095, "intensity": "4", "source": "JMA", "max_acc": 56.675, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41207": {"name": "奥州市水沢大鐘町", "lat": 39.1292, "lon": 141.1381, "intensity": "4", "source": "JMA", "max_acc": 47.771, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41208": {"name": "気仙沼市赤岩", "lat": 38.8806, "lon": 141.5743, "intensity": "3", "source": "JMA", "max_acc": 58.487, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41209": {"name": "大崎市古川三日町", "lat": 38.5741, "lon": 140.9561, "intensity": "4", "source": "JMA", "max_acc": 52.089, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41210": {"name": "能代市緑町", "lat": 40.1989, "lon": 140.033, "intensity": "3", "source": "JMA", "max_acc": 16.752, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41211": {"name": "由利本荘市石脇", "lat": 39.3988, "lon": 140.0469, "intensity": "3", "source": "JMA", "max_acc": 11.734, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41212": {"name": "湯沢市沖鶴", "lat": 39.174, "lon": 140.4796, "intensity": "3", "source": "JMA", "max_acc": 18.537, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41213": {"name": "鶴岡市馬場町", "lat": 38.7271, "lon": 139.8274, "intensity": "3", "source": "JMA", "max_acc": 9.156, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41214": {"name": "米沢市駅前", "lat": 37.9125, "lon": 140.1211, "intensity": "2", "source": "JMA", "max_acc": 6.497, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41215": {"name": "郡山市朝日", "lat": 37.4009, "lon": 140.36, "intensity": "3", "source": "JMA", "max_acc": 17.412, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41216": {"name": "南相馬市原町区三島町", "lat": 37.6413, "lon": 140.9558, "intensity": "3", "source": "JMA", "max_acc": 13.687, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41301": {"name": "坂東市岩井", "lat": 36.0407, "lon": 139.8832, "intensity": "2", "source": "JMA", "max_acc": 7.528, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41302": {"name": "土浦市常名", "lat": 36.1041, "lon": 140.1894, "intensity": "3", "source": "JMA", "max_acc": 10.263, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41303": {"name": "日光市瀬川", "lat": 36.7346, "lon": 139.6882, "intensity": "1", "source": "JMA", "max_acc": 2.693, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41304": {"name": "栃木市旭町", "lat": 36.3772, "lon": 139.7363, "intensity": "2", "source": "JMA", "max_acc": 4.107, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41305": {"name": "沼田市西倉内町", "lat": 36.6461, "lon": 139.0428, "intensity": "2", "source": "JMA", "max_acc": 2.757, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41306": {"name": "富岡市七日市", "lat": 36.2639, "lon": 138.8803, "intensity": "1", "source": "JMA", "max_acc": 2.059, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41307": {"name": "桐生市錦町", "lat": 36.4042, "lon": 139.3315, "intensity": "2", "source": "JMA", "max_acc": 4.205, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41308": {"name": "さいたま浦和区高砂", "lat": 35.8582, "lon": 139.6485, "intensity": "2", "source": "JMA", "max_acc": 4.849, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41309": {"name": "川越市旭町", "lat": 35.9003, "lon": 139.4731, "intensity": "2", "source": "JMA", "max_acc": 4.514, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41310": {"name": "久喜市下早見", "lat": 36.0595, "lon": 139.6669, "intensity": "2", "source": "JMA", "max_acc": 9.116, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41311": {"name": "柏市旭町", "lat": 35.86, "lon": 139.9587, "intensity": "2", "source": "JMA", "max_acc": 7.27, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41312": {"name": "成田市名古屋", "lat": 35.8633, "lon": 140.3619, "intensity": "2", "source": "JMA", "max_acc": 5.383, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41313": {"name": "香取市佐原平田", "lat": 35.8864, "lon": 140.5066, "intensity": "2", "source": "JMA", "max_acc": 7.052, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41314": {"name": "木更津市太田", "lat": 35.3786, "lon": 139.9448, "intensity": "2", "source": "JMA", "max_acc": 3.876, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41315": {"name": "東金市東新宿", "lat": 35.5607, "lon": 140.3681, "intensity": "2", "source": "JMA", "max_acc": 4.025, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41316": {"name": "鴨川市八色", "lat": 35.114, "lon": 140.0982, "intensity": "2", "source": "JMA", "max_acc": 2.785, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41317": {"name": "東京江戸川区中央", "lat": 35.7071, "lon": 139.8687, "intensity": "3", "source": "JMA", "max_acc": 8.425, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41318": {"name": "東京杉並区阿佐谷", "lat": 35.7, "lon": 139.6366, "intensity": "2", "source": "JMA", "max_acc": 3.523, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41319": {"name": "国分寺市並木町", "lat": 35.7152, "lon": 139.4502, "intensity": "2", "source": "JMA", "max_acc": 3.411, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41320": {"name": "八王子市大横町", "lat": 35.6645, "lon": 139.3272, "intensity": "1", "source": "JMA", "max_acc": 2.413, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41321": {"name": "青梅市東青梅", "lat": 35.788, "lon": 139.2751, "intensity": "1", "source": "JMA", "max_acc": 1.31, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41322": {"name": "川崎中原区小杉陣屋町", "lat": 35.5869, "lon": 139.6551, "intensity": "2", "source": "JMA", "max_acc": 4.59, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41324": {"name": "秦野市曽屋", "lat": 35.3799, "lon": 139.2109, "intensity": "1", "source": "JMA", "max_acc": 2.208, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41325": {"name": "茅ヶ崎市茅ヶ崎", "lat": 35.3344, "lon": 139.4032, "intensity": "2", "source": "JMA", "max_acc": 3.929, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41326": {"name": "村上市塩町", "lat": 38.2286, "lon": 139.4746, "intensity": "1", "source": "JMA", "max_acc": 1.991, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41327": {"name": "新潟秋葉区程島", "lat": 37.7877, "lon": 139.1121, "intensity": "2", "source": "JMA", "max_acc": 3.892, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41328": {"name": "長岡市幸町", "lat": 37.4357, "lon": 138.8407, "intensity": "1", "source": "JMA", "max_acc": 1.393, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41329": {"name": "糸魚川市一の宮", "lat": 37.0388, "lon": 137.8633, "intensity": "1", "source": "JMA", "max_acc": 0.835, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41330": {"name": "小千谷市城内", "lat": 37.3125, "lon": 138.7927, "intensity": "1", "source": "JMA", "max_acc": 1.629, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41338": {"name": "甲州市塩山下於曽", "lat": 35.7003, "lon": 138.7213, "intensity": "1", "source": "JMA", "max_acc": 2.38, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41340": {"name": "上田市築地", "lat": 36.3992, "lon": 138.2081, "intensity": "1", "source": "JMA", "max_acc": 1.408, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41343": {"name": "御殿場市萩原", "lat": 35.3102, "lon": 138.9304, "intensity": "2", "source": "JMA", "max_acc": 3.847, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41346": {"name": "富士宮市弓沢町", "lat": 35.2232, "lon": 138.621, "intensity": "1", "source": "JMA", "max_acc": 1.912, "available": ["acceleration", "velocity", "displacement"]}, "JMA_41347": {"name": "静岡清水区千歳町", "lat": 35.0168, "lon": 138.4848, "intensity": "2", "source": "JMA", "max_acc": 2.367, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42101": {"name": "石狩市花川", "lat": 43.1714, "lon": 141.3157, "intensity": "4", "source": "JMA", "max_acc": 29.547, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42102": {"name": "岩内町高台", "lat": 42.98, "lon": 140.515, "intensity": "3", "source": "JMA", "max_acc": 11.689, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42103": {"name": "余市町朝日町", "lat": 43.1952, "lon": 140.7835, "intensity": "3", "source": "JMA", "max_acc": 12.852, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42104": {"name": "上富良野町大町", "lat": 43.4557, "lon": 142.467, "intensity": "3", "source": "JMA", "max_acc": 19.933, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42105": {"name": "美幌町東３条", "lat": 43.8161, "lon": 144.1033, "intensity": "3", "source": "JMA", "max_acc": 17.42, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42106": {"name": "斜里町本町", "lat": 43.9114, "lon": 144.6711, "intensity": "3", "source": "JMA", "max_acc": 10.753, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42107": {"name": "北見市留辺蘂町温根湯温泉", "lat": 43.7585, "lon": 143.5093, "intensity": "2", "source": "JMA", "max_acc": 15.465, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42108": {"name": "十勝清水町南４条", "lat": 43.0115, "lon": 142.8845, "intensity": "4", "source": "JMA", "max_acc": 61.134, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42109": {"name": "本別町北２丁目", "lat": 43.1246, "lon": 143.6111, "intensity": "3", "source": "JMA", "max_acc": 55.288, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42110": {"name": "弟子屈町美里", "lat": 43.4809, "lon": 144.4366, "intensity": "3", "source": "JMA", "max_acc": 15.084, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42111": {"name": "別海町常盤", "lat": 43.3946, "lon": 145.118, "intensity": "3", "source": "JMA", "max_acc": 37.144, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42112": {"name": "白老町竹浦", "lat": 42.4928, "lon": 141.2548, "intensity": "5弱", "source": "JMA", "max_acc": 120.779, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42113": {"name": "新ひだか町静内山手町", "lat": 42.3448, "lon": 142.3622, "intensity": "5弱", "source": "JMA", "max_acc": 131.843, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42114": {"name": "渡島松前町福山", "lat": 41.43, "lon": 140.1104, "intensity": "3", "source": "JMA", "max_acc": 13.981, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42115": {"name": "七飯町桜町", "lat": 41.9033, "lon": 140.688, "intensity": "4", "source": "JMA", "max_acc": 69.547, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42201": {"name": "平内町小湊", "lat": 40.9255, "lon": 140.9527, "intensity": "5弱", "source": "JMA", "max_acc": 194.975, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42202": {"name": "鰺ヶ沢町舞戸町鳴戸", "lat": 40.7821, "lon": 140.2334, "intensity": "4", "source": "JMA", "max_acc": 58.113, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42203": {"name": "六ヶ所村尾駮", "lat": 40.9669, "lon": 141.3739, "intensity": "5弱", "source": "JMA", "max_acc": 177.814, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42204": {"name": "五戸町古舘", "lat": 40.5313, "lon": 141.3079, "intensity": "5強", "source": "JMA", "max_acc": 458.665, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42206": {"name": "八幡平市大更", "lat": 39.9263, "lon": 141.0951, "intensity": "4", "source": "JMA", "max_acc": 116.944, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42207": {"name": "一関市大東町", "lat": 39.0171, "lon": 141.3956, "intensity": "3", "source": "JMA", "max_acc": 44.266, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42208": {"name": "山田町八幡町", "lat": 39.4676, "lon": 141.9492, "intensity": "4", "source": "JMA", "max_acc": 54.516, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42209": {"name": "岩手洋野町種市", "lat": 40.4083, "lon": 141.7185, "intensity": "4", "source": "JMA", "max_acc": 106.242, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42210": {"name": "柴田町船岡", "lat": 38.0547, "lon": 140.7626, "intensity": "2", "source": "JMA", "max_acc": 10.549, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42211": {"name": "松島町高城", "lat": 38.3853, "lon": 141.0691, "intensity": "4", "source": "JMA", "max_acc": 35.606, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42212": {"name": "涌谷町新町裏", "lat": 38.5401, "lon": 141.1272, "intensity": "4", "source": "JMA", "max_acc": 67.025, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42213": {"name": "登米市中田町", "lat": 38.7103, "lon": 141.2357, "intensity": "4", "source": "JMA", "max_acc": 48.286, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42215": {"name": "南三陸町志津川", "lat": 38.6784, "lon": 141.461, "intensity": "2", "source": "JMA", "max_acc": 15.875, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42216": {"name": "北秋田市花園町", "lat": 40.226, "lon": 140.3707, "intensity": "3", "source": "JMA", "max_acc": 30.29, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42217": {"name": "五城目町西磯ノ目", "lat": 39.9438, "lon": 140.1111, "intensity": "3", "source": "JMA", "max_acc": 13.699, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42218": {"name": "仙北市角館町中菅沢", "lat": 39.5902, "lon": 140.5671, "intensity": "3", "source": "JMA", "max_acc": 13.141, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42219": {"name": "横手市雄物川町今宿", "lat": 39.2912, "lon": 140.4296, "intensity": "3", "source": "JMA", "max_acc": 23.742, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42220": {"name": "河北町西里", "lat": 38.4144, "lon": 140.2804, "intensity": "3", "source": "JMA", "max_acc": 9.068, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42221": {"name": "山形小国町岩井沢", "lat": 38.0562, "lon": 139.7478, "intensity": "2", "source": "JMA", "max_acc": 6.719, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42222": {"name": "遊佐町遊佐", "lat": 39.012, "lon": 139.9086, "intensity": "3", "source": "JMA", "max_acc": 18.086, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42223": {"name": "南会津町田島", "lat": 37.2002, "lon": 139.7732, "intensity": "2", "source": "JMA", "max_acc": 3.181, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42224": {"name": "西会津町野沢", "lat": 37.5871, "lon": 139.6487, "intensity": "2", "source": "JMA", "max_acc": 3.495, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42225": {"name": "猪苗代町城南", "lat": 37.5589, "lon": 140.1049, "intensity": "2", "source": "JMA", "max_acc": 8.145, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42226": {"name": "棚倉町棚倉中居野", "lat": 37.0292, "lon": 140.3802, "intensity": "2", "source": "JMA", "max_acc": 8.272, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42227": {"name": "田村市船引町", "lat": 37.4401, "lon": 140.5765, "intensity": "2", "source": "JMA", "max_acc": 8.455, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42228": {"name": "浪江町幾世橋", "lat": 37.4945, "lon": 140.9997, "intensity": "3", "source": "JMA", "max_acc": 18.544, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42301": {"name": "茨城鹿嶋市鉢形", "lat": 35.9665, "lon": 140.6464, "intensity": "2", "source": "JMA", "max_acc": 6.93, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42302": {"name": "常陸大宮市中富町", "lat": 36.5427, "lon": 140.4109, "intensity": "2", "source": "JMA", "max_acc": 8.986, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42303": {"name": "鉾田市鉾田", "lat": 36.1586, "lon": 140.5166, "intensity": "2", "source": "JMA", "max_acc": 5.537, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42304": {"name": "筑西市舟生", "lat": 36.2509, "lon": 139.9321, "intensity": "3", "source": "JMA", "max_acc": 14.387, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42305": {"name": "利根町布川", "lat": 35.8578, "lon": 140.1391, "intensity": "2", "source": "JMA", "max_acc": 5.21, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42306": {"name": "益子町益子", "lat": 36.4675, "lon": 140.0931, "intensity": "2", "source": "JMA", "max_acc": 3.798, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42307": {"name": "那須烏山市神長", "lat": 36.6591, "lon": 140.1333, "intensity": "2", "source": "JMA", "max_acc": 4.133, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42308": {"name": "大田原市黒羽田町", "lat": 36.8633, "lon": 140.1216, "intensity": "2", "source": "JMA", "max_acc": 3.04, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42309": {"name": "東吾妻町原町", "lat": 36.5714, "lon": 138.8212, "intensity": "1", "source": "JMA", "max_acc": 0.76, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42310": {"name": "板倉町板倉", "lat": 36.2249, "lon": 139.6015, "intensity": "2", "source": "JMA", "max_acc": 7.029, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42311": {"name": "鳩山町大豆戸", "lat": 35.9814, "lon": 139.3341, "intensity": "2", "source": "JMA", "max_acc": 4.223, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42312": {"name": "本庄市児玉町", "lat": 36.1907, "lon": 139.1279, "intensity": "2", "source": "JMA", "max_acc": 4.723, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42313": {"name": "多古町多古", "lat": 35.7354, "lon": 140.4675, "intensity": "2", "source": "JMA", "max_acc": 5.377, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42314": {"name": "一宮町一宮", "lat": 35.3718, "lon": 140.3684, "intensity": "2", "source": "JMA", "max_acc": 3.097, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42315": {"name": "湯河原町中央", "lat": 35.1479, "lon": 139.1082, "intensity": "2", "source": "JMA", "max_acc": 4.686, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42316": {"name": "胎内市新和町", "lat": 38.0596, "lon": 139.4102, "intensity": "2", "source": "JMA", "max_acc": 3.015, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42317": {"name": "五泉市村松乙", "lat": 37.6934, "lon": 139.1743, "intensity": "1", "source": "JMA", "max_acc": 1.984, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42318": {"name": "新潟西蒲区役所", "lat": 37.7607, "lon": 138.8894, "intensity": "2", "source": "JMA", "max_acc": 3.58, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42319": {"name": "南魚沼市六日町", "lat": 37.0656, "lon": 138.876, "intensity": "2", "source": "JMA", "max_acc": 5.056, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42325": {"name": "能登町宇出津", "lat": 37.3109, "lon": 137.1473, "intensity": "1", "source": "JMA", "max_acc": 1.025, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42328": {"name": "上野原市四方津", "lat": 35.6134, "lon": 139.0815, "intensity": "1", "source": "JMA", "max_acc": 1.322, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42331": {"name": "飯島町飯島", "lat": 35.6767, "lon": 137.9195, "intensity": "1", "source": "JMA", "max_acc": 1.401, "available": ["acceleration", "velocity", "displacement"]}, "JMA_42338": {"name": "伊東市大原", "lat": 34.9654, "lon": 139.102, "intensity": "1", "source": "JMA", "max_acc": 1.414, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47001": {"name": "浜中町湯沸", "lat": 43.0828, "lon": 145.1608, "intensity": "2", "source": "JMA", "max_acc": 16.777, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47002": {"name": "広尾町白樺通", "lat": 42.2913, "lon": 143.2988, "intensity": "3", "source": "JMA", "max_acc": 44.054, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47003": {"name": "新ひだか町静内御園", "lat": 42.4099, "lon": 142.4667, "intensity": "4", "source": "JMA", "max_acc": 50.406, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47004": {"name": "厚真町鹿沼", "lat": 42.6226, "lon": 141.9204, "intensity": "5弱", "source": "JMA", "max_acc": 268.427, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47005": {"name": "石狩市聚富", "lat": 43.2753, "lon": 141.4175, "intensity": "3", "source": "JMA", "max_acc": 44.671, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47006": {"name": "せたな町北檜山区豊岡", "lat": 42.4225, "lon": 139.8767, "intensity": "2", "source": "JMA", "max_acc": 7.918, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47007": {"name": "東通村砂子又蒲谷地", "lat": 41.2653, "lon": 141.3374, "intensity": "5弱", "source": "JMA", "max_acc": 192.703, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47008": {"name": "六ヶ所村出戸", "lat": 41.0073, "lon": 141.3664, "intensity": "4", "source": "JMA", "max_acc": 130.421, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47009": {"name": "弘前市弥生", "lat": 40.6519, "lon": 140.359, "intensity": "3", "source": "JMA", "max_acc": 39.489, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47010": {"name": "久慈市枝成沢", "lat": 40.2056, "lon": 141.7098, "intensity": "5弱", "source": "JMA", "max_acc": 228.079, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47011": {"name": "雫石町西根上駒木野", "lat": 39.7415, "lon": 140.9527, "intensity": "3", "source": "JMA", "max_acc": 28.834, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47012": {"name": "気仙沼市本吉町西川内", "lat": 38.8108, "lon": 141.4738, "intensity": "3", "source": "JMA", "max_acc": 21.876, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47013": {"name": "大崎市古川大崎", "lat": 38.6022, "lon": 140.9112, "intensity": "3", "source": "JMA", "max_acc": 21.132, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47016": {"name": "遊佐町小原田", "lat": 39.0162, "lon": 139.9306, "intensity": "3", "source": "JMA", "max_acc": 6.78, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47017": {"name": "米沢市アルカディア", "lat": 37.9127, "lon": 140.1436, "intensity": "3", "source": "JMA", "max_acc": 10.182, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47018": {"name": "古殿町松川横川", "lat": 37.0909, "lon": 140.5611, "intensity": "1", "source": "JMA", "max_acc": 3.416, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47019": {"name": "ひたちなか市山ノ上町", "lat": 36.3405, "lon": 140.5868, "intensity": "2", "source": "JMA", "max_acc": 3.218, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47020": {"name": "潮来市堀之内", "lat": 35.9659, "lon": 140.5259, "intensity": "2", "source": "JMA", "max_acc": 6.998, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47021": {"name": "山武市松尾町富士見台", "lat": 35.6426, "lon": 140.4483, "intensity": "2", "source": "JMA", "max_acc": 4.501, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47022": {"name": "鴨川市内浦", "lat": 35.16, "lon": 140.1991, "intensity": "1", "source": "JMA", "max_acc": 1.528, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47023": {"name": "東京利島村東山", "lat": 34.5236, "lon": 139.2883, "intensity": "1", "source": "JMA", "max_acc": 1.01, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47027": {"name": "伊豆市中伊豆グラウンド", "lat": 34.9588, "lon": 139.0087, "intensity": "1", "source": "JMA", "max_acc": 2.518, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47041": {"name": "標津町古多糠", "lat": 43.7756, "lon": 145.0046, "intensity": "3", "source": "JMA", "max_acc": 12.227, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47042": {"name": "渡島松前町清部", "lat": 41.5248, "lon": 140.0069, "intensity": "2", "source": "JMA", "max_acc": 10.234, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47044": {"name": "南相馬市鹿島区栃窪", "lat": 37.7246, "lon": 140.8874, "intensity": "2", "source": "JMA", "max_acc": 7.73, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47051": {"name": "千葉美浜区ひび野", "lat": 35.6438, "lon": 140.0402, "intensity": "2", "source": "JMA", "max_acc": 7.144, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47052": {"name": "浦安市日の出", "lat": 35.6442, "lon": 139.924, "intensity": "3", "source": "JMA", "max_acc": 11.317, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47053": {"name": "東京墨田区横川", "lat": 35.7039, "lon": 139.815, "intensity": "2", "source": "JMA", "max_acc": 5.397, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47054": {"name": "東京江東区青海", "lat": 35.6168, "lon": 139.7812, "intensity": "2", "source": "JMA", "max_acc": 6.902, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47055": {"name": "東京新宿区西新宿", "lat": 35.6907, "lon": 139.6953, "intensity": "2", "source": "JMA", "max_acc": 4.372, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47056": {"name": "東京港区海岸", "lat": 35.6389, "lon": 139.7529, "intensity": "2", "source": "JMA", "max_acc": 4.323, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47057": {"name": "横浜鶴見区大黒ふ頭", "lat": 35.4608, "lon": 139.6733, "intensity": "-", "source": "JMA", "max_acc": 5.146, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47201": {"name": "稚内市恵北", "lat": 45.3183, "lon": 141.8934, "intensity": "1", "source": "JMA", "max_acc": 1.298, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47202": {"name": "宗谷枝幸町岬町", "lat": 44.9614, "lon": 142.5798, "intensity": "1", "source": "JMA", "max_acc": 1.78, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47203": {"name": "初山別村有明", "lat": 44.4017, "lon": 141.8493, "intensity": "2", "source": "JMA", "max_acc": 5.242, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47204": {"name": "北竜町竜西", "lat": 43.7454, "lon": 141.7212, "intensity": "3", "source": "JMA", "max_acc": 18.517, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47205": {"name": "士別市朝日町", "lat": 44.1189, "lon": 142.5933, "intensity": "2", "source": "JMA", "max_acc": 3.822, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47206": {"name": "上川地方上川町越路", "lat": 43.8763, "lon": 142.7437, "intensity": "2", "source": "JMA", "max_acc": 6.478, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47207": {"name": "南富良野町幾寅", "lat": 43.1664, "lon": 142.5903, "intensity": "3", "source": "JMA", "max_acc": 18.094, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47208": {"name": "遠軽町丸瀬布金湧山", "lat": 44.0092, "lon": 143.3559, "intensity": "2", "source": "JMA", "max_acc": 7.968, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47209": {"name": "恵庭市漁平", "lat": 42.8435, "lon": 141.4459, "intensity": "4", "source": "JMA", "max_acc": 36.857, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47210": {"name": "積丹町日司町", "lat": 43.3549, "lon": 140.4723, "intensity": "1", "source": "JMA", "max_acc": 2.75, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47211": {"name": "島牧村江ノ島", "lat": 42.6455, "lon": 140.0412, "intensity": "2", "source": "JMA", "max_acc": 10.256, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47212": {"name": "八雲町上の湯", "lat": 42.1193, "lon": 140.3662, "intensity": "2", "source": "JMA", "max_acc": 13.846, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47215": {"name": "登別市鉱山", "lat": 42.4709, "lon": 141.0346, "intensity": "4", "source": "JMA", "max_acc": 103.932, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47216": {"name": "平取町仁世宇", "lat": 42.7811, "lon": 142.3599, "intensity": "3", "source": "JMA", "max_acc": 20.64, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47217": {"name": "えりも町本町", "lat": 42.0174, "lon": 143.1533, "intensity": "3", "source": "JMA", "max_acc": 19.602, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47218": {"name": "足寄町上螺湾", "lat": 43.2993, "lon": 143.7656, "intensity": "3", "source": "JMA", "max_acc": 26.334, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47219": {"name": "幕別町忠類明和", "lat": 42.6176, "lon": 143.3604, "intensity": "3", "source": "JMA", "max_acc": 17.845, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47221": {"name": "中標津町養老牛", "lat": 43.5875, "lon": 144.7151, "intensity": "2", "source": "JMA", "max_acc": 24.08, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47222": {"name": "厚岸町尾幌", "lat": 42.9972, "lon": 144.6926, "intensity": "3", "source": "JMA", "max_acc": 19.239, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47223": {"name": "芦別市旭町", "lat": 43.5068, "lon": 142.2192, "intensity": "3", "source": "JMA", "max_acc": 24.12, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47224": {"name": "羅臼町春日", "lat": 43.94, "lon": 145.1201, "intensity": "2", "source": "JMA", "max_acc": 7.589, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47225": {"name": "利尻富士町鬼脇", "lat": 45.14, "lon": 141.3074, "intensity": "2", "source": "JMA", "max_acc": 3.367, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47227": {"name": "奥尻町松江", "lat": 42.085, "lon": 139.4705, "intensity": "1", "source": "JMA", "max_acc": 4.105, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47228": {"name": "むつ市大畑町奥薬研", "lat": 41.3847, "lon": 141.0447, "intensity": "4", "source": "JMA", "max_acc": 166.369, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47229": {"name": "五所川原市太田", "lat": 41.0602, "lon": 140.4077, "intensity": "4", "source": "JMA", "max_acc": 32.467, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47230": {"name": "七戸町北天間舘", "lat": 40.7895, "lon": 141.0647, "intensity": "4", "source": "JMA", "max_acc": 14.369, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47231": {"name": "深浦町長慶平", "lat": 40.5955, "lon": 140.0035, "intensity": "3", "source": "JMA", "max_acc": 16.755, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47232": {"name": "大館市比内町味噌内", "lat": 40.1916, "lon": 140.6326, "intensity": "3", "source": "JMA", "max_acc": 18.043, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47233": {"name": "男鹿市男鹿中", "lat": 39.9195, "lon": 139.8066, "intensity": "2", "source": "JMA", "max_acc": 6.881, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47234": {"name": "秋田美郷町六郷東根", "lat": 39.3988, "lon": 140.6297, "intensity": "3", "source": "JMA", "max_acc": 21.664, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47235": {"name": "葛巻町葛巻元木", "lat": 39.9872, "lon": 141.3259, "intensity": "4", "source": "JMA", "max_acc": 94.287, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47236": {"name": "田野畑村田野畑", "lat": 39.9416, "lon": 141.8603, "intensity": "3", "source": "JMA", "max_acc": 28.823, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47238": {"name": "大船渡市猪川町", "lat": 39.0833, "lon": 141.6649, "intensity": "3", "source": "JMA", "max_acc": 38.05, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47240": {"name": "山形金山町中田", "lat": 38.9215, "lon": 140.3562, "intensity": "2", "source": "JMA", "max_acc": 4.786, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47241": {"name": "鶴岡市温海川", "lat": 38.5961, "lon": 139.7104, "intensity": "2", "source": "JMA", "max_acc": 7.462, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47242": {"name": "白鷹町黒鴨", "lat": 38.2243, "lon": 140.062, "intensity": "2", "source": "JMA", "max_acc": 8.045, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47243": {"name": "仙台青葉区大倉", "lat": 38.3679, "lon": 140.6602, "intensity": "3", "source": "JMA", "max_acc": 12.834, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47244": {"name": "石巻市大瓜", "lat": 38.4574, "lon": 141.3457, "intensity": "2", "source": "JMA", "max_acc": 11.388, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47245": {"name": "丸森町上滝", "lat": 37.8692, "lon": 140.7896, "intensity": "2", "source": "JMA", "max_acc": 7.663, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47246": {"name": "川内村下川内", "lat": 37.3695, "lon": 140.8712, "intensity": "2", "source": "JMA", "max_acc": 6.121, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47247": {"name": "大玉村南小屋", "lat": 37.56, "lon": 140.3338, "intensity": "2", "source": "JMA", "max_acc": 9.02, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47248": {"name": "柳津町大成沢", "lat": 37.4096, "lon": 139.7011, "intensity": "1", "source": "JMA", "max_acc": 1.207, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47249": {"name": "酒田市飛島", "lat": 39.1978, "lon": 139.5531, "intensity": "2", "source": "JMA", "max_acc": 2.847, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47252": {"name": "阿賀野市畑江", "lat": 37.8212, "lon": 139.3142, "intensity": "1", "source": "JMA", "max_acc": 0.973, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47253": {"name": "出雲崎町米田", "lat": 37.5345, "lon": 138.7064, "intensity": "1", "source": "JMA", "max_acc": 2.026, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47256": {"name": "那須塩原市蟇沼", "lat": 36.9715, "lon": 139.9164, "intensity": "2", "source": "JMA", "max_acc": 3.126, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47259": {"name": "常陸太田市町屋町", "lat": 36.614, "lon": 140.5653, "intensity": "1", "source": "JMA", "max_acc": 3.517, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47263": {"name": "長南町総合グラウンド", "lat": 35.3842, "lon": 140.2355, "intensity": "2", "source": "JMA", "max_acc": 4.666, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47264": {"name": "横須賀市光の丘", "lat": 35.2269, "lon": 139.6629, "intensity": "2", "source": "JMA", "max_acc": 2.51, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47268": {"name": "身延町大磯小磯", "lat": 35.5009, "lon": 138.5414, "intensity": "1", "source": "JMA", "max_acc": 1.234, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47351": {"name": "八戸市島守", "lat": 40.3762, "lon": 141.5117, "intensity": "4", "source": "JMA", "max_acc": 74.95, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47352": {"name": "秋田市雄和女米木", "lat": 39.5424, "lon": 140.2053, "intensity": "3", "source": "JMA", "max_acc": 11.95, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47360": {"name": "根室市豊里", "lat": 43.3675, "lon": 145.7388, "intensity": "2", "source": "JMA", "max_acc": 6.056, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47362": {"name": "北見市常呂町東浜", "lat": 44.1185, "lon": 144.0855, "intensity": "2", "source": "JMA", "max_acc": 7.429, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47370": {"name": "銚子市小畑新町", "lat": 35.7211, "lon": 140.8578, "intensity": "1", "source": "JMA", "max_acc": 2.502, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47372": {"name": "浦河町野深", "lat": 42.2826, "lon": 142.7498, "intensity": "4", "source": "JMA", "max_acc": 92.725, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47373": {"name": "南房総市上堀", "lat": 35.0353, "lon": 139.8874, "intensity": "2", "source": "JMA", "max_acc": 2.349, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47374": {"name": "いわき市三和町", "lat": 37.1048, "lon": 140.7983, "intensity": "2", "source": "JMA", "max_acc": 12.585, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47376": {"name": "宮古市長沢", "lat": 39.5767, "lon": 141.8197, "intensity": "3", "source": "JMA", "max_acc": 31.952, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47401": {"name": "稚内市開運", "lat": 45.4154, "lon": 141.6783, "intensity": "1", "source": "JMA", "max_acc": 1.505, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47402": {"name": "宗谷枝幸町本町", "lat": 44.9402, "lon": 142.5851, "intensity": "1", "source": "JMA", "max_acc": 1.93, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47404": {"name": "羽幌町南３条", "lat": 44.3633, "lon": 141.7008, "intensity": "2", "source": "JMA", "max_acc": 6.993, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47405": {"name": "雄武町雄武", "lat": 44.5825, "lon": 142.9618, "intensity": "2", "source": "JMA", "max_acc": 2.7, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47406": {"name": "留萌市大町", "lat": 43.9463, "lon": 141.6322, "intensity": "2", "source": "JMA", "max_acc": 6.581, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47407": {"name": "旭川市宮前１条", "lat": 43.7577, "lon": 142.373, "intensity": "3", "source": "JMA", "max_acc": 12.863, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47409": {"name": "網走市台町", "lat": 44.0182, "lon": 144.2796, "intensity": "2", "source": "JMA", "max_acc": 4.38, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47411": {"name": "小樽市勝納町", "lat": 43.1828, "lon": 141.017, "intensity": "3", "source": "JMA", "max_acc": 29.785, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47412": {"name": "札幌中央区北２条", "lat": 43.0604, "lon": 141.3289, "intensity": "3", "source": "JMA", "max_acc": 23.976, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47413": {"name": "岩見沢市５条", "lat": 43.2125, "lon": 141.7856, "intensity": "4", "source": "JMA", "max_acc": 53.304, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47417": {"name": "帯広市東４条", "lat": 42.9226, "lon": 143.2122, "intensity": "4", "source": "JMA", "max_acc": 73.283, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47418": {"name": "釧路市幸町", "lat": 42.9867, "lon": 144.3782, "intensity": "3", "source": "JMA", "max_acc": 19.866, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47420": {"name": "根室市弥栄", "lat": 43.331, "lon": 145.5857, "intensity": "2", "source": "JMA", "max_acc": 6.867, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47421": {"name": "寿都町新栄", "lat": 42.7956, "lon": 140.2243, "intensity": "2", "source": "JMA", "max_acc": 9.298, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47423": {"name": "室蘭市山手町", "lat": 42.3118, "lon": 140.9752, "intensity": "3", "source": "JMA", "max_acc": 31.056, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47424": {"name": "苫小牧市末広町", "lat": 42.6381, "lon": 141.6124, "intensity": "5弱", "source": "JMA", "max_acc": 124.048, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47426": {"name": "浦河町潮見", "lat": 42.1625, "lon": 142.7771, "intensity": "5弱", "source": "JMA", "max_acc": 206.619, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47428": {"name": "檜山江差町姥神", "lat": 41.8679, "lon": 140.125, "intensity": "3", "source": "JMA", "max_acc": 16.627, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47429": {"name": "渡島森町御幸町", "lat": 42.1052, "lon": 140.5766, "intensity": "3", "source": "JMA", "max_acc": 32.982, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47430": {"name": "函館市美原", "lat": 41.8169, "lon": 140.7541, "intensity": "4", "source": "JMA", "max_acc": 71.622, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47433": {"name": "倶知安町南１条", "lat": 42.9009, "lon": 140.7573, "intensity": "3", "source": "JMA", "max_acc": 20.843, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47435": {"name": "紋別市南が丘町", "lat": 44.3455, "lon": 143.3555, "intensity": "2", "source": "JMA", "max_acc": 4.234, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47440": {"name": "広尾町並木通", "lat": 42.2948, "lon": 143.3173, "intensity": "4", "source": "JMA", "max_acc": 44.682, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47487": {"name": "新千歳空港", "lat": 42.7839, "lon": 141.6788, "intensity": "5弱", "source": "JMA", "max_acc": 110.142, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47512": {"name": "大船渡市大船渡町", "lat": 39.0653, "lon": 141.7146, "intensity": "3", "source": "JMA", "max_acc": 59.71, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47520": {"name": "新庄市東谷地田町", "lat": 38.7574, "lon": 140.3122, "intensity": "3", "source": "JMA", "max_acc": 10.606, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47569": {"name": "仙台空港", "lat": 38.1379, "lon": 140.9278, "intensity": "3", "source": "JMA", "max_acc": 20.346, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47570": {"name": "会津若松市材木町", "lat": 37.4884, "lon": 139.9104, "intensity": "2", "source": "JMA", "max_acc": 3.666, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47573": {"name": "新潟空港", "lat": 37.953, "lon": 139.1094, "intensity": "2", "source": "JMA", "max_acc": 4.251, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47574": {"name": "深浦町深浦岡町", "lat": 40.6464, "lon": 139.9334, "intensity": "3", "source": "JMA", "max_acc": 28.895, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47575": {"name": "青森市花園", "lat": 40.822, "lon": 140.7686, "intensity": "4", "source": "JMA", "max_acc": 96.666, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47576": {"name": "むつ市金曲", "lat": 41.2834, "lon": 141.2114, "intensity": "5強", "source": "JMA", "max_acc": 246.1, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47581": {"name": "八戸市湊町", "lat": 40.5278, "lon": 141.5217, "intensity": "5強", "source": "JMA", "max_acc": 456.299, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47582": {"name": "秋田市山王", "lat": 39.7179, "lon": 140.0995, "intensity": "3", "source": "JMA", "max_acc": 13.439, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47584": {"name": "盛岡市山王町", "lat": 39.6987, "lon": 141.1658, "intensity": "4", "source": "JMA", "max_acc": 85.752, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47587": {"name": "酒田市亀ケ崎", "lat": 38.9085, "lon": 139.8435, "intensity": "3", "source": "JMA", "max_acc": 20.188, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47588": {"name": "山形市緑町", "lat": 38.2562, "lon": 140.3459, "intensity": "2", "source": "JMA", "max_acc": 5.671, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47590": {"name": "仙台宮城野区五輪", "lat": 38.2622, "lon": 140.8968, "intensity": "3", "source": "JMA", "max_acc": 14.259, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47592": {"name": "石巻市泉町", "lat": 38.4277, "lon": 141.2994, "intensity": "3", "source": "JMA", "max_acc": 20.376, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47595": {"name": "福島市花園町", "lat": 37.7621, "lon": 140.4734, "intensity": "3", "source": "JMA", "max_acc": 15.073, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47597": {"name": "白河市郭内", "lat": 37.1322, "lon": 140.2155, "intensity": "2", "source": "JMA", "max_acc": 5.065, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47598": {"name": "いわき市小名浜", "lat": 36.9479, "lon": 140.9033, "intensity": "3", "source": "JMA", "max_acc": 11.69, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47600": {"name": "輪島市鳳至町", "lat": 37.3912, "lon": 136.8952, "intensity": "1", "source": "JMA", "max_acc": 1.84, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47604": {"name": "新潟中央区美咲町", "lat": 37.8937, "lon": 139.0188, "intensity": "2", "source": "JMA", "max_acc": 3.646, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47610": {"name": "長野市箱清水", "lat": 36.6627, "lon": 138.1926, "intensity": "1", "source": "JMA", "max_acc": 1.562, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47612": {"name": "上越市大手町", "lat": 37.1068, "lon": 138.2469, "intensity": "1", "source": "JMA", "max_acc": 1.39, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47615": {"name": "宇都宮市明保野町", "lat": 36.5498, "lon": 139.8683, "intensity": "2", "source": "JMA", "max_acc": 5.311, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47620": {"name": "諏訪市湖岸通り", "lat": 36.0461, "lon": 138.1095, "intensity": "2", "source": "JMA", "max_acc": 3.604, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47622": {"name": "軽井沢町追分", "lat": 36.3421, "lon": 138.5472, "intensity": "2", "source": "JMA", "max_acc": 2.373, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47624": {"name": "前橋市昭和町", "lat": 36.4055, "lon": 139.0608, "intensity": "1", "source": "JMA", "max_acc": 2.117, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47626": {"name": "熊谷市桜町", "lat": 36.1504, "lon": 139.3807, "intensity": "2", "source": "JMA", "max_acc": 5.008, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47628": {"name": "石岡市柿岡", "lat": 36.2342, "lon": 140.1893, "intensity": "3", "source": "JMA", "max_acc": 12.006, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47629": {"name": "水戸市金町", "lat": 36.3816, "lon": 140.468, "intensity": "2", "source": "JMA", "max_acc": 7.596, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47637": {"name": "飯田市高羽町", "lat": 35.5232, "lon": 137.8226, "intensity": "1", "source": "JMA", "max_acc": 1.256, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47638": {"name": "甲府市飯田", "lat": 35.6674, "lon": 138.5539, "intensity": "2", "source": "JMA", "max_acc": 2.873, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47640": {"name": "富士河口湖町船津", "lat": 35.5008, "lon": 138.7606, "intensity": "2", "source": "JMA", "max_acc": 2.302, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47641": {"name": "秩父市上町", "lat": 35.9897, "lon": 139.0738, "intensity": "1", "source": "JMA", "max_acc": 3.185, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47648": {"name": "銚子市川口町", "lat": 35.7399, "lon": 140.858, "intensity": "2", "source": "JMA", "max_acc": 3.633, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47657": {"name": "三島市東本町", "lat": 35.1141, "lon": 138.9257, "intensity": "1", "source": "JMA", "max_acc": 2.726, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47668": {"name": "熱海市網代", "lat": 35.0482, "lon": 139.0925, "intensity": "1", "source": "JMA", "max_acc": 1.215, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47670": {"name": "横浜中区山手町", "lat": 35.4398, "lon": 139.6529, "intensity": "2", "source": "JMA", "max_acc": 6.63, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47671": {"name": "東京国際空港", "lat": 35.5352, "lon": 139.7998, "intensity": "2", "source": "JMA", "max_acc": 5.299, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47672": {"name": "館山市長須賀", "lat": 34.9871, "lon": 139.8654, "intensity": "2", "source": "JMA", "max_acc": 3.514, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47674": {"name": "勝浦市墨名", "lat": 35.1507, "lon": 140.3121, "intensity": "1", "source": "JMA", "max_acc": 1.282, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47675": {"name": "伊豆大島町元町", "lat": 34.7502, "lon": 139.3553, "intensity": "1", "source": "JMA", "max_acc": 1.075, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47682": {"name": "千葉中央区中央港", "lat": 35.6027, "lon": 140.1046, "intensity": "3", "source": "JMA", "max_acc": 10.285, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47686": {"name": "成田国際空港", "lat": 35.7747, "lon": 140.3823, "intensity": "2", "source": "JMA", "max_acc": 6.296, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47690": {"name": "日光市中宮祠", "lat": 36.7404, "lon": 139.4957, "intensity": "1", "source": "JMA", "max_acc": 1.292, "available": ["acceleration", "velocity", "displacement"]}, "JMA_47747": {"name": "豊岡市桜町", "lat": 35.5358, "lon": 134.8226, "intensity": "1", "source": "JMA", "max_acc": 0.815, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT001": {"name": "NIED_AKT001", "lat": 40.328, "lon": 140.7429, "intensity": "-", "source": "NIED", "max_acc": 50.086, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT004": {"name": "NIED_AKT004", "lat": 40.3886, "lon": 139.9822, "intensity": "-", "source": "NIED", "max_acc": 31.731, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT007": {"name": "NIED_AKT007", "lat": 40.0376, "lon": 140.0919, "intensity": "-", "source": "NIED", "max_acc": 12.55, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT008": {"name": "NIED_AKT008", "lat": 39.884, "lon": 140.0706, "intensity": "-", "source": "NIED", "max_acc": 44.027, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT010": {"name": "NIED_AKT010", "lat": 39.7223, "lon": 140.0998, "intensity": "-", "source": "NIED", "max_acc": 32.68, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT011": {"name": "NIED_AKT011", "lat": 39.8133, "lon": 140.5805, "intensity": "-", "source": "NIED", "max_acc": 40.027, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT012": {"name": "NIED_AKT012", "lat": 39.7014, "lon": 140.7178, "intensity": "-", "source": "NIED", "max_acc": 27.363, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT014": {"name": "NIED_AKT014", "lat": 39.595, "lon": 140.5573, "intensity": "-", "source": "NIED", "max_acc": 25.89, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT018": {"name": "NIED_AKT018", "lat": 39.1937, "lon": 140.1899, "intensity": "-", "source": "NIED", "max_acc": 24.339, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT019": {"name": "NIED_AKT019", "lat": 39.039, "lon": 140.449, "intensity": "-", "source": "NIED", "max_acc": 65.256, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT021": {"name": "NIED_AKT021", "lat": 39.994, "lon": 140.4035, "intensity": "-", "source": "NIED", "max_acc": 21.518, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AKT022": {"name": "NIED_AKT022", "lat": 39.7739, "lon": 140.6669, "intensity": "-", "source": "NIED", "max_acc": 39.166, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AOM001": {"name": "NIED_AOM001", "lat": 41.5269, "lon": 140.9246, "intensity": "-", "source": "NIED", "max_acc": 55.003, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AOM002": {"name": "NIED_AOM002", "lat": 41.328, "lon": 140.8132, "intensity": "-", "source": "NIED", "max_acc": 131.597, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AOM004": {"name": "NIED_AOM004", "lat": 41.4064, "lon": 141.4477, "intensity": "-", "source": "NIED", "max_acc": 315.108, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AOM007": {"name": "NIED_AOM007", "lat": 41.1689, "lon": 141.3845, "intensity": "-", "source": "NIED", "max_acc": 302.987, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AOM013": {"name": "NIED_AOM013", "lat": 40.4126, "lon": 141.2813, "intensity": "-", "source": "NIED", "max_acc": 175.578, "available": ["acceleration", "velocity", "displacement"]}, "NIED_AOM017": {"name": "NIED_AOM017", "lat": 40.6388, "lon": 139.9295, "intensity": "-", "source": "NIED", "max_acc": 29.148, "available": ["acceleration", "velocity", "displacement"]}, "NIED_FKS004": {"name": "NIED_FKS004", "lat": 37.6798, "lon": 140.7342, "intensity": "-", "source": "NIED", "max_acc": 32.181, "available": ["acceleration", "velocity", "displacement"]}, "NIED_FKS006": {"name": "NIED_FKS006", "lat": 37.5022, "lon": 140.7593, "intensity": "-", "source": "NIED", "max_acc": 28.225, "available": ["acceleration", "velocity", "displacement"]}, "NIED_FKS009": {"name": "NIED_FKS009", "lat": 37.2796, "lon": 140.6344, "intensity": "-", "source": "NIED", "max_acc": 20.055, "available": ["acceleration", "velocity", "displacement"]}, "NIED_FKS025": {"name": "NIED_FKS025", "lat": 37.3082, "lon": 139.8994, "intensity": "-", "source": "NIED", "max_acc": 27.378, "available": ["acceleration", "velocity", "displacement"]}, "NIED_FKS026": {"name": "NIED_FKS026", "lat": 37.2664, "lon": 139.5368, "intensity": "-", "source": "NIED", "max_acc": 27.691, "available": ["acceleration", "velocity", "displacement"]}, "NIED_FKS030": {"name": "NIED_FKS030", "lat": 37.4548, "lon": 139.5252, "intensity": "-", "source": "NIED", "max_acc": 30.204, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD023": {"name": "NIED_HKD023", "lat": 43.7734, "lon": 141.3686, "intensity": "-", "source": "NIED", "max_acc": 29.734, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD032": {"name": "NIED_HKD032", "lat": 44.0235, "lon": 142.4123, "intensity": "-", "source": "NIED", "max_acc": 23.396, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD033": {"name": "NIED_HKD033", "lat": 43.909, "lon": 142.5699, "intensity": "-", "source": "NIED", "max_acc": 20.32, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD034": {"name": "NIED_HKD034", "lat": 43.8543, "lon": 142.7686, "intensity": "-", "source": "NIED", "max_acc": 8.641, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD037": {"name": "NIED_HKD037", "lat": 43.5889, "lon": 142.4673, "intensity": "-", "source": "NIED", "max_acc": 45.115, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD038": {"name": "NIED_HKD038", "lat": 43.1666, "lon": 142.5662, "intensity": "-", "source": "NIED", "max_acc": 45.742, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD040": {"name": "NIED_HKD040", "lat": 42.9806, "lon": 142.3994, "intensity": "-", "source": "NIED", "max_acc": 34.676, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD041": {"name": "NIED_HKD041", "lat": 43.6246, "lon": 142.6839, "intensity": "-", "source": "NIED", "max_acc": 19.179, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD045": {"name": "NIED_HKD045", "lat": 44.3288, "lon": 142.9453, "intensity": "-", "source": "NIED", "max_acc": 6.365, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD046": {"name": "NIED_HKD046", "lat": 44.192, "lon": 143.0767, "intensity": "-", "source": "NIED", "max_acc": 12.875, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD047": {"name": "NIED_HKD047", "lat": 44.3677, "lon": 143.3454, "intensity": "-", "source": "NIED", "max_acc": 13.078, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD049": {"name": "NIED_HKD049", "lat": 44.0921, "lon": 143.5336, "intensity": "-", "source": "NIED", "max_acc": 18.872, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD050": {"name": "NIED_HKD050", "lat": 43.8785, "lon": 143.1747, "intensity": "-", "source": "NIED", "max_acc": 9.982, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD053": {"name": "NIED_HKD053", "lat": 43.7849, "lon": 143.6072, "intensity": "-", "source": "NIED", "max_acc": 20.806, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD056": {"name": "NIED_HKD056", "lat": 43.6705, "lon": 143.5781, "intensity": "-", "source": "NIED", "max_acc": 32.551, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD061": {"name": "NIED_HKD061", "lat": 44.0699, "lon": 144.9973, "intensity": "-", "source": "NIED", "max_acc": 21.422, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD063": {"name": "NIED_HKD063", "lat": 44.106, "lon": 145.2478, "intensity": "-", "source": "NIED", "max_acc": 23.808, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD067": {"name": "NIED_HKD067", "lat": 43.555, "lon": 144.9726, "intensity": "-", "source": "NIED", "max_acc": 39.968, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD068": {"name": "NIED_HKD068", "lat": 43.4108, "lon": 144.7704, "intensity": "-", "source": "NIED", "max_acc": 61.87, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD071": {"name": "NIED_HKD071", "lat": 43.2326, "lon": 145.2604, "intensity": "-", "source": "NIED", "max_acc": 40.53, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD074": {"name": "NIED_HKD074", "lat": 43.368, "lon": 145.8026, "intensity": "-", "source": "NIED", "max_acc": 44.182, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD077": {"name": "NIED_HKD077", "lat": 42.9845, "lon": 144.3824, "intensity": "-", "source": "NIED", "max_acc": 34.191, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD087": {"name": "NIED_HKD087", "lat": 43.1502, "lon": 143.8916, "intensity": "-", "source": "NIED", "max_acc": 21.128, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD088": {"name": "NIED_HKD088", "lat": 43.4704, "lon": 143.7488, "intensity": "-", "source": "NIED", "max_acc": 37.326, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD089": {"name": "NIED_HKD089", "lat": 43.2436, "lon": 143.5544, "intensity": "-", "source": "NIED", "max_acc": 48.314, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD099": {"name": "NIED_HKD099", "lat": 43.0736, "lon": 142.8392, "intensity": "-", "source": "NIED", "max_acc": 72.465, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD100": {"name": "NIED_HKD100", "lat": 42.2864, "lon": 143.312, "intensity": "-", "source": "NIED", "max_acc": 116.557, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD101": {"name": "NIED_HKD101", "lat": 43.3338, "lon": 142.9473, "intensity": "-", "source": "NIED", "max_acc": 18.377, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD102": {"name": "NIED_HKD102", "lat": 42.8778, "lon": 142.4481, "intensity": "-", "source": "NIED", "max_acc": 31.052, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD104": {"name": "NIED_HKD104", "lat": 42.5886, "lon": 142.131, "intensity": "-", "source": "NIED", "max_acc": 36.194, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD111": {"name": "NIED_HKD111", "lat": 42.017, "lon": 143.1487, "intensity": "-", "source": "NIED", "max_acc": 45.831, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD112": {"name": "NIED_HKD112", "lat": 41.937, "lon": 143.2403, "intensity": "-", "source": "NIED", "max_acc": 115.106, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD115": {"name": "NIED_HKD115", "lat": 44.007, "lon": 142.1485, "intensity": "-", "source": "NIED", "max_acc": 12.49, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD123": {"name": "NIED_HKD123", "lat": 42.9933, "lon": 142.0085, "intensity": "-", "source": "NIED", "max_acc": 36.89, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD126": {"name": "NIED_HKD126", "lat": 42.5748, "lon": 141.9284, "intensity": "-", "source": "NIED", "max_acc": 154.131, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD131": {"name": "NIED_HKD131", "lat": 42.4206, "lon": 141.0809, "intensity": "-", "source": "NIED", "max_acc": 106.014, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD132": {"name": "NIED_HKD132", "lat": 42.3484, "lon": 141.0318, "intensity": "-", "source": "NIED", "max_acc": 110.509, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD133": {"name": "NIED_HKD133", "lat": 42.4727, "lon": 140.8657, "intensity": "-", "source": "NIED", "max_acc": 62.139, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD135": {"name": "NIED_HKD135", "lat": 42.5533, "lon": 140.8864, "intensity": "-", "source": "NIED", "max_acc": 82.335, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD136": {"name": "NIED_HKD136", "lat": 42.5901, "lon": 140.6441, "intensity": "-", "source": "NIED", "max_acc": 42.713, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD137": {"name": "NIED_HKD137", "lat": 43.3236, "lon": 140.3791, "intensity": "-", "source": "NIED", "max_acc": 26.063, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD138": {"name": "NIED_HKD138", "lat": 43.2923, "lon": 140.6013, "intensity": "-", "source": "NIED", "max_acc": 33.993, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD140": {"name": "NIED_HKD140", "lat": 43.1908, "lon": 140.9933, "intensity": "-", "source": "NIED", "max_acc": 20.042, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD141": {"name": "NIED_HKD141", "lat": 43.1449, "lon": 140.4355, "intensity": "-", "source": "NIED", "max_acc": 11.594, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD145": {"name": "NIED_HKD145", "lat": 42.7978, "lon": 140.9361, "intensity": "-", "source": "NIED", "max_acc": 36.802, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD147": {"name": "NIED_HKD147", "lat": 42.8056, "lon": 140.5305, "intensity": "-", "source": "NIED", "max_acc": 18.497, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD149": {"name": "NIED_HKD149", "lat": 42.7905, "lon": 140.2305, "intensity": "-", "source": "NIED", "max_acc": 11.05, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD150": {"name": "NIED_HKD150", "lat": 42.701, "lon": 140.0619, "intensity": "-", "source": "NIED", "max_acc": 17.292, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD153": {"name": "NIED_HKD153", "lat": 42.1245, "lon": 140.3755, "intensity": "-", "source": "NIED", "max_acc": 27.782, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD156": {"name": "NIED_HKD156", "lat": 41.8996, "lon": 140.696, "intensity": "-", "source": "NIED", "max_acc": 97.516, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD157": {"name": "NIED_HKD157", "lat": 41.9053, "lon": 140.9698, "intensity": "-", "source": "NIED", "max_acc": 99.884, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD162": {"name": "NIED_HKD162", "lat": 41.4859, "lon": 140.2469, "intensity": "-", "source": "NIED", "max_acc": 43.617, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD163": {"name": "NIED_HKD163", "lat": 41.4338, "lon": 140.1117, "intensity": "-", "source": "NIED", "max_acc": 26.967, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD164": {"name": "NIED_HKD164", "lat": 42.4502, "lon": 139.8533, "intensity": "-", "source": "NIED", "max_acc": 16.203, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD165": {"name": "NIED_HKD165", "lat": 42.4287, "lon": 140.0178, "intensity": "-", "source": "NIED", "max_acc": 26.414, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD166": {"name": "NIED_HKD166", "lat": 42.2286, "lon": 139.8186, "intensity": "-", "source": "NIED", "max_acc": 15.867, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD167": {"name": "NIED_HKD167", "lat": 42.1297, "lon": 139.9813, "intensity": "-", "source": "NIED", "max_acc": 29.055, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD168": {"name": "NIED_HKD168", "lat": 41.8691, "lon": 140.1266, "intensity": "-", "source": "NIED", "max_acc": 26.266, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD170": {"name": "NIED_HKD170", "lat": 41.7495, "lon": 140.251, "intensity": "-", "source": "NIED", "max_acc": 17.727, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD171": {"name": "NIED_HKD171", "lat": 41.649, "lon": 139.9979, "intensity": "-", "source": "NIED", "max_acc": 17.731, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD172": {"name": "NIED_HKD172", "lat": 42.2402, "lon": 139.5519, "intensity": "-", "source": "NIED", "max_acc": 14.342, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD174": {"name": "NIED_HKD174", "lat": 42.595, "lon": 139.8286, "intensity": "-", "source": "NIED", "max_acc": 20.276, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD175": {"name": "NIED_HKD175", "lat": 43.6015, "lon": 141.3882, "intensity": "-", "source": "NIED", "max_acc": 28.346, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD176": {"name": "NIED_HKD176", "lat": 43.5324, "lon": 141.5924, "intensity": "-", "source": "NIED", "max_acc": 41.408, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD183": {"name": "NIED_HKD183", "lat": 42.9714, "lon": 141.1779, "intensity": "-", "source": "NIED", "max_acc": 17.198, "available": ["acceleration", "velocity", "displacement"]}, "NIED_HKD185": {"name": "NIED_HKD185", "lat": 42.7756, "lon": 141.4016, "intensity": "-", "source": "NIED", "max_acc": 91.185, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT005": {"name": "NIED_IWT005", "lat": 39.6478, "lon": 141.9465, "intensity": "-", "source": "NIED", "max_acc": 92.947, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT006": {"name": "NIED_IWT006", "lat": 39.485, "lon": 141.9748, "intensity": "-", "source": "NIED", "max_acc": 79.028, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT008": {"name": "NIED_IWT008", "lat": 39.0815, "lon": 141.7093, "intensity": "-", "source": "NIED", "max_acc": 54.03, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT009": {"name": "NIED_IWT009", "lat": 39.019, "lon": 141.4053, "intensity": "-", "source": "NIED", "max_acc": 54.314, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT016": {"name": "NIED_IWT016", "lat": 39.6, "lon": 141.679, "intensity": "-", "source": "NIED", "max_acc": 104.034, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT017": {"name": "NIED_IWT017", "lat": 39.6339, "lon": 141.4379, "intensity": "-", "source": "NIED", "max_acc": 108.078, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT018": {"name": "NIED_IWT018", "lat": 39.6954, "lon": 141.1477, "intensity": "-", "source": "NIED", "max_acc": 74.416, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT019": {"name": "NIED_IWT019", "lat": 39.803, "lon": 141.6584, "intensity": "-", "source": "NIED", "max_acc": 68.897, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT023": {"name": "NIED_IWT023", "lat": 40.037, "lon": 141.4501, "intensity": "-", "source": "NIED", "max_acc": 95.376, "available": ["acceleration", "velocity", "displacement"]}, "NIED_IWT025": {"name": "NIED_IWT025", "lat": 39.5169, "lon": 140.8299, "intensity": "-", "source": "NIED", "max_acc": 50.878, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG001": {"name": "NIED_MYG001", "lat": 38.9017, "lon": 141.5709, "intensity": "-", "source": "NIED", "max_acc": 70.067, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG002": {"name": "NIED_MYG002", "lat": 38.7261, "lon": 141.511, "intensity": "-", "source": "NIED", "max_acc": 52.348, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG003": {"name": "NIED_MYG003", "lat": 38.7349, "lon": 141.3116, "intensity": "-", "source": "NIED", "max_acc": 34.989, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG007": {"name": "NIED_MYG007", "lat": 38.5877, "lon": 141.251, "intensity": "-", "source": "NIED", "max_acc": 70.503, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG008": {"name": "NIED_MYG008", "lat": 38.5676, "lon": 141.4267, "intensity": "-", "source": "NIED", "max_acc": 61.041, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG011": {"name": "NIED_MYG011", "lat": 38.302, "lon": 141.5079, "intensity": "-", "source": "NIED", "max_acc": 38.889, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG012": {"name": "NIED_MYG012", "lat": 38.3288, "lon": 141.0128, "intensity": "-", "source": "NIED", "max_acc": 17.506, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG014": {"name": "NIED_MYG014", "lat": 38.3173, "lon": 140.6362, "intensity": "-", "source": "NIED", "max_acc": 46.055, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG018": {"name": "NIED_MYG018", "lat": 38.7194, "lon": 141.5228, "intensity": "-", "source": "NIED", "max_acc": 33.767, "available": ["acceleration", "velocity", "displacement"]}, "NIED_MYG019": {"name": "NIED_MYG019", "lat": 38.7513, "lon": 140.7226, "intensity": "-", "source": "NIED", "max_acc": 20.638, "available": ["acceleration", "velocity", "displacement"]}, "NIED_NIG006": {"name": "NIED_NIG006", "lat": 38.4514, "lon": 139.4963, "intensity": "-", "source": "NIED", "max_acc": 28.741, "available": ["acceleration", "velocity", "displacement"]}, "NIED_TCG002": {"name": "NIED_TCG002", "lat": 36.9903, "lon": 139.8029, "intensity": "-", "source": "NIED", "max_acc": 13.435, "available": ["acceleration", "velocity", "displacement"]}, "NIED_YMT004": {"name": "NIED_YMT004", "lat": 38.6208, "lon": 139.5889, "intensity": "-", "source": "NIED", "max_acc": 13.086, "available": ["acceleration", "velocity", "displacement"]}, "NIED_YMT012": {"name": "NIED_YMT012", "lat": 38.1087, "lon": 140.043, "intensity": "-", "source": "NIED", "max_acc": 15.173, "available": ["acceleration", "velocity", "displacement"]}, "NIED_YMT013": {"name": "NIED_YMT013", "lat": 38.0631, "lon": 139.7596, "intensity": "-", "source": "NIED", "max_acc": 25.417, "available": ["acceleration", "velocity", "displacement"]}, "NIED_YMT016": {"name": "NIED_YMT016", "lat": 38.7906, "lon": 140.0207, "intensity": "-", "source": "NIED", "max_acc": 37.388, "available": ["acceleration", "velocity", "displacement"]}};
+
+        // キャッシュされた波形データ
+        const waveformCache = {};
+
+        // 成分の色設定
+        const componentColors = {
+            'NS': '#1f77b4',
+            'EW': '#ff7f0e',
+            'UD': '#2ca02c',
+        };
+
+        // 地点ごとの色パレット
+        const stationColors = [
+            '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
+            '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
+            '#aec7e8', '#ffbb78', '#98df8a', '#ff9896', '#c5b0d5'
+        ];
+
+        // 波形種類の単位と名前
+        const waveformUnits = {
+            'acceleration': 'gal',
+            'velocity': 'cm/s',
+            'displacement': 'cm'
+        };
+        const waveformNames = {
+            'acceleration': '加速度',
+            'velocity': '速度',
+            'displacement': '変位'
+        };
+        const waveformFiles = {
+            'acceleration': 'waveform.csv',
+            'velocity': 'velocity.csv',
+            'displacement': 'displacement.csv'
+        };
+
+        // ローディング表示
+        function showLoading(show) {
+            document.getElementById('loading').classList.toggle('show', show);
+            document.getElementById('updateBtn').disabled = show;
+        }
+
+        // 選択数更新
+        function updateStationCount() {
+            const select = document.getElementById('stationSelect');
+            const count = Array.from(select.selectedOptions).length;
+            document.getElementById('stationCount').textContent = `選択地点: ${count}`;
+        }
+
+        document.getElementById('stationSelect').addEventListener('change', updateStationCount);
+
+        // 選択解除
+        function clearSelection() {
+            const select = document.getElementById('stationSelect');
+            Array.from(select.options).forEach(opt => opt.selected = false);
+            updateStationCount();
+            Plotly.purge('plot');
+            document.getElementById('dataInfo').textContent = 'データポイント: -';
+        }
+
+        // 震度で選択
+        function selectByIntensity(intensity) {
+            const select = document.getElementById('stationSelect');
+            Array.from(select.options).forEach(opt => {
+                const code = opt.value;
+                const stationIntensity = stations[code]?.intensity;
+                opt.selected = (stationIntensity === intensity);
+            });
+            updateStationCount();
+            updatePlot();
+        }
+
+        // CSVを読み込む
+        async function loadWaveformData(stationCode, waveformType) {
+            const cacheKey = `${stationCode}_${waveformType}`;
+            if (waveformCache[cacheKey]) {
+                return waveformCache[cacheKey];
+            }
+
+            const filename = waveformFiles[waveformType];
+            const url = `../01_data/02_seismic_formatted/${stationCode}/${filename}`;
+
+            return new Promise((resolve, reject) => {
+                Papa.parse(url, {
+                    download: true,
+                    header: true,
+                    dynamicTyping: true,
+                    complete: function(results) {
+                        if (results.errors.length > 0) {
+                            console.warn(`Parse errors for ${stationCode}:`, results.errors);
+                        }
+
+                        const data = results.data.filter(row => row.datetime);
+
+                        // 時刻を秒に変換
+                        if (data.length > 0) {
+                            const startTime = new Date(data[0].datetime).getTime();
+                            const processed = {
+                                time: data.map(row => (new Date(row.datetime).getTime() - startTime) / 1000),
+                                NS: data.map(row => row.NS),
+                                EW: data.map(row => row.EW),
+                                UD: data.map(row => row.UD)
+                            };
+                            waveformCache[cacheKey] = processed;
+                            resolve(processed);
+                        } else {
+                            resolve(null);
+                        }
+                    },
+                    error: function(error) {
+                        console.error(`Failed to load ${url}:`, error);
+                        resolve(null);
+                    }
+                });
+            });
+        }
+
+        // プロット更新
+        async function updatePlot() {
+            const select = document.getElementById('stationSelect');
+            const selectedStations = Array.from(select.selectedOptions).map(opt => opt.value);
+            const waveformType = document.getElementById('waveformType').value;
+            const displayMode = document.getElementById('displayMode').value;
+            const componentSelect = document.getElementById('componentSelect').value;
+
+            if (selectedStations.length === 0) {
+                Plotly.purge('plot');
+                document.getElementById('dataInfo').textContent = 'データポイント: -';
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                // 波形データを並列で読み込む
+                const loadPromises = selectedStations.map(code => loadWaveformData(code, waveformType));
+                const waveformDataList = await Promise.all(loadPromises);
+
+                // 表示する成分を決定
+                const components = componentSelect === 'all' ? ['NS', 'EW', 'UD'] : [componentSelect];
+
+                const traces = [];
+                const unit = waveformUnits[waveformType];
+                const waveformName = waveformNames[waveformType];
+                let totalPoints = 0;
+
+                if (displayMode === 'subplot') {
+                    // サブプロット表示
+                    const validStations = [];
+
+                    selectedStations.forEach((stationCode, idx) => {
+                        const data = waveformDataList[idx];
+                        if (!data) return;
+                        validStations.push({ code: stationCode, data });
+                    });
+
+                    validStations.forEach((item, stationIdx) => {
+                        const { code: stationCode, data } = item;
+                        const stationInfo = stations[stationCode];
+                        const stationName = stationInfo?.name || stationCode;
+
+                        components.forEach((comp, compIdx) => {
+                            if (data[comp]) {
+                                totalPoints += data[comp].length;
+                                traces.push({
+                                    x: data.time,
+                                    y: data[comp],
+                                    type: 'scatter',
+                                    mode: 'lines',
+                                    name: `${stationName} (${comp})`,
+                                    line: {
+                                        color: componentColors[comp],
+                                        width: 1
+                                    },
+                                    xaxis: stationIdx === 0 ? 'x' : `x${stationIdx + 1}`,
+                                    yaxis: stationIdx === 0 ? 'y' : `y${stationIdx + 1}`,
+                                    legendgroup: stationCode,
+                                    showlegend: compIdx === 0
+                                });
+                            }
+                        });
+                    });
+
+                    // サブプロットのレイアウト
+                    const numPlots = validStations.length;
+                    const plotHeight = 1 / numPlots;
+                    const gap = 0.02;
+
+                    const layout = {
+                        title: `${waveformName}波形比較`,
+                        showlegend: true,
+                        legend: { x: 1.02, y: 1 },
+                        margin: { l: 80, r: 150, t: 50, b: 50 },
+                    };
+
+                    validStations.forEach((item, idx) => {
+                        const stationInfo = stations[item.code];
+                        const stationName = stationInfo?.name || item.code;
+                        const intensity = stationInfo?.intensity || '-';
+
+                        const yStart = 1 - (idx + 1) * plotHeight + gap / 2;
+                        const yEnd = 1 - idx * plotHeight - gap / 2;
+
+                        const xAxisKey = idx === 0 ? 'xaxis' : `xaxis${idx + 1}`;
+                        const yAxisKey = idx === 0 ? 'yaxis' : `yaxis${idx + 1}`;
+
+                        layout[yAxisKey] = {
+                            title: `[${intensity}] ${stationName} (${unit})`,
+                            domain: [yStart, yEnd],
+                            anchor: idx === 0 ? 'x' : `x${idx + 1}`
+                        };
+
+                        layout[xAxisKey] = {
+                            title: idx === numPlots - 1 ? '時間 (秒)' : '',
+                            domain: [0, 0.85],
+                            anchor: idx === 0 ? 'y' : `y${idx + 1}`,
+                            matches: 'x'
+                        };
+                    });
+
+                    Plotly.react('plot', traces, layout, {responsive: true});
+
+                } else {
+                    // オーバーレイ表示
+                    selectedStations.forEach((stationCode, stationIdx) => {
+                        const data = waveformDataList[stationIdx];
+                        if (!data) return;
+
+                        const stationInfo = stations[stationCode];
+                        const stationName = stationInfo?.name || stationCode;
+                        const intensity = stationInfo?.intensity || '-';
+                        const baseColor = stationColors[stationIdx % stationColors.length];
+
+                        components.forEach((comp, compIdx) => {
+                            if (data[comp]) {
+                                totalPoints += data[comp].length;
+                                const dashStyles = ['solid', 'dash', 'dot'];
+                                traces.push({
+                                    x: data.time,
+                                    y: data[comp],
+                                    type: 'scatter',
+                                    mode: 'lines',
+                                    name: `[${intensity}] ${stationName} (${comp})`,
+                                    line: {
+                                        color: baseColor,
+                                        width: 1.5,
+                                        dash: dashStyles[compIdx]
+                                    },
+                                    legendgroup: stationCode
+                                });
+                            }
+                        });
+                    });
+
+                    const layout = {
+                        title: `${waveformName}波形比較（オーバーレイ）`,
+                        xaxis: {
+                            title: '時間 (秒)',
+                            rangeslider: { visible: true }
+                        },
+                        yaxis: {
+                            title: `${waveformName} (${unit})`
+                        },
+                        showlegend: true,
+                        legend: { x: 1.02, y: 1 },
+                        margin: { l: 80, r: 200, t: 50, b: 50 },
+                        hovermode: 'x unified'
+                    };
+
+                    Plotly.react('plot', traces, layout, {responsive: true});
+                }
+
+                document.getElementById('dataInfo').textContent = `データポイント: ${totalPoints.toLocaleString()}`;
+
+            } catch (error) {
+                console.error('Plot error:', error);
+                alert('描画中にエラーが発生しました: ' + error.message);
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // 初期化
+        updateStationCount();
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41215'
+  name: 郡山市朝日
+  lat: 37.4009
+  lon: 140.36
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 13.0
+  EW: -17.061
+  UD: 5.049
+  H: 17.337
+  total: 17.412
+max_velocity:
+  NS: 1.584
+  EW: 1.884
+  UD: 0.588
+  total: 2.049
+max_displacement:
+  NS: 0.34
+  EW: 0.359
+  UD: 0.14
+  total: 0.469
+max_velocity_calculated:
+  NS: 1.57
+  EW: 1.915
+  UD: 0.583
+  H: 2.041
+  total: 2.067
+max_displacement_calculated:
+  NS: 0.367
+  EW: 1.039
+  UD: -0.761
+  H: 1.054
+  total: 1.3
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

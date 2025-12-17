@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47011'
+  name: 雫石町西根上駒木野
+  lat: 39.7415
+  lon: 140.9527
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -25.082
+  EW: -23.874
+  UD: -15.198
+  H: 28.783
+  total: 28.834
+max_velocity:
+  NS: 3.754
+  EW: 2.978
+  UD: 1.635
+  total: 3.922
+max_displacement:
+  NS: 1.7
+  EW: 1.203
+  UD: 0.66
+  total: 2.052
+max_velocity_calculated:
+  NS: -3.213
+  EW: 3.12
+  UD: -1.642
+  H: 4.049
+  total: 4.07
+max_displacement_calculated:
+  NS: -1.841
+  EW: 1.224
+  UD: -0.682
+  H: 2.081
+  total: 2.082
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

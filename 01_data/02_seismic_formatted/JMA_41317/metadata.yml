@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41317'
+  name: 東京江戸川区中央
+  lat: 35.7071
+  lon: 139.8687
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:22:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -7.051
+  EW: 7.629
+  UD: -2.424
+  H: 8.424
+  total: 8.425
+max_velocity:
+  NS: 1.488
+  EW: 1.517
+  UD: 0.552
+  total: 1.813
+max_displacement:
+  NS: 0.544
+  EW: 0.524
+  UD: 0.294
+  total: 0.646
+max_velocity_calculated:
+  NS: 1.477
+  EW: 1.39
+  UD: -0.474
+  H: 1.748
+  total: 1.749
+max_displacement_calculated:
+  NS: 34.076
+  EW: 45.243
+  UD: -2.385
+  H: 56.64
+  total: 56.691
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

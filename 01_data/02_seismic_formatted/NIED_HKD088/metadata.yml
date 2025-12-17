@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: HKD088
+  lat: 43.4704
+  lon: 143.7488
+  height_m: 215.0
+record:
+  start_time: '2025-12-08T23:15:56.000'
+  end_time: '2025-12-08T23:18:01.990'
+  sampling_rate_hz: 100
+  duration_s: 126
+  num_samples: 12600
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: -28.93
+  EW: 27.635
+  UD: -13.542
+  H: 35.165
+  total: 37.326
+max_velocity_calculated:
+  NS: -0.742
+  EW: 0.887
+  UD: -0.532
+  H: 0.989
+  total: 0.992
+max_displacement_calculated:
+  NS: 0.602
+  EW: 0.377
+  UD: 0.415
+  H: 0.653
+  total: 0.773
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42306'
+  name: 益子町益子
+  lat: 36.4675
+  lon: 140.0931
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:18:29.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.952
+  EW: 3.58
+  UD: -0.959
+  H: 3.788
+  total: 3.798
+max_velocity:
+  NS: 0.344
+  EW: 0.382
+  UD: 0.207
+  total: 0.42
+max_displacement:
+  NS: 0.126
+  EW: 0.17
+  UD: 0.116
+  total: 0.188
+max_velocity_calculated:
+  NS: 0.344
+  EW: 0.412
+  UD: 0.23
+  H: 0.429
+  total: 0.435
+max_displacement_calculated:
+  NS: -6.041
+  EW: -1.152
+  UD: 0.287
+  H: 6.15
+  total: 6.155
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

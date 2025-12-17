@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47005'
+  name: 石狩市聚富
+  lat: 43.2753
+  lon: 141.4175
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:21:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 37.601
+  EW: 33.098
+  UD: 12.168
+  H: 44.517
+  total: 44.671
+max_velocity:
+  NS: 3.162
+  EW: 2.691
+  UD: 1.651
+  total: 3.519
+max_displacement:
+  NS: 1.443
+  EW: 1.284
+  UD: 0.817
+  total: 1.589
+max_velocity_calculated:
+  NS: -3.161
+  EW: -2.562
+  UD: 1.613
+  H: 3.179
+  total: 3.186
+max_displacement_calculated:
+  NS: -1.424
+  EW: -1.236
+  UD: 0.807
+  H: 1.621
+  total: 1.65
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

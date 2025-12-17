@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47052'
+  name: 浦安市日の出
+  lat: 35.6442
+  lon: 139.924
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:23:39.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 11.031
+  EW: 9.745
+  UD: 2.006
+  H: 11.204
+  total: 11.317
+max_velocity:
+  NS: 2.686
+  EW: 1.787
+  UD: 0.548
+  total: 2.717
+max_displacement:
+  NS: 1.01
+  EW: 0.631
+  UD: 0.301
+  total: 1.078
+max_velocity_calculated:
+  NS: 2.469
+  EW: -1.88
+  UD: -0.539
+  H: 2.514
+  total: 2.517
+max_displacement_calculated:
+  NS: 7.611
+  EW: -11.08
+  UD: 9.289
+  H: 13.441
+  total: 16.338
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

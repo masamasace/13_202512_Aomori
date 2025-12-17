@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41109'
+  name: 北見市公園町
+  lat: 43.8177
+  lon: 143.9032
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:22:49.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -29.297
+  EW: 24.867
+  UD: -18.843
+  H: 29.867
+  total: 31.749
+max_velocity:
+  NS: 5.296
+  EW: 4.08
+  UD: 3.379
+  total: 5.712
+max_displacement:
+  NS: 1.602
+  EW: 1.148
+  UD: 0.79
+  total: 1.722
+max_velocity_calculated:
+  NS: -5.471
+  EW: -3.861
+  UD: 3.289
+  H: 5.507
+  total: 5.989
+max_displacement_calculated:
+  NS: -1.887
+  EW: -1.695
+  UD: 0.665
+  H: 2.317
+  total: 2.39
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

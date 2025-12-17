@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47640'
+  name: 富士河口湖町船津
+  lat: 35.5008
+  lon: 138.7606
+record:
+  start_time: '2025-12-08T23:17:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.021
+  EW: -1.953
+  UD: 1.642
+  H: 2.262
+  total: 2.302
+max_velocity:
+  NS: 0.459
+  EW: 0.61
+  UD: 0.327
+  total: 0.625
+max_displacement:
+  NS: 0.166
+  EW: 0.279
+  UD: 0.103
+  total: 0.282
+max_velocity_calculated:
+  NS: -0.45
+  EW: 0.592
+  UD: 0.322
+  H: 0.595
+  total: 0.595
+max_displacement_calculated:
+  NS: 17.567
+  EW: -10.86
+  UD: 1.86
+  H: 20.652
+  total: 20.735
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

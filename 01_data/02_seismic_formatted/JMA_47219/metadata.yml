@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47219'
+  name: 幕別町忠類明和
+  lat: 42.6176
+  lon: 143.3604
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -13.831
+  EW: -15.41
+  UD: -10.087
+  H: 17.799
+  total: 17.845
+max_velocity:
+  NS: 1.908
+  EW: 2.254
+  UD: 1.154
+  total: 2.289
+max_displacement:
+  NS: 0.641
+  EW: 0.759
+  UD: 0.386
+  total: 0.893
+max_velocity_calculated:
+  NS: -1.835
+  EW: -1.74
+  UD: -1.123
+  H: 1.929
+  total: 1.985
+max_displacement_calculated:
+  NS: 0.596
+  EW: 0.817
+  UD: 0.327
+  H: 0.866
+  total: 0.868
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

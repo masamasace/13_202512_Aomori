@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47243'
+  name: 仙台青葉区大倉
+  lat: 38.3679
+  lon: 140.6602
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -12.55
+  EW: 10.842
+  UD: -5.42
+  H: 12.628
+  total: 12.834
+max_velocity:
+  NS: 0.975
+  EW: 0.941
+  UD: 0.484
+  total: 1.21
+max_displacement:
+  NS: 0.287
+  EW: 0.378
+  UD: 0.211
+  total: 0.38
+max_velocity_calculated:
+  NS: -0.966
+  EW: -0.994
+  UD: 0.476
+  H: 1.099
+  total: 1.099
+max_displacement_calculated:
+  NS: 0.535
+  EW: -0.445
+  UD: 0.22
+  H: 0.649
+  total: 0.673
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

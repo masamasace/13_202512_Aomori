@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41310'
+  name: 久喜市下早見
+  lat: 36.0595
+  lon: 139.6669
+record:
+  start_time: '2025-12-08T23:16:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 6.339
+  EW: -6.994
+  UD: -1.784
+  H: 9.115
+  total: 9.116
+max_velocity:
+  NS: 1.348
+  EW: 1.344
+  UD: 0.655
+  total: 1.773
+max_displacement:
+  NS: 0.84
+  EW: 0.926
+  UD: 0.404
+  total: 0.956
+max_velocity_calculated:
+  NS: -1.274
+  EW: -1.218
+  UD: 0.625
+  H: 1.522
+  total: 1.559
+max_displacement_calculated:
+  NS: -1.928
+  EW: 3.295
+  UD: 13.074
+  H: 3.567
+  total: 13.552
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

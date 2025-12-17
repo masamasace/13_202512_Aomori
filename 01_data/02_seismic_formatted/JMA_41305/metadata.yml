@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41305'
+  name: 沼田市西倉内町
+  lat: 36.6461
+  lon: 139.0428
+record:
+  start_time: '2025-12-08T23:16:20.000'
+  end_time: '2025-12-08T23:20:19.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.662
+  EW: -2.452
+  UD: -0.944
+  H: 2.749
+  total: 2.757
+max_velocity:
+  NS: 0.609
+  EW: 0.808
+  UD: 0.198
+  total: 0.949
+max_displacement:
+  NS: 0.346
+  EW: 0.538
+  UD: 0.123
+  total: 0.611
+max_velocity_calculated:
+  NS: 0.618
+  EW: 0.706
+  UD: 0.202
+  H: 0.794
+  total: 0.807
+max_displacement_calculated:
+  NS: -0.329
+  EW: 0.539
+  UD: 0.193
+  H: 0.596
+  total: 0.607
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

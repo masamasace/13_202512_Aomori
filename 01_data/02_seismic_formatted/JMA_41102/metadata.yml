@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41102'
+  name: 江別市高砂町
+  lat: 43.1037
+  lon: 141.5359
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 42.07
+  EW: -43.687
+  UD: 14.869
+  H: 47.94
+  total: 48.923
+max_velocity:
+  NS: 5.446
+  EW: 4.22
+  UD: 2.032
+  total: 5.799
+max_displacement:
+  NS: 2.529
+  EW: 1.958
+  UD: 1.152
+  total: 2.868
+max_velocity_calculated:
+  NS: 6.331
+  EW: 4.015
+  UD: -1.882
+  H: 6.413
+  total: 6.417
+max_displacement_calculated:
+  NS: 3.028
+  EW: 1.796
+  UD: -1.255
+  H: 3.129
+  total: 3.201
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

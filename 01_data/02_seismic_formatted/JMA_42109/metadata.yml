@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42109'
+  name: 本別町北２丁目
+  lat: 43.1246
+  lon: 143.6111
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:21:39.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -27.705
+  EW: -30.891
+  UD: -54.491
+  H: 39.677
+  total: 55.288
+max_velocity:
+  NS: 2.205
+  EW: 2.387
+  UD: 1.927
+  total: 2.768
+max_displacement:
+  NS: 1.036
+  EW: 1.052
+  UD: 0.501
+  total: 1.37
+max_velocity_calculated:
+  NS: 2.325
+  EW: -2.34
+  UD: 1.95
+  H: 2.469
+  total: 2.49
+max_displacement_calculated:
+  NS: 1.814
+  EW: -1.807
+  UD: -6.519
+  H: 2.365
+  total: 6.884
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

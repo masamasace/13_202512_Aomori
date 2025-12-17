@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47003'
+  name: 新ひだか町静内御園
+  lat: 42.4099
+  lon: 142.4667
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -41.082
+  EW: -45.494
+  UD: -28.362
+  H: 48.828
+  total: 50.406
+max_velocity:
+  NS: 7.673
+  EW: 5.891
+  UD: 4.839
+  total: 7.712
+max_displacement:
+  NS: 2.653
+  EW: 2.167
+  UD: 1.3
+  total: 2.948
+max_velocity_calculated:
+  NS: -6.764
+  EW: 6.204
+  UD: 4.474
+  H: 6.809
+  total: 6.809
+max_displacement_calculated:
+  NS: 2.649
+  EW: 2.842
+  UD: -1.164
+  H: 3.056
+  total: 3.079
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

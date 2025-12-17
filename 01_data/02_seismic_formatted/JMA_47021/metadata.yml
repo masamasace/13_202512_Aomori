@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47021'
+  name: 山武市松尾町富士見台
+  lat: 35.6426
+  lon: 140.4483
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:23:19.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -4.315
+  EW: 4.007
+  UD: 1.471
+  H: 4.475
+  total: 4.501
+max_velocity:
+  NS: 1.135
+  EW: 0.81
+  UD: 0.515
+  total: 1.313
+max_displacement:
+  NS: 0.551
+  EW: 0.631
+  UD: 0.372
+  total: 0.721
+max_velocity_calculated:
+  NS: 1.111
+  EW: 0.778
+  UD: -0.496
+  H: 1.233
+  total: 1.248
+max_displacement_calculated:
+  NS: -17.325
+  EW: 19.275
+  UD: 18.274
+  H: 25.913
+  total: 31.709
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

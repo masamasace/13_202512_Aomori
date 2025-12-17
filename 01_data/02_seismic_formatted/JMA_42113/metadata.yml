@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42113'
+  name: 新ひだか町静内山手町
+  lat: 42.3448
+  lon: 142.3622
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:22:19.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: 109.075
+  EW: -112.118
+  UD: 27.273
+  H: 131.66
+  total: 131.843
+max_velocity:
+  NS: 11.272
+  EW: 11.092
+  UD: 3.989
+  total: 12.339
+max_displacement:
+  NS: 2.113
+  EW: 3.035
+  UD: 1.783
+  total: 3.119
+max_velocity_calculated:
+  NS: -10.826
+  EW: 10.933
+  UD: -2.98
+  H: 12.066
+  total: 12.136
+max_displacement_calculated:
+  NS: 2.69
+  EW: -2.698
+  UD: 1.609
+  H: 2.86
+  total: 2.986
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

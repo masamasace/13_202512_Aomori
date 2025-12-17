@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47747'
+  name: 豊岡市桜町
+  lat: 35.5358
+  lon: 134.8226
+record:
+  start_time: '2025-12-08T23:17:30.000'
+  end_time: '2025-12-08T23:18:29.990'
+  sampling_rate_hz: 100
+  duration_s: 60.0
+  num_samples: 6000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: -0.794
+  EW: -0.491
+  UD: -0.136
+  H: 0.813
+  total: 0.815
+max_velocity:
+  NS: 0.134
+  EW: 0.084
+  UD: 0.027
+  total: 0.138
+max_displacement:
+  NS: 0.026
+  EW: 0.022
+  UD: 0.012
+  total: 0.028
+max_velocity_calculated:
+  NS: 0.14
+  EW: 0.105
+  UD: -0.034
+  H: 0.142
+  total: 0.142
+max_displacement_calculated:
+  NS: -1.636
+  EW: -0.946
+  UD: -0.471
+  H: 1.878
+  total: 1.936
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

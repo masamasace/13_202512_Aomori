@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41324'
+  name: 秦野市曽屋
+  lat: 35.3799
+  lon: 139.2109
+record:
+  start_time: '2025-12-08T23:17:40.000'
+  end_time: '2025-12-08T23:19:39.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.666
+  EW: -2.117
+  UD: -1.025
+  H: 2.203
+  total: 2.208
+max_velocity:
+  NS: 0.336
+  EW: 0.361
+  UD: 0.256
+  total: 0.384
+max_displacement:
+  NS: 0.135
+  EW: 0.206
+  UD: 0.133
+  total: 0.209
+max_velocity_calculated:
+  NS: -0.359
+  EW: -0.327
+  UD: 0.232
+  H: 0.373
+  total: 0.378
+max_displacement_calculated:
+  NS: -4.674
+  EW: 1.984
+  UD: -0.287
+  H: 5.076
+  total: 5.082
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

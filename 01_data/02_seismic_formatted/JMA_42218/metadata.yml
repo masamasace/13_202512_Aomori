@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42218'
+  name: 仙北市角館町中菅沢
+  lat: 39.5902
+  lon: 140.5671
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 12.574
+  EW: 11.973
+  UD: 6.307
+  H: 13.132
+  total: 13.141
+max_velocity:
+  NS: 1.998
+  EW: 1.607
+  UD: 0.999
+  total: 2.017
+max_displacement:
+  NS: 0.639
+  EW: 0.777
+  UD: 0.326
+  total: 0.823
+max_velocity_calculated:
+  NS: -1.952
+  EW: -1.562
+  UD: -0.881
+  H: 1.952
+  total: 1.952
+max_displacement_calculated:
+  NS: -0.599
+  EW: 0.681
+  UD: 0.245
+  H: 0.835
+  total: 0.835
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: FKS026
+  lat: 37.2664
+  lon: 139.5368
+  height_m: 494.0
+record:
+  start_time: '2025-12-08T23:17:29.000'
+  end_time: '2025-12-08T23:18:36.990'
+  sampling_rate_hz: 100
+  duration_s: 68
+  num_samples: 6800
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: 14.546
+  EW: 11.426
+  UD: 21.548
+  H: 18.302
+  total: 27.691
+max_velocity_calculated:
+  NS: -0.361
+  EW: -0.393
+  UD: -0.25
+  H: 0.42
+  total: 0.436
+max_displacement_calculated:
+  NS: -4.866
+  EW: 0.634
+  UD: 2.183
+  H: 4.889
+  total: 5.346
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41108'
+  name: 士別市東６条
+  lat: 44.1771
+  lon: 142.4013
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -8.466
+  EW: 10.879
+  UD: -3.381
+  H: 10.884
+  total: 10.896
+max_velocity:
+  NS: 1.821
+  EW: 1.772
+  UD: 1.064
+  total: 1.966
+max_displacement:
+  NS: 0.956
+  EW: 0.688
+  UD: 0.685
+  total: 1.146
+max_velocity_calculated:
+  NS: 1.672
+  EW: 1.828
+  UD: 1.005
+  H: 1.875
+  total: 1.906
+max_displacement_calculated:
+  NS: 1.122
+  EW: 0.56
+  UD: 0.792
+  H: 1.123
+  total: 1.242
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

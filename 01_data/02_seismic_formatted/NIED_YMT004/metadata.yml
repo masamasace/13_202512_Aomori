@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: YMT004
+  lat: 38.6208
+  lon: 139.5889
+  height_m: 6.0
+record:
+  start_time: '2025-12-08T23:17:05.000'
+  end_time: '2025-12-08T23:18:04.990'
+  sampling_rate_hz: 100
+  duration_s: 60
+  num_samples: 6000
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: -4.49
+  EW: 6.408
+  UD: -11.113
+  H: 7.52
+  total: 13.086
+max_velocity_calculated:
+  NS: 0.522
+  EW: 0.458
+  UD: 0.456
+  H: 0.564
+  total: 0.565
+max_displacement_calculated:
+  NS: 7.779
+  EW: -3.523
+  UD: 1.259
+  H: 8.535
+  total: 8.535
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

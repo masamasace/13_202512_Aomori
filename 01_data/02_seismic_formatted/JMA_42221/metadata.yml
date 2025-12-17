@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42221'
+  name: 山形小国町岩井沢
+  lat: 38.0562
+  lon: 139.7478
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.044
+  EW: 6.21
+  UD: -2.934
+  H: 6.686
+  total: 6.719
+max_velocity:
+  NS: 0.955
+  EW: 1.194
+  UD: 0.48
+  total: 1.195
+max_displacement:
+  NS: 0.428
+  EW: 0.454
+  UD: 0.216
+  total: 0.646
+max_velocity_calculated:
+  NS: 0.976
+  EW: 1.107
+  UD: -0.486
+  H: 1.147
+  total: 1.234
+max_displacement_calculated:
+  NS: 0.339
+  EW: -0.476
+  UD: 0.249
+  H: 0.584
+  total: 0.586
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

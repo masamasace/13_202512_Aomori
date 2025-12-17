@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47230'
+  name: 七戸町北天間舘
+  lat: 40.7895
+  lon: 141.0647
+record:
+  start_time: '2025-12-08T23:16:10.000'
+  end_time: '2025-12-08T23:20:09.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -13.464
+  EW: -10.3
+  UD: -8.218
+  H: 14.361
+  total: 14.369
+max_velocity:
+  NS: 1.58
+  EW: 1.709
+  UD: 1.556
+  total: 1.974
+max_displacement:
+  NS: 0.65
+  EW: 0.64
+  UD: 0.6
+  total: 0.912
+max_velocity_calculated:
+  NS: -3.166
+  EW: 3.687
+  UD: -4.117
+  H: 4.86
+  total: 6.369
+max_displacement_calculated:
+  NS: -181.417
+  EW: 212.248
+  UD: -236.627
+  H: 279.199
+  total: 365.983
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

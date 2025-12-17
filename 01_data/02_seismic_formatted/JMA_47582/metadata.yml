@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47582'
+  name: 秋田市山王
+  lat: 39.7179
+  lon: 140.0995
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:22:39.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 10.705
+  EW: 11.807
+  UD: 4.978
+  H: 13.363
+  total: 13.439
+max_velocity:
+  NS: 3.216
+  EW: 3.135
+  UD: 0.926
+  total: 3.465
+max_displacement:
+  NS: 1.788
+  EW: 1.553
+  UD: 0.598
+  total: 2.011
+max_velocity_calculated:
+  NS: -2.539
+  EW: 3.29
+  UD: -0.978
+  H: 3.293
+  total: 3.386
+max_displacement_calculated:
+  NS: -1.869
+  EW: 2.776
+  UD: -0.564
+  H: 2.905
+  total: 2.92
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

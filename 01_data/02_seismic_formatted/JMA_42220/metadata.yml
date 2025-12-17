@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42220'
+  name: 河北町西里
+  lat: 38.4144
+  lon: 140.2804
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -5.069
+  EW: -8.992
+  UD: 3.788
+  H: 9.022
+  total: 9.068
+max_velocity:
+  NS: 1.406
+  EW: 1.975
+  UD: 0.957
+  total: 2.35
+max_displacement:
+  NS: 0.769
+  EW: 1.245
+  UD: 0.54
+  total: 1.382
+max_velocity_calculated:
+  NS: 1.411
+  EW: 1.939
+  UD: 0.923
+  H: 2.058
+  total: 2.098
+max_displacement_calculated:
+  NS: -0.759
+  EW: 1.108
+  UD: -0.437
+  H: 1.162
+  total: 1.181
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

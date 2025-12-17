@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47244'
+  name: 石巻市大瓜
+  lat: 38.4574
+  lon: 141.3457
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:19:39.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -10.708
+  EW: -10.251
+  UD: -6.313
+  H: 11.334
+  total: 11.388
+max_velocity:
+  NS: 0.689
+  EW: 0.876
+  UD: 0.526
+  total: 0.897
+max_displacement:
+  NS: 0.202
+  EW: 0.283
+  UD: 0.205
+  total: 0.323
+max_velocity_calculated:
+  NS: 0.65
+  EW: -0.856
+  UD: 0.516
+  H: 0.864
+  total: 0.865
+max_displacement_calculated:
+  NS: -0.168
+  EW: -0.316
+  UD: 0.176
+  H: 0.347
+  total: 0.374
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

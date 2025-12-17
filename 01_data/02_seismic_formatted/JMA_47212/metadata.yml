@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47212'
+  name: 八雲町上の湯
+  lat: 42.1193
+  lon: 140.3662
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:19:29.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -12.775
+  EW: 10.675
+  UD: 6.397
+  H: 13.691
+  total: 13.846
+max_velocity:
+  NS: 1.01
+  EW: 1.109
+  UD: 1.18
+  total: 1.297
+max_displacement:
+  NS: 0.344
+  EW: 0.547
+  UD: 0.659
+  total: 0.724
+max_velocity_calculated:
+  NS: 0.972
+  EW: 0.849
+  UD: -0.87
+  H: 1.203
+  total: 1.23
+max_displacement_calculated:
+  NS: 0.46
+  EW: -0.409
+  UD: 0.54
+  H: 0.489
+  total: 0.574
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

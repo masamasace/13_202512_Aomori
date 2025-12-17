@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47233'
+  name: 男鹿市男鹿中
+  lat: 39.9195
+  lon: 139.8066
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 5.143
+  EW: -4.671
+  UD: 2.063
+  H: 6.751
+  total: 6.881
+max_velocity:
+  NS: 1.342
+  EW: 1.054
+  UD: 0.459
+  total: 1.667
+max_displacement:
+  NS: 0.712
+  EW: 0.567
+  UD: 0.272
+  total: 0.834
+max_velocity_calculated:
+  NS: -1.434
+  EW: 0.984
+  UD: -0.396
+  H: 1.733
+  total: 1.741
+max_displacement_calculated:
+  NS: 0.611
+  EW: 0.65
+  UD: -0.282
+  H: 0.838
+  total: 0.848
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

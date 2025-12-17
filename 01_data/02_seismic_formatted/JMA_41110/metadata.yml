@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41110'
+  name: 胆振伊達市梅本
+  lat: 42.4739
+  lon: 140.8761
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -55.947
+  EW: -55.615
+  UD: 22.107
+  H: 59.722
+  total: 60.07
+max_velocity:
+  NS: 4.376
+  EW: 5.139
+  UD: 1.962
+  total: 5.919
+max_displacement:
+  NS: 1.538
+  EW: 1.551
+  UD: 0.702
+  total: 1.646
+max_velocity_calculated:
+  NS: -4.153
+  EW: -4.93
+  UD: 1.691
+  H: 5.476
+  total: 5.482
+max_displacement_calculated:
+  NS: 1.779
+  EW: -1.498
+  UD: -0.777
+  H: 1.956
+  total: 2.052
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

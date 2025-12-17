@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47440'
+  name: 広尾町並木通
+  lat: 42.2948
+  lon: 143.3173
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -40.997
+  EW: 42.817
+  UD: 24.091
+  H: 44.415
+  total: 44.682
+max_velocity:
+  NS: 2.744
+  EW: 3.616
+  UD: 2.328
+  total: 4.354
+max_displacement:
+  NS: 0.655
+  EW: 0.921
+  UD: 0.421
+  total: 1.07
+max_velocity_calculated:
+  NS: 2.723
+  EW: 3.191
+  UD: 2.253
+  H: 3.752
+  total: 3.918
+max_displacement_calculated:
+  NS: 0.821
+  EW: -1.492
+  UD: -0.987
+  H: 1.611
+  total: 1.672
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

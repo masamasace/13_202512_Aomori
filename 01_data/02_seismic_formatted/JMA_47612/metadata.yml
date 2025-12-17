@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47612'
+  name: 上越市大手町
+  lat: 37.1068
+  lon: 138.2469
+record:
+  start_time: '2025-12-08T23:17:40.000'
+  end_time: '2025-12-08T23:19:39.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.159
+  EW: -1.124
+  UD: -0.337
+  H: 1.385
+  total: 1.39
+max_velocity:
+  NS: 0.501
+  EW: 0.407
+  UD: 0.135
+  total: 0.526
+max_displacement:
+  NS: 0.253
+  EW: 0.241
+  UD: 0.086
+  total: 0.277
+max_velocity_calculated:
+  NS: -0.437
+  EW: -0.369
+  UD: 0.12
+  H: 0.446
+  total: 0.446
+max_displacement_calculated:
+  NS: -6.984
+  EW: 3.13
+  UD: 3.402
+  H: 7.653
+  total: 8.374
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

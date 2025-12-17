@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42313'
+  name: 多古町多古
+  lat: 35.7354
+  lon: 140.4675
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:23:39.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -4.39
+  EW: -4.225
+  UD: 1.732
+  H: 5.355
+  total: 5.377
+max_velocity:
+  NS: 0.81
+  EW: 0.736
+  UD: 0.342
+  total: 0.913
+max_displacement:
+  NS: 0.555
+  EW: 0.466
+  UD: 0.172
+  total: 0.558
+max_velocity_calculated:
+  NS: -0.778
+  EW: -0.72
+  UD: 0.326
+  H: 0.857
+  total: 0.857
+max_displacement_calculated:
+  NS: -28.775
+  EW: 6.506
+  UD: -17.955
+  H: 29.501
+  total: 34.536
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47573'
+  name: 新潟空港
+  lat: 37.953
+  lon: 139.1094
+record:
+  start_time: '2025-12-08T23:16:50.000'
+  end_time: '2025-12-08T23:22:49.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -3.694
+  EW: 3.975
+  UD: -1.647
+  H: 4.249
+  total: 4.251
+max_velocity:
+  NS: 1.793
+  EW: 1.858
+  UD: 0.937
+  total: 2.067
+max_displacement:
+  NS: 1.337
+  EW: 1.323
+  UD: 0.646
+  total: 1.412
+max_velocity_calculated:
+  NS: -1.858
+  EW: 1.68
+  UD: 0.867
+  H: 2.049
+  total: 2.049
+max_displacement_calculated:
+  NS: -1.734
+  EW: -10.554
+  UD: -5.866
+  H: 10.625
+  total: 12.134
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

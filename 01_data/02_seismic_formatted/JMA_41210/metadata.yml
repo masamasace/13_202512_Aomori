@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41210'
+  name: 能代市緑町
+  lat: 40.1989
+  lon: 140.033
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -13.538
+  EW: -11.81
+  UD: -6.386
+  H: 16.432
+  total: 16.752
+max_velocity:
+  NS: 7.714
+  EW: 4.929
+  UD: 2.506
+  total: 7.758
+max_displacement:
+  NS: 5.732
+  EW: 3.121
+  UD: 1.85
+  total: 5.837
+max_velocity_calculated:
+  NS: 6.39
+  EW: 4.232
+  UD: -2.397
+  H: 6.392
+  total: 6.583
+max_displacement_calculated:
+  NS: -5.8
+  EW: -3.083
+  UD: -1.838
+  H: 5.836
+  total: 5.97
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

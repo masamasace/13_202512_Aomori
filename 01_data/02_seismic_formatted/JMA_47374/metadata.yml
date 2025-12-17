@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47374'
+  name: いわき市三和町
+  lat: 37.1048
+  lon: 140.7983
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -8.158
+  EW: -10.901
+  UD: -2.819
+  H: 12.581
+  total: 12.585
+max_velocity:
+  NS: 0.582
+  EW: 0.782
+  UD: 0.345
+  total: 0.815
+max_displacement:
+  NS: 0.15
+  EW: 0.206
+  UD: 0.117
+  total: 0.228
+max_velocity_calculated:
+  NS: -0.558
+  EW: -0.731
+  UD: 0.33
+  H: 0.762
+  total: 0.771
+max_displacement_calculated:
+  NS: -0.314
+  EW: -0.241
+  UD: 0.219
+  H: 0.352
+  total: 0.414
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47429'
+  name: 渡島森町御幸町
+  lat: 42.1052
+  lon: 140.5766
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:20:29.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -32.534
+  EW: 28.597
+  UD: 16.827
+  H: 32.729
+  total: 32.982
+max_velocity:
+  NS: 4.583
+  EW: 4.555
+  UD: 3.049
+  total: 5.22
+max_displacement:
+  NS: 2.249
+  EW: 2.031
+  UD: 1.373
+  total: 2.335
+max_velocity_calculated:
+  NS: -4.2
+  EW: -4.529
+  UD: -2.87
+  H: 5.164
+  total: 5.243
+max_displacement_calculated:
+  NS: -2.123
+  EW: -1.771
+  UD: 1.549
+  H: 2.151
+  total: 2.151
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

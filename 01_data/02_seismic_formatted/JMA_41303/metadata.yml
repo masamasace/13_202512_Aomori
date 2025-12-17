@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41303'
+  name: 日光市瀬川
+  lat: 36.7346
+  lon: 139.6882
+record:
+  start_time: '2025-12-08T23:16:40.000'
+  end_time: '2025-12-08T23:18:39.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: -2.519
+  EW: -2.656
+  UD: -1.059
+  H: 2.693
+  total: 2.693
+max_velocity:
+  NS: 0.327
+  EW: 0.536
+  UD: 0.203
+  total: 0.538
+max_displacement:
+  NS: 0.095
+  EW: 0.168
+  UD: 0.119
+  total: 0.176
+max_velocity_calculated:
+  NS: 0.307
+  EW: 0.526
+  UD: 0.218
+  H: 0.526
+  total: 0.526
+max_displacement_calculated:
+  NS: 6.434
+  EW: 10.32
+  UD: 5.9
+  H: 12.161
+  total: 13.516
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

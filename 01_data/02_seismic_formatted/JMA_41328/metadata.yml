@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41328'
+  name: 長岡市幸町
+  lat: 37.4357
+  lon: 138.8407
+record:
+  start_time: '2025-12-08T23:17:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.158
+  EW: -1.003
+  UD: 1.081
+  H: 1.224
+  total: 1.393
+max_velocity:
+  NS: 0.654
+  EW: 0.453
+  UD: 0.451
+  total: 0.678
+max_displacement:
+  NS: 0.451
+  EW: 0.329
+  UD: 0.194
+  total: 0.453
+max_velocity_calculated:
+  NS: -0.693
+  EW: -0.441
+  UD: 0.377
+  H: 0.693
+  total: 0.695
+max_displacement_calculated:
+  NS: 0.909
+  EW: 5.948
+  UD: -0.605
+  H: 5.997
+  total: 6.006
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

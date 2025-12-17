@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42212'
+  name: 涌谷町新町裏
+  lat: 38.5401
+  lon: 141.1272
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -60.596
+  EW: -51.747
+  UD: -18.738
+  H: 67.025
+  total: 67.025
+max_velocity:
+  NS: 6.688
+  EW: 6.907
+  UD: 1.66
+  total: 7.918
+max_displacement:
+  NS: 1.384
+  EW: 1.109
+  UD: 0.39
+  total: 1.62
+max_velocity_calculated:
+  NS: -6.675
+  EW: 6.904
+  UD: 1.61
+  H: 7.973
+  total: 7.974
+max_displacement_calculated:
+  NS: 1.52
+  EW: 1.203
+  UD: -0.443
+  H: 1.627
+  total: 1.631
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

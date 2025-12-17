@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47406'
+  name: 留萌市大町
+  lat: 43.9463
+  lon: 141.6322
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -5.997
+  EW: -4.84
+  UD: -3.767
+  H: 6.553
+  total: 6.581
+max_velocity:
+  NS: 1.583
+  EW: 1.171
+  UD: 0.863
+  total: 1.597
+max_displacement:
+  NS: 0.753
+  EW: 0.615
+  UD: 0.368
+  total: 0.86
+max_velocity_calculated:
+  NS: -1.376
+  EW: -1.097
+  UD: -0.821
+  H: 1.378
+  total: 1.387
+max_displacement_calculated:
+  NS: -1.417
+  EW: -0.532
+  UD: 0.54
+  H: 1.482
+  total: 1.482
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

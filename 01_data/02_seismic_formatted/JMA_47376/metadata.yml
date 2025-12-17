@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47376'
+  name: 宮古市長沢
+  lat: 39.5767
+  lon: 141.8197
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:19:19.990'
+  sampling_rate_hz: 100
+  duration_s: 240.0
+  num_samples: 24000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -25.05
+  EW: 26.623
+  UD: 14.408
+  H: 30.629
+  total: 31.952
+max_velocity:
+  NS: 1.331
+  EW: 2.285
+  UD: 1.055
+  total: 2.321
+max_displacement:
+  NS: 0.2
+  EW: 1.04
+  UD: 0.392
+  total: 1.042
+max_velocity_calculated:
+  NS: -1.355
+  EW: -2.14
+  UD: -1.102
+  H: 2.182
+  total: 2.258
+max_displacement_calculated:
+  NS: 0.222
+  EW: 1.159
+  UD: 0.327
+  H: 1.16
+  total: 1.18
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

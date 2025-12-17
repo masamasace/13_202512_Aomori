@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47016'
+  name: 遊佐町小原田
+  lat: 39.0162
+  lon: 139.9306
+record:
+  start_time: '2025-12-08T23:16:00.000'
+  end_time: '2025-12-08T23:20:59.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: -5.989
+  EW: 5.285
+  UD: 4.803
+  H: 6.779
+  total: 6.78
+max_velocity:
+  NS: 2.021
+  EW: 3.008
+  UD: 1.252
+  total: 3.585
+max_displacement:
+  NS: 1.399
+  EW: 1.962
+  UD: 0.631
+  total: 2.192
+max_velocity_calculated:
+  NS: 1.934
+  EW: -2.975
+  UD: -1.292
+  H: 3.453
+  total: 3.481
+max_displacement_calculated:
+  NS: 1.832
+  EW: 4.988
+  UD: -12.722
+  H: 4.99
+  total: 13.63
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

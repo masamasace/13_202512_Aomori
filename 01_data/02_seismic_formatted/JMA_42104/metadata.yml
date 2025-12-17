@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42104'
+  name: 上富良野町大町
+  lat: 43.4557
+  lon: 142.467
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 13.719
+  EW: 18.888
+  UD: -6.79
+  H: 19.926
+  total: 19.933
+max_velocity:
+  NS: 1.886
+  EW: 2.007
+  UD: 1.412
+  total: 2.48
+max_displacement:
+  NS: 0.61
+  EW: 0.806
+  UD: 0.825
+  total: 0.976
+max_velocity_calculated:
+  NS: 2.033
+  EW: 1.816
+  UD: 1.305
+  H: 2.212
+  total: 2.235
+max_displacement_calculated:
+  NS: 0.746
+  EW: -0.895
+  UD: 0.865
+  H: 0.91
+  total: 1.023
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

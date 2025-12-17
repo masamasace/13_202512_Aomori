@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47409'
+  name: 網走市台町
+  lat: 44.0182
+  lon: 144.2796
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:21:49.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 3.942
+  EW: -2.966
+  UD: 1.713
+  H: 4.197
+  total: 4.38
+max_velocity:
+  NS: 1.201
+  EW: 0.907
+  UD: 0.485
+  total: 1.244
+max_displacement:
+  NS: 0.401
+  EW: 0.699
+  UD: 0.236
+  total: 0.703
+max_velocity_calculated:
+  NS: 1.249
+  EW: -0.912
+  UD: -0.495
+  H: 1.272
+  total: 1.281
+max_displacement_calculated:
+  NS: 0.656
+  EW: -12.019
+  UD: 4.127
+  H: 12.027
+  total: 12.716
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

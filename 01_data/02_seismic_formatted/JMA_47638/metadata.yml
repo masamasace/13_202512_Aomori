@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47638'
+  name: 甲府市飯田
+  lat: 35.6674
+  lon: 138.5539
+record:
+  start_time: '2025-12-08T23:17:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: -2.181
+  EW: -2.675
+  UD: -1.065
+  H: 2.872
+  total: 2.873
+max_velocity:
+  NS: 0.388
+  EW: 0.491
+  UD: 0.182
+  total: 0.529
+max_displacement:
+  NS: 0.154
+  EW: 0.234
+  UD: 0.059
+  total: 0.239
+max_velocity_calculated:
+  NS: 0.385
+  EW: -0.505
+  UD: 0.184
+  H: 0.517
+  total: 0.522
+max_displacement_calculated:
+  NS: -5.578
+  EW: 0.392
+  UD: -2.604
+  H: 5.59
+  total: 6.165
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

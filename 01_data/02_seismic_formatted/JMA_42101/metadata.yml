@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42101'
+  name: 石狩市花川
+  lat: 43.1714
+  lon: 141.3157
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:22:39.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 27.139
+  EW: 27.849
+  UD: -8.744
+  H: 29.47
+  total: 29.547
+max_velocity:
+  NS: 9.392
+  EW: 5.786
+  UD: 2.288
+  total: 9.468
+max_displacement:
+  NS: 3.482
+  EW: 2.477
+  UD: 1.121
+  total: 3.551
+max_velocity_calculated:
+  NS: 8.972
+  EW: -5.272
+  UD: 2.135
+  H: 8.983
+  total: 9.025
+max_displacement_calculated:
+  NS: -3.645
+  EW: 2.28
+  UD: -1.202
+  H: 3.742
+  total: 3.743
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

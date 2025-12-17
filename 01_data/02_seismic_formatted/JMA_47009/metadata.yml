@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47009'
+  name: 弘前市弥生
+  lat: 40.6519
+  lon: 140.359
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:21:19.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 27.653
+  EW: 38.239
+  UD: -12.383
+  H: 38.803
+  total: 39.489
+max_velocity:
+  NS: 6.402
+  EW: 3.65
+  UD: 2.628
+  total: 6.544
+max_displacement:
+  NS: 3.719
+  EW: 1.987
+  UD: 1.663
+  total: 3.722
+max_velocity_calculated:
+  NS: 6.306
+  EW: 3.579
+  UD: -2.573
+  H: 6.312
+  total: 6.448
+max_displacement_calculated:
+  NS: -3.212
+  EW: -1.879
+  UD: -1.475
+  H: 3.215
+  total: 3.218
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

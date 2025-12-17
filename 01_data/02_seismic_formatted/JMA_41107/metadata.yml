@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41107'
+  name: 富良野市若松町
+  lat: 43.3457
+  lon: 142.3843
+record:
+  start_time: '2025-12-08T23:15:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 37.096
+  EW: -19.939
+  UD: -11.334
+  H: 37.186
+  total: 37.361
+max_velocity:
+  NS: 4.069
+  EW: 3.684
+  UD: 2.92
+  total: 4.364
+max_displacement:
+  NS: 2.093
+  EW: 1.684
+  UD: 1.675
+  total: 2.567
+max_velocity_calculated:
+  NS: -3.943
+  EW: -4.01
+  UD: -2.881
+  H: 4.109
+  total: 4.124
+max_displacement_calculated:
+  NS: -2.102
+  EW: -1.568
+  UD: -1.607
+  H: 2.16
+  total: 2.402
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

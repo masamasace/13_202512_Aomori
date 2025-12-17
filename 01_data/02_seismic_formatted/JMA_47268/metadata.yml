@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47268'
+  name: 身延町大磯小磯
+  lat: 35.5009
+  lon: 138.5414
+record:
+  start_time: '2025-12-08T23:18:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 120.0
+  num_samples: 12000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: -0.925
+  EW: -1.228
+  UD: -0.656
+  H: 1.228
+  total: 1.234
+max_velocity:
+  NS: 0.233
+  EW: 0.242
+  UD: 0.135
+  total: 0.293
+max_displacement:
+  NS: 0.157
+  EW: 0.162
+  UD: 0.081
+  total: 0.178
+max_velocity_calculated:
+  NS: -0.205
+  EW: 0.23
+  UD: 0.131
+  H: 0.239
+  total: 0.239
+max_displacement_calculated:
+  NS: -2.117
+  EW: -4.113
+  UD: -3.126
+  H: 4.625
+  total: 5.577
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

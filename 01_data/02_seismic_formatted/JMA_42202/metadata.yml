@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42202'
+  name: 鰺ヶ沢町舞戸町鳴戸
+  lat: 40.7821
+  lon: 140.2334
+record:
+  start_time: '2025-12-08T23:15:20.000'
+  end_time: '2025-12-08T23:22:19.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: -49.174
+  EW: -45.079
+  UD: -22.454
+  H: 57.652
+  total: 58.113
+max_velocity:
+  NS: 7.885
+  EW: 7.998
+  UD: 5.369
+  total: 8.774
+max_displacement:
+  NS: 3.152
+  EW: 4.287
+  UD: 2.047
+  total: 4.752
+max_velocity_calculated:
+  NS: 7.776
+  EW: -8.296
+  UD: -5.081
+  H: 9.106
+  total: 9.11
+max_displacement_calculated:
+  NS: -3.29
+  EW: -3.7
+  UD: -2.045
+  H: 3.759
+  total: 3.778
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

@@ -1,0 +1,36 @@
+source: NIED
+station:
+  code: NIG006
+  lat: 38.4514
+  lon: 139.4963
+  height_m: 4.0
+record:
+  start_time: '2025-12-08T23:16:36.000'
+  end_time: '2025-12-08T23:18:16.990'
+  sampling_rate_hz: 100
+  duration_s: 101
+  num_samples: 10100
+  unit: gal (cm/s²)
+max_acceleration:
+  NS: -3.833
+  EW: -22.806
+  UD: 18.443
+  H: 22.809
+  total: 28.741
+max_velocity_calculated:
+  NS: 0.491
+  EW: 0.422
+  UD: -0.211
+  H: 0.533
+  total: 0.537
+max_displacement_calculated:
+  NS: 11.883
+  EW: 4.269
+  UD: -0.264
+  H: 12.627
+  total: 12.628
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

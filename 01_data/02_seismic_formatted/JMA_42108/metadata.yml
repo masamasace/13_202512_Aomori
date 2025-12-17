@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42108'
+  name: 十勝清水町南４条
+  lat: 43.0115
+  lon: 142.8845
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:22:29.990'
+  sampling_rate_hz: 100
+  duration_s: 420.0
+  num_samples: 42000
+  unit: gal(cm/s/s)
+intensity: '4'
+max_acceleration:
+  NS: 50.769
+  EW: -39.952
+  UD: 24.242
+  H: 59.217
+  total: 61.134
+max_velocity:
+  NS: 4.883
+  EW: 4.443
+  UD: 2.765
+  total: 5.819
+max_displacement:
+  NS: 1.211
+  EW: 1.296
+  UD: 0.912
+  total: 1.345
+max_velocity_calculated:
+  NS: -5.036
+  EW: 4.821
+  UD: 2.785
+  H: 5.339
+  total: 5.826
+max_displacement_calculated:
+  NS: -1.535
+  EW: 1.596
+  UD: 1.304
+  H: 1.652
+  total: 1.99
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

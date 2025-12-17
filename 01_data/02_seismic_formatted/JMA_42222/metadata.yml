@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42222'
+  name: 遊佐町遊佐
+  lat: 39.012
+  lon: 139.9086
+record:
+  start_time: '2025-12-08T23:15:50.000'
+  end_time: '2025-12-08T23:20:49.990'
+  sampling_rate_hz: 100
+  duration_s: 300.0
+  num_samples: 30000
+  unit: gal(cm/s/s)
+intensity: '3'
+max_acceleration:
+  NS: 15.389
+  EW: -11.171
+  UD: 4.145
+  H: 18.039
+  total: 18.086
+max_velocity:
+  NS: 4.134
+  EW: 4.176
+  UD: 1.08
+  total: 4.525
+max_displacement:
+  NS: 1.881
+  EW: 2.668
+  UD: 0.693
+  total: 2.698
+max_velocity_calculated:
+  NS: 4.094
+  EW: -4.152
+  UD: -1.12
+  H: 4.391
+  total: 4.392
+max_displacement_calculated:
+  NS: 2.331
+  EW: -2.38
+  UD: 0.616
+  H: 2.384
+  total: 2.387
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

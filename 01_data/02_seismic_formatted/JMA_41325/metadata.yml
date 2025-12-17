@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '41325'
+  name: 茅ヶ崎市茅ヶ崎
+  lat: 35.3344
+  lon: 139.4032
+record:
+  start_time: '2025-12-08T23:17:40.000'
+  end_time: '2025-12-08T23:20:39.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '2'
+max_acceleration:
+  NS: 2.89
+  EW: 3.899
+  UD: -1.147
+  H: 3.913
+  total: 3.929
+max_velocity:
+  NS: 0.638
+  EW: 0.809
+  UD: 0.239
+  total: 0.838
+max_displacement:
+  NS: 0.315
+  EW: 0.397
+  UD: 0.148
+  total: 0.46
+max_velocity_calculated:
+  NS: -0.62
+  EW: 0.715
+  UD: 0.243
+  H: 0.721
+  total: 0.721
+max_displacement_calculated:
+  NS: -0.453
+  EW: -6.444
+  UD: -4.098
+  H: 6.458
+  total: 7.646
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

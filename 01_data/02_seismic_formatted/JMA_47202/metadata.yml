@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47202'
+  name: 宗谷枝幸町岬町
+  lat: 44.9614
+  lon: 142.5798
+record:
+  start_time: '2025-12-08T23:16:50.000'
+  end_time: '2025-12-08T23:19:49.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.327
+  EW: -1.638
+  UD: 0.979
+  H: 1.761
+  total: 1.78
+max_velocity:
+  NS: 0.471
+  EW: 0.499
+  UD: 0.465
+  total: 0.551
+max_displacement:
+  NS: 0.235
+  EW: 0.31
+  UD: 0.263
+  total: 0.347
+max_velocity_calculated:
+  NS: -0.408
+  EW: -0.448
+  UD: -0.404
+  H: 0.456
+  total: 0.518
+max_displacement_calculated:
+  NS: 4.514
+  EW: 0.384
+  UD: 10.358
+  H: 4.521
+  total: 11.302
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

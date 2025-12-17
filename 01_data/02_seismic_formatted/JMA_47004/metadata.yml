@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '47004'
+  name: 厚真町鹿沼
+  lat: 42.6226
+  lon: 141.9204
+record:
+  start_time: '2025-12-08T23:15:30.000'
+  end_time: '2025-12-08T23:21:29.990'
+  sampling_rate_hz: 100
+  duration_s: 360.0
+  num_samples: 36000
+  unit: gal(cm/s/s)
+intensity: 5弱
+max_acceleration:
+  NS: -161.791
+  EW: 261.56
+  UD: -32.467
+  H: 268.136
+  total: 268.427
+max_velocity:
+  NS: 19.471
+  EW: 18.417
+  UD: 3.872
+  total: 21.345
+max_displacement:
+  NS: 4.266
+  EW: 3.389
+  UD: 1.444
+  total: 4.604
+max_velocity_calculated:
+  NS: -18.437
+  EW: -19.149
+  UD: 3.108
+  H: 19.942
+  total: 19.962
+max_displacement_calculated:
+  NS: 4.507
+  EW: 3.798
+  UD: 1.506
+  H: 4.507
+  total: 4.531
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2

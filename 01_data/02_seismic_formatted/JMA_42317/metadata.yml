@@ -1,0 +1,47 @@
+source: JMA
+station:
+  code: '42317'
+  name: 五泉市村松乙
+  lat: 37.6934
+  lon: 139.1743
+record:
+  start_time: '2025-12-08T23:17:00.000'
+  end_time: '2025-12-08T23:19:59.990'
+  sampling_rate_hz: 100
+  duration_s: 180.0
+  num_samples: 18000
+  unit: gal(cm/s/s)
+intensity: '1'
+max_acceleration:
+  NS: 1.618
+  EW: 1.825
+  UD: -1.313
+  H: 1.935
+  total: 1.984
+max_velocity:
+  NS: 0.715
+  EW: 0.613
+  UD: 0.369
+  total: 0.933
+max_displacement:
+  NS: 0.393
+  EW: 0.423
+  UD: 0.208
+  total: 0.564
+max_velocity_calculated:
+  NS: -0.634
+  EW: 0.592
+  UD: -0.368
+  H: 0.813
+  total: 0.872
+max_displacement_calculated:
+  NS: -0.818
+  EW: -4.952
+  UD: 1.065
+  H: 4.959
+  total: 5.067
+integration_params:
+  method: FFT with 4x padding
+  baseline_window_sec: 1.0
+  highpass_cutoff_hz: 0.1
+  highpass_order: 2
