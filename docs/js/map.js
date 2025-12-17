@@ -175,7 +175,7 @@ function createMarker(station, colorColumn) {
             const layout = {
                 xaxis: {
                     type: 'log',
-                    tickfont: { size: 4 },
+                    tickfont: { size: 6 },
                     showline: true,
                     linewidth: 0.5,
                     linecolor: 'black',
@@ -184,7 +184,7 @@ function createMarker(station, colorColumn) {
                 },
                 yaxis: {
                     type: 'log',
-                    tickfont: { size: 4 },
+                    tickfont: { size: 6 },
                     showline: true,
                     linewidth: 0.5,
                     linecolor: 'black',
@@ -192,7 +192,7 @@ function createMarker(station, colorColumn) {
                     minor: { showgrid: false }
                 },
                 showlegend: true,
-                legend: { orientation: 'h', y: -0.15, font: { size: 4 } },
+                legend: { orientation: 'h', y: -0.15, font: { size: 6 } },
                 margin: { l: 35, r: 5, t: 25, b: 30 },
                 width: 250,
                 height: 180
