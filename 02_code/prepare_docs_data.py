@@ -58,7 +58,7 @@ def convert_metadata_to_json():
 
 def copy_station_data(station_codes):
     """各観測点のCSVデータをコピー"""
-    files_to_copy = ["waveform.csv", "fourier_spectrum.csv", "response_spectrum.csv"]
+    files_to_copy = ["waveform.csv", "velocity.csv", "displacement.csv", "fourier_spectrum.csv", "response_spectrum.csv"]
     copied_count = 0
     skipped_count = 0
 

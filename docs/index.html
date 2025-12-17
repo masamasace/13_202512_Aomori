@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年12月青森地震 データビューア</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="site-header">
+        <h1>2025年12月青森地震 データビューア</h1>
+    </header>
+
+    <!-- タブナビゲーション -->
+    <nav class="tab-nav">
+        <button class="tab-btn active" data-tab="map">地図</button>
+        <button class="tab-btn" data-tab="waveform">波形</button>
+        <button class="tab-btn" data-tab="fourier">フーリエ</button>
+        <button class="tab-btn" data-tab="response">応答スペクトル</button>
+    </nav>
+
+    <!-- ローディング表示 -->
+    <div class="loading" id="loading">読み込み中...</div>
+
+    <!-- タブコンテンツ -->
+    <main class="tab-content">
+        <!-- 地図タブ -->
+        <section id="tab-map" class="tab-panel active">
+            <div class="control-panel">
+                <div class="control-group">
+                    <label>色分け項目</label>
+                    <select id="mapColorColumn">
+                        <option value="intensity">震度</option>
+                        <option value="acc_H">水平加速度 (gal)</option>
+                        <option value="acc_total">合成加速度 (gal)</option>
+                        <option value="vel_H">水平速度 (cm/s)</option>
+                        <option value="vel_total">合成速度 (cm/s)</option>
+                    </select>
+                </div>
+            </div>
+            <div id="map"></div>
+            <div id="mapLegend" class="legend"></div>
+        </section>
+
+        <!-- 波形タブ -->
+        <section id="tab-waveform" class="tab-panel">
+            <div class="control-panel">
+                <div class="control-group">
+                    <label>観測点選択</label>
+                    <select id="waveformStationSelect" multiple></select>
+                </div>
+                <div class="control-group">
+                    <label>波形種別</label>
+                    <select id="waveformType">
+                        <option value="acceleration">加速度</option>
+                        <option value="velocity">速度</option>
+                        <option value="displacement">変位</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>成分</label>
+                    <select id="waveformComponent">
+                        <option value="all">全成分</option>
+                        <option value="NS">NS</option>
+                        <option value="EW">EW</option>
+                        <option value="UD">UD</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>表示モード</label>
+                    <select id="waveformDisplayMode">
+                        <option value="overlay">重ね合わせ</option>
+                        <option value="subplot">サブプロット</option>
+                    </select>
+                </div>
+                <div class="control-group buttons">
+                    <button id="waveformPlotBtn" class="btn primary">プロット</button>
+                    <button id="waveformClearBtn" class="btn secondary">クリア</button>
+                </div>
+            </div>
+            <div class="info-bar">
+                <span id="waveformStationCount">選択地点: 0</span>
+                <span id="waveformDataInfo">データポイント: -</span>
+            </div>
+            <div id="waveformPlot" class="plot-area"></div>
+        </section>
+
+        <!-- フーリエスペクトルタブ -->
+        <section id="tab-fourier" class="tab-panel">
+            <div class="control-panel">
+                <div class="control-group">
+                    <label>観測点選択</label>
+                    <select id="fourierStationSelect" multiple></select>
+                </div>
+                <div class="control-group">
+                    <label>成分</label>
+                    <select id="fourierComponent">
+                        <option value="NS">NS</option>
+                        <option value="EW">EW</option>
+                        <option value="UD">UD</option>
+                    </select>
+                </div>
+                <div class="control-group slider-group">
+                    <label>周波数範囲 (Hz)</label>
+                    <div id="fourierFreqSlider"></div>
+                    <div class="slider-values">
+                        <span id="fourierFreqMin">0.1</span> - <span id="fourierFreqMax">50</span>
+                    </div>
+                </div>
+                <div class="control-group buttons">
+                    <button id="fourierPlotBtn" class="btn primary">プロット</button>
+                    <button id="fourierClearBtn" class="btn secondary">クリア</button>
+                </div>
+            </div>
+            <div class="info-bar">
+                <span id="fourierStationCount">選択地点: 0</span>
+            </div>
+            <div id="fourierPlot" class="plot-area"></div>
+        </section>
+
+        <!-- 応答スペクトルタブ -->
+        <section id="tab-response" class="tab-panel">
+            <div class="control-panel">
+                <div class="control-group">
+                    <label>観測点選択</label>
+                    <select id="responseStationSelect" multiple></select>
+                </div>
+                <div class="control-group">
+                    <label>成分</label>
+                    <select id="responseComponent">
+                        <option value="NS">NS</option>
+                        <option value="EW">EW</option>
+                        <option value="UD">UD</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>減衰定数</label>
+                    <select id="responseDamping">
+                        <option value="h005">5%</option>
+                        <option value="h010">10%</option>
+                        <option value="h020">20%</option>
+                    </select>
+                </div>
+                <div class="control-group slider-group">
+                    <label>周期範囲 (s)</label>
+                    <div id="responsePeriodSlider"></div>
+                    <div class="slider-values">
+                        <span id="responsePeriodMin">0.02</span> - <span id="responsePeriodMax">10</span>
+                    </div>
+                </div>
+                <div class="control-group buttons">
+                    <button id="responsePlotBtn" class="btn primary">プロット</button>
+                    <button id="responseClearBtn" class="btn secondary">クリア</button>
+                </div>
+            </div>
+            <div class="info-bar">
+                <span id="responseStationCount">選択地点: 0</span>
+            </div>
+            <div id="responsePlot" class="plot-area"></div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/waveform.js"></script>
+    <script src="js/fourier.js"></script>
+    <script src="js/response.js"></script>
+</body>
+</html>
