@@ -153,13 +153,13 @@ function initFourier() {
 
     // 周波数スライダーの初期化（対数: 0.01 - 100 Hz）
     fourierFreqSlider = createLogSlider(
-        'fourierFreqSlider', -2, 2, 0.1, 50,
+        'fourierFreqSlider', -2, 2, 0.1, 20,
         'fourierFreqMin', 'fourierFreqMax', onSliderChange
     );
 
-    // 振幅スライダーの初期化（対数: 0.0001 - 1000 gal·s）
+    // 振幅スライダーの初期化（対数: 0.1 - 10000 gal·s）
     fourierAmpSlider = createLogSlider(
-        'fourierAmpSlider', -4, 3, 0.001, 100,
+        'fourierAmpSlider', -1, 5, 0.1, 10000,
         'fourierAmpMin', 'fourierAmpMax', onSliderChange
     );
 

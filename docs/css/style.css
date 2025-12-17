@@ -318,7 +318,7 @@ html, body {
 /* Plot Area */
 .plot-area {
     width: 100%;
-    height: calc(100vh - 280px);
+    height: calc(100vh - 380px);
     min-height: 300px;
     background: white;
 }
