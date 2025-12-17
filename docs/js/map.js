@@ -194,8 +194,8 @@ function createMarker(station, colorColumn) {
                 showlegend: true,
                 legend: { orientation: 'h', y: -0.15, font: { size: 4 } },
                 margin: { l: 35, r: 5, t: 25, b: 30 },
-                width: 120,
-                height: 120
+                width: 250,
+                height: 180
             };
 
             Plotly.newPlot(popupId, traces, layout, { displayModeBar: false });
