@@ -226,7 +226,7 @@ function computeFourierSpectrum(signal, dt) {
         // 地震工学標準スケーリング: |FFT| / n * dt
         // 片側スペクトル補正係数2（DC成分とナイキスト周波数は1）
         const scale = (i === 0 || i === nfft / 2) ? 1 : 2;
-        const amp = Math.sqrt(real[i] * real[i] + imag[i] * imag[i]) / n * dt * scale;
+        const amp = Math.sqrt(real[i] * real[i] + imag[i] * imag[i]) * dt * scale;
         amplitude.push(amp);
     }
 

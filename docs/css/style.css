@@ -383,3 +383,29 @@ html, body {
         min-width: 250px;
     }
 }
+
+/* Footer */
+.site-footer {
+    background: #2c3e50;
+    color: #bdc3c7;
+    padding: 10px 16px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.credits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.credits a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.credits a:hover {
+    text-decoration: underline;
+}
