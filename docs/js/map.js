@@ -173,10 +173,9 @@ function createMarker(station, colorColumn) {
             ];
 
             const layout = {
-                title: { text: '応答スペクトル (h=5%)', font: { size: 10 }, y: 0.95 },
                 xaxis: {
                     type: 'log',
-                    tickfont: { size: 8 },
+                    tickfont: { size: 4 },
                     showline: true,
                     linewidth: 0.5,
                     linecolor: 'black',
@@ -185,7 +184,7 @@ function createMarker(station, colorColumn) {
                 },
                 yaxis: {
                     type: 'log',
-                    tickfont: { size: 8 },
+                    tickfont: { size: 4 },
                     showline: true,
                     linewidth: 0.5,
                     linecolor: 'black',
@@ -193,10 +192,10 @@ function createMarker(station, colorColumn) {
                     minor: { showgrid: false }
                 },
                 showlegend: true,
-                legend: { orientation: 'h', y: -0.15, font: { size: 8 } },
+                legend: { orientation: 'h', y: -0.15, font: { size: 4 } },
                 margin: { l: 35, r: 5, t: 25, b: 30 },
-                width: 250,
-                height: 180
+                width: 120,
+                height: 120
             };
 
             Plotly.newPlot(popupId, traces, layout, { displayModeBar: false });
