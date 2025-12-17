@@ -29,14 +29,14 @@ function getSortedStationList() {
     const intensityOrder = {'7': 0, '6強': 1, '6弱': 2, '5強': 3, '5弱': 4, '4': 5, '3': 6, '2': 7, '1': 8};
 
     return Object.entries(stations)
-        .map(([code, data]) => ({
-            code,
+        .map(([stationKey, data]) => ({
             ...data,
+            code: stationKey,
             sortKey: intensityOrder[data.intensity] ?? 99
         }))
         .sort((a, b) => {
             if (a.sortKey !== b.sortKey) return a.sortKey - b.sortKey;
-            return (b.acc_total || 0) - (a.acc_total || 0);
+            return Math.abs(b.acc_total || 0) - Math.abs(a.acc_total || 0);
         });
 }
 

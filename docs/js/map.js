@@ -6,66 +6,89 @@ let map = null;
 let markers = [];
 window.mapInitialized = false;
 
-// 震度に対応する色
+// 震度に対応する色（1が白、6弱以上が赤）
 const intensityColors = {
     '7': '#a50026',
     '6強': '#d73027',
     '6弱': '#f46d43',
     '5強': '#fdae61',
     '5弱': '#fee08b',
-    '4': '#d9ef8b',
-    '3': '#a6d96a',
-    '2': '#66bd63',
-    '1': '#1a9850',
+    '4': '#ffffbf',
+    '3': '#e0e0e0',
+    '2': '#f0f0f0',
+    '1': '#ffffff',
     '-': '#999999'
 };
 
-// 数値カラースケール（加速度・速度用）
-function getValueColor(value, minVal, maxVal) {
+// 加速度の閾値と色（白→赤、gal単位）
+const accThresholds = [20, 40, 60, 80, 100, 150, 200, 250, 300, 400, 500, 600];
+const accMinDisplay = 20;  // 表示最小値
+
+// 速度の閾値と色（白→赤、cm/s単位、加速度の1/5）
+const velThresholds = [4, 8, 12, 16, 20, 30, 40, 50, 60, 80, 100, 120];
+const velMinDisplay = 2;   // 表示最小値
+
+// 閾値に基づいて白→赤の色を取得
+function getThresholdColor(value, thresholds) {
     if (value === null || value === undefined || isNaN(value)) {
-        return '#999999';
+        return null;
     }
 
-    // 対数スケールで正規化
-    const logMin = Math.log10(Math.max(minVal, 0.1));
-    const logMax = Math.log10(Math.max(maxVal, 1));
-    const logVal = Math.log10(Math.max(Math.abs(value), 0.1));
-    const ratio = Math.max(0, Math.min(1, (logVal - logMin) / (logMax - logMin)));
+    const absValue = Math.abs(value);
 
-    // カラースケール（青→緑→黄→赤）
-    const colors = [
-        [26, 152, 80],   // 緑
-        [166, 217, 106], // 黄緑
-        [254, 224, 139], // 黄
-        [253, 174, 97],  // オレンジ
-        [244, 109, 67],  // 赤オレンジ
-        [215, 48, 39],   // 赤
-        [165, 0, 38]     // 暗赤
-    ];
-
-    const idx = ratio * (colors.length - 1);
-    const i = Math.floor(idx);
-    const t = idx - i;
-
-    if (i >= colors.length - 1) {
-        return `rgb(${colors[colors.length - 1].join(',')})`;
+    // 閾値のどの位置にあるか計算
+    let ratio = 0;
+    for (let i = 0; i < thresholds.length; i++) {
+        if (absValue < thresholds[i]) {
+            if (i === 0) {
+                ratio = absValue / thresholds[0];
+            } else {
+                const prevThresh = thresholds[i - 1];
+                const currThresh = thresholds[i];
+                ratio = (i + (absValue - prevThresh) / (currThresh - prevThresh)) / thresholds.length;
+            }
+            break;
+        }
+        if (i === thresholds.length - 1) {
+            ratio = 1;
+        }
     }
 
-    const r = Math.round(colors[i][0] + t * (colors[i + 1][0] - colors[i][0]));
-    const g = Math.round(colors[i][1] + t * (colors[i + 1][1] - colors[i][1]));
-    const b = Math.round(colors[i][2] + t * (colors[i + 1][2] - colors[i][2]));
+    // 白(255,255,255)から赤(165,0,38)へのグラデーション
+    const r = Math.round(255 - ratio * (255 - 165));
+    const g = Math.round(255 - ratio * 255);
+    const b = Math.round(255 - ratio * (255 - 38));
 
     return `rgb(${r},${g},${b})`;
 }
 
-// マーカーを作成
-function createMarker(station, colorColumn, minVal, maxVal) {
+// マーカーを作成（表示条件を満たさない場合はnullを返す）
+function createMarker(station, colorColumn) {
     let color;
+    const value = station[colorColumn];
+
     if (colorColumn === 'intensity') {
         color = intensityColors[station.intensity] || intensityColors['-'];
+    } else if (colorColumn === 'acc_H' || colorColumn === 'acc_total') {
+        // 加速度：20gal以上のみ表示
+        const absValue = Math.abs(value || 0);
+        if (absValue < accMinDisplay) {
+            return null;  // 表示しない
+        }
+        color = getThresholdColor(value, accThresholds);
+    } else if (colorColumn === 'vel_H' || colorColumn === 'vel_total') {
+        // 速度：2cm/s以上のみ表示
+        const absValue = Math.abs(value || 0);
+        if (absValue < velMinDisplay) {
+            return null;  // 表示しない
+        }
+        color = getThresholdColor(value, velThresholds);
     } else {
-        const value = Math.abs(station[colorColumn] || 0);
-        color = getValueColor(value, minVal, maxVal);
+        color = '#999999';
+    }
+
+    if (!color) {
+        return null;
     }
 
     const marker = L.circleMarker([station.lat, station.lon], {
@@ -108,29 +131,37 @@ function updateLegend(colorColumn) {
         const intensityLevels = ['7', '6強', '6弱', '5強', '5弱', '4', '3', '2', '1'];
         intensityLevels.forEach(level => {
             html += `<div class="legend-item">
-                <div class="legend-color" style="background:${intensityColors[level]}"></div>
+                <div class="legend-color" style="background:${intensityColors[level]}; border: 1px solid #ccc;"></div>
                 <span>${level}</span>
             </div>`;
         });
-    } else {
+    } else if (colorColumn === 'acc_H' || colorColumn === 'acc_total') {
         const labels = {
             'acc_H': '水平加速度 (gal)',
-            'acc_total': '合成加速度 (gal)',
+            'acc_total': '合成加速度 (gal)'
+        };
+        html += (labels[colorColumn] || colorColumn) + '</div>';
+
+        // 加速度の凡例（主要な閾値を表示）
+        const legendThresholds = [20, 40, 60, 100, 150, 200, 300, 400, 600];
+        legendThresholds.forEach(level => {
+            html += `<div class="legend-item">
+                <div class="legend-color" style="background:${getThresholdColor(level, accThresholds)}; border: 1px solid #ccc;"></div>
+                <span>${level}</span>
+            </div>`;
+        });
+    } else if (colorColumn === 'vel_H' || colorColumn === 'vel_total') {
+        const labels = {
             'vel_H': '水平速度 (cm/s)',
             'vel_total': '合成速度 (cm/s)'
         };
         html += (labels[colorColumn] || colorColumn) + '</div>';
 
-        // 凡例の値レベル
-        const values = Object.values(stations).map(s => Math.abs(s[colorColumn] || 0)).filter(v => v > 0);
-        const minVal = Math.min(...values);
-        const maxVal = Math.max(...values);
-
-        // 対数スケールでの凡例
-        const levels = [1, 5, 10, 50, 100, 500, 1000].filter(v => v >= minVal * 0.5 && v <= maxVal * 2);
-        levels.forEach(level => {
+        // 速度の凡例（主要な閾値を表示）
+        const legendThresholds = [4, 8, 12, 20, 30, 40, 60, 80, 120];
+        legendThresholds.forEach(level => {
             html += `<div class="legend-item">
-                <div class="legend-color" style="background:${getValueColor(level, minVal, maxVal)}"></div>
+                <div class="legend-color" style="background:${getThresholdColor(level, velThresholds)}; border: 1px solid #ccc;"></div>
                 <span>${level}</span>
             </div>`;
         });
@@ -147,21 +178,19 @@ function updateMarkers() {
     markers.forEach(m => map.removeLayer(m));
     markers = [];
 
-    // min/max値を計算（数値カラムの場合）
-    let minVal = 0, maxVal = 100;
-    if (colorColumn !== 'intensity') {
-        const values = Object.values(stations).map(s => Math.abs(s[colorColumn] || 0)).filter(v => v > 0);
-        minVal = Math.min(...values);
-        maxVal = Math.max(...values);
-    }
-
-    // マーカーを追加
+    // マーカーを追加（閾値以上の観測点のみ）
+    let displayCount = 0;
     Object.entries(stations).forEach(([code, station]) => {
         station.code = code;
-        const marker = createMarker(station, colorColumn, minVal, maxVal);
-        marker.addTo(map);
-        markers.push(marker);
+        const marker = createMarker(station, colorColumn);
+        if (marker) {
+            marker.addTo(map);
+            markers.push(marker);
+            displayCount++;
+        }
     });
+
+    console.log(`Displaying ${displayCount} / ${Object.keys(stations).length} stations for ${colorColumn}`);
 
     // 凡例を更新
     updateLegend(colorColumn);
