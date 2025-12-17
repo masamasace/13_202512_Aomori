@@ -276,6 +276,7 @@ html, body {
 .leaflet-popup-content {
     font-size: 12px;
     margin: 8px 12px;
+    width: 260px;
 }
 
 .popup-content h3 {
